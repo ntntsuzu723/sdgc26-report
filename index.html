@@ -1,0 +1,382 @@
+<!doctype html><html lang="ja"><head><meta charset=utf-8><title>SDGC26 聴講レポート</title><meta name="robots" content="noindex,nofollow"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/reactions.css">
+<style>
+.site-header { top: env(safe-area-inset-top, 0px); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+/* ---------- B: Editorial Journal（雑誌のような読み物型） ---------- */
+.cover { padding-top: 48px; }
+.cover-top { display: flex; justify-content: space-between; align-items: end; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+.cover h1 { font-size: clamp(56px, 12vw, 190px); font-weight: 500; letter-spacing: -.055em; line-height: .86; }
+.cover h1 .gray { display: block; font-size: .42em; letter-spacing: -.035em; line-height: 1.1; margin-top: 14px; }
+.cover-side { max-width: 300px; font-size: 13px; color: var(--ink2); display: grid; gap: 18px; justify-items: start; }
+.cover .arc { height: calc(var(--card) * 1.5 + 40px); margin: 0 calc(var(--gutter) * -1); }
+.cover .arc-hint { justify-content: flex-start; padding: 0 0 8px; }
+
+.theme { padding: 120px 0 40px; display: grid; grid-template-columns: 1fr 3fr; gap: 20px; }
+.theme p { font-size: clamp(22px, 2.6vw, 38px); font-weight: 500; letter-spacing: -.02em; line-height: 1.25; }
+
+.stats-row { display: flex; gap: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 60px; }
+.stats-row div { flex: 1; padding: 18px 16px; border-left: 1px solid var(--line); display: flex; align-items: baseline; gap: 10px; }
+.stats-row div:first-child { border-left: 0; padding-left: 0; }
+.stats-row b { font-size: 34px; font-weight: 400; letter-spacing: -.03em; }
+.stats-row span { font-size: 12px; color: var(--muted); }
+
+.idx { padding-top: 120px; }
+.idx-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.idx-head h2 { font-size: clamp(30px, 3.6vw, 52px); font-weight: 500; letter-spacing: -.03em; line-height: 1.1; margin-top: 8px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chips button { font-size: 12px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; transition: .2s; }
+.chips button.on, .chips button:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 20px; }
+.card { display: grid; gap: 12px; }
+.card .ph { aspect-ratio: 4 / 5; }
+.card:hover .ph img { transform: scale(1.04); }
+.card-meta { display: flex; justify-content: space-between; align-items: center; }
+.card h3 { font-size: 19px; font-weight: 500; line-height: 1.35; letter-spacing: -.01em; }
+.card q { font-size: 13.5px; color: var(--muted); quotes: "“" "”"; }
+.card[hidden] { display: none; }
+
+/* インサイト：机に散らばったカード。カーソルに合わせて動く */
+.hls { padding-top: 140px; }
+.hls-note { font-size: 12.5px; color: var(--muted); max-width: 280px; }
+.deck { position: relative; margin: 24px calc(var(--gutter) * -1) 0; overflow: hidden; touch-action: pan-y; }
+.icard { position: absolute; width: 220px; aspect-ratio: 5 / 7; perspective: 1000px; will-change: transform; outline: none; }
+.icard:hover, .icard:focus-visible { z-index: 200 !important; }
+/* 表と裏：触れると裏返り、元になったハイライトの言葉が見える */
+.ic-in { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2, .75, .2, 1); }
+.icard:hover .ic-in, .icard:focus-visible .ic-in { transform: rotateY(180deg); }
+.ic-front, .ic-back {
+  position: absolute; inset: 0; border-radius: 12px; padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 12px;
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  box-shadow: 0 18px 32px -22px rgba(40, 25, 10, .55), 0 0 0 1px rgba(27, 25, 22, .07);
+}
+.ic-front { background: #faf8f4; color: var(--ink); }
+.ic-back { background: var(--ink); color: #efe9df; transform: rotateY(180deg); }
+.ic-top { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ic-top b { font-weight: 500; color: var(--accent); }
+/* 表：大きな細い番号と、下に見出しだけ */
+.ic-num { font-size: 76px; font-weight: 300; letter-spacing: -.06em; line-height: .9; color: var(--ink); margin-top: 4px; }
+.ic-front .ic-foot { margin-top: 0; }
+.ic-head { margin-top: auto; font-size: 26px; font-weight: 600; letter-spacing: -.03em; line-height: 1.22; word-break: keep-all; overflow-wrap: anywhere; } /* 日本語は「、」で改行させる */
+html[lang="ja"] .ic-head { font-size: 20px; letter-spacing: -.01em; line-height: 1.4; }
+.ic-q { font-size: 12px; font-weight: 400; line-height: 1.7; }
+.ic-foot { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ic-back .ic-top, .ic-back .ic-foot { color: #a39b90; border-color: #3c3833; }
+.ic-back .arrow-btn { width: 24px; height: 24px; background: var(--accent); }
+/* 狭い画面：カードを縦に並べる */
+.deck.stack { margin: 24px 0 0; display: grid; justify-items: center; gap: 18px; overflow: visible; }
+.deck.stack .icard { position: relative; width: min(300px, 100%); transform: rotate(var(--rot)); }
+
+/* ---------- Session page ---------- */
+.art { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(20px, 4vw, 64px); padding-top: 28px; }
+.art-l { position: sticky; top: 64px; align-self: start; display: grid; gap: 14px; }
+.art-l .ph { aspect-ratio: 4 / 5; }
+/* coverFull: トリミングせず画像全体を表示 */
+.art-l .ph.full { aspect-ratio: auto; background: none; }
+.art-l .ph.full img { height: auto; }
+.card .ph.full { background: #fff; }
+.card .ph.full img { object-fit: contain; }
+.card:hover .ph.full img { transform: none; }
+.art-l dl { display: grid; grid-template-columns: 90px 1fr; font-size: 13px; border-top: 1px solid var(--line); }
+.art-l dt, .art-l dd { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.art-l dt { color: var(--muted); }
+.art-r h1 { font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -.015em; line-height: 1.3; margin: 10px 0 56px; }
+.quote { position: relative; padding-top: 36px; border-top: 1px solid var(--ink); }
+.quote .label { position: absolute; right: 0; top: 12px; }
+.quote::before { content: "“"; position: absolute; top: 14px; left: -4px; font-size: 96px; line-height: 1; color: var(--accent); font-weight: 600; }
+.quote p { font-size: clamp(30px, 3.8vw, 56px); font-weight: 500; letter-spacing: -.03em; line-height: 1.25; padding-top: 48px; }
+.block { padding-top: 80px; }
+.block > .label { display: block; margin-bottom: 18px; }
+.block .lede { font-size: 18px; line-height: 1.9; }
+.block .lede strong { font-weight: 600; }
+.inline-ph { display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; margin-top: 56px; }
+.inline-ph .ph { aspect-ratio: 4 / 3; }
+.inline-ph .ph:last-child { aspect-ratio: auto; }
+.inline-ph .ph:only-child { grid-column: 1 / -1; }
+.inline-ph .ph:only-child img { height: auto; }
+
+.acc { border-top: 1px solid var(--line); }
+.acc details { border-bottom: 1px solid var(--line); }
+.acc summary { list-style: none; display: grid; grid-template-columns: 50px 1fr auto; align-items: center; gap: 10px; padding: 18px 0; cursor: pointer; font-size: 18px; font-weight: 500; }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary .arrow-btn { transition: transform .3s, background .3s; }
+.acc details[open] summary .arrow-btn { transform: rotate(90deg); background: var(--accent); }
+.acc summary:hover .arrow-btn { background: var(--accent); }
+.acc .body { padding: 0 0 28px 60px; font-size: 15px; line-height: 1.95; color: var(--ink2); display: grid; gap: 14px; }
+.acc .body strong { color: var(--ink); font-weight: 600; }
+.acc .body h5 { font-size: 12px; font-weight: 500; letter-spacing: .06em; color: var(--muted); margin-top: 6px; }
+.acc .body ul { list-style: none; border-top: 1px solid var(--line); }
+.acc .body ul li { padding: 8px 0 8px 22px; border-bottom: 1px solid var(--line); position: relative; }
+.acc .body ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+.pt-ph { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 6px; }
+.pt-ph button { aspect-ratio: 16 / 9; overflow: hidden; background: #ddd6cc; }
+.pt-ph button:only-child { grid-column: 1 / -1; }
+.pt-ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.pt-ph.wide { grid-template-columns: 1fr; margin: 4px 0 6px; }
+.blk, .blk-t { display: grid; gap: 14px; align-content: start; }
+.blk.side { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 22px; align-items: start; margin: 8px 0; }
+.pt-ph.col { grid-template-columns: 1fr; margin-top: 0; }
+.pt-ph.row { grid-template-columns: repeat(2, 1fr); margin: 4px 0 2px; }
+.pt-ph button:hover img { transform: scale(1.04); }
+
+.todo { display: grid; gap: 10px; }
+.todo li { list-style: none; display: grid; grid-template-columns: 36px 1fr; align-items: start; background: var(--card); padding: 18px; font-size: 16px; line-height: 1.6; }
+.todo li span { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 11px; margin-top: 2px; }
+.roll { padding-top: 120px; }
+.roll .arc { height: calc(var(--card) * 1.45 + 30px); margin: 0 calc(var(--gutter) * -1); }
+
+@media (max-width: 860px) {
+  .blk.side { grid-template-columns: 1fr; }
+  .cover-top { flex-direction: column; align-items: start; }
+  .theme, .art { grid-template-columns: 1fr; }
+  .art-l { position: static; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .stats-row { flex-wrap: wrap; }
+  .stats-row div { flex: 1 1 45%; }
+}
+@media (max-width: 520px) { .cards { grid-template-columns: 1fr; } }
+</style>
+
+
+<div id="app"></div>
+<script src="assets/data.js"></script>
+<script src="assets/core.js"></script>
+<script src="assets/config.js"></script>
+<script src="assets/reactions.js"></script>
+<script>
+const C = D.conference;
+const days = [...new Set(D.sessions.map((s) => s.day))];
+
+/* ===== インサイトカード：ランダムに散らばり、カーソルに合わせてゆらゆら動く ===== */
+function Deck(root) {
+  const cards = $$(".icard", root);
+  // 毎回同じ配置になるよう、番号から決まる疑似乱数を使う
+  const rand = (i, k) => { const x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); };
+  const st = cards.map((el, i) => ({
+    el, i, bx: 0, by: 0, x: (rand(i, 9) - 0.5) * 300, y: 260, r: 0,
+    rot: (rand(i, 1) - 0.5) * 18, depth: 0.5 + rand(i, 2) * 0.9,
+  }));
+  let W = 0, H = 0, mx = null, my = null, alive = true, started = false;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function layout() {
+    W = root.clientWidth;
+    const narrow = W < 760;
+    root.classList.toggle("stack", narrow);
+    if (narrow) { root.style.height = ""; cards.forEach((c, i) => { c.style.cssText = c.style.cssText.replace(/(left|top|transform|z-index):[^;]*;?/g, ""); c.style.setProperty("--rot", `${(rand(i, 1) - 0.5) * 4}deg`); }); return; }
+    const cw = 220, cols = Math.max(2, Math.floor((W - 40) / 200)), cellW = (W - 40) / cols, cellH = 240;
+    st.forEach((c) => {
+      const col = c.i % cols, row = Math.floor(c.i / cols);
+      // 行ごとに半セルずらし、さらに揺らして「散らばった」感じにする
+      c.bx = 20 + col * cellW + cellW / 2 + (row % 2 ? cellW * 0.25 : -cellW * 0.1) + (rand(c.i, 3) - 0.5) * cellW * 0.35;
+      c.bx = Math.min(W - cw / 2 - 8, Math.max(cw / 2 + 8, c.bx));
+      c.by = 175 + row * cellH + (rand(c.i, 4) - 0.5) * 60;
+      c.el.style.left = c.bx + "px";
+      c.el.style.top = c.by + "px";
+      c.el.style.zIndex = 10 + Math.round(rand(c.i, 5) * 50);
+    });
+    H = 175 + Math.ceil(cards.length / cols) * cellH + 130;
+    root.style.height = H + "px";
+  }
+
+  function tick() {
+    if (!alive) return;
+    if (!root.classList.contains("stack")) {
+      st.forEach((c) => {
+        const hover = c.el.matches(":hover");
+        let tx = 0, ty = 0;
+        if (mx != null) {
+          // カーソルと逆方向に奥行きぶんだけずれる（パララックス）
+          tx = (mx / W - 0.5) * -70 * c.depth;
+          ty = (my / H - 0.5) * -50 * c.depth;
+          // カーソルの近くのカードは押しのけられる
+          const dx = c.bx + c.x - mx, dy = c.by + c.y - my, d = Math.hypot(dx, dy) || 1;
+          if (!hover && d < 260) { const f = (1 - d / 260) * 70; tx += (dx / d) * f; ty += (dy / d) * f; }
+        }
+        const tr = hover ? 0 : c.rot + (mx != null ? (mx / W - 0.5) * 6 * c.depth : 0);
+        c.x += (tx - c.x) * 0.08;
+        c.y += (ty - c.y) * 0.08;
+        c.r += (tr - c.r) * 0.1;
+        c.s = (c.s ?? 1) + ((hover ? 1.15 : 1) - (c.s ?? 1)) * 0.15;
+        c.el.style.transform = `translate(-50%, -50%) translate(${c.x.toFixed(1)}px, ${c.y.toFixed(1)}px) rotate(${c.r.toFixed(2)}deg) scale(${c.s.toFixed(3)})`;
+      });
+    }
+    requestAnimationFrame(tick);
+  }
+
+  root.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    const b = root.getBoundingClientRect();
+    mx = e.clientX - b.left; my = e.clientY - b.top;
+  });
+  root.addEventListener("pointerleave", () => { mx = my = null; });
+  const ro = new ResizeObserver(layout);
+  ro.observe(root);
+  layout();
+  if (reduce) { st.forEach((c) => { c.x = c.y = 0; c.r = c.rot; c.s = 1; c.el.style.transform = `translate(-50%, -50%) rotate(${c.rot}deg)`; }); }
+  else {
+    st.forEach((c) => (c.el.style.transform = `translate(-50%, -50%) translate(${c.x}px, ${c.y}px)`));
+    // 画面に入ったら、カードが配られるように集まってくる
+    const io = new IntersectionObserver((es) => { if (es[0].isIntersecting && !started) { started = true; tick(); io.disconnect(); } }, { threshold: 0.15 });
+    io.observe(root);
+    CLEAN.push(() => io.disconnect());
+  }
+  CLEAN.push(() => { alive = false; ro.disconnect(); });
+}
+
+function home() {
+  return `
+  <main class="wrap">
+    <section class="cover" id="top">
+      <div class="cover-top">
+        <h1>${esc(C.themeTitle)}<span class="gray">${esc(C.themeSub)}</span></h1>
+        <div class="cover-side">
+          <span class="label">${esc(C.themeLabel)}</span>
+          <p>${esc(L(C, "lead"))}</p>
+          <a class="cta" href="#/sessions"><span>${T("readSessions")}</span><i>${ARROW}</i></a>
+        </div>
+      </div>
+      <div class="arc" id="heroArc"></div>
+      <div class="arc-hint">← Drag to browse ${heroPhotos().length} photos →</div>
+    </section>
+
+    <section class="theme" id="theme">
+      <span class="label">About the theme</span>
+      <p class="js-reveal">${esc(C.themeText)}</p>
+    </section>
+
+    <div class="stats-row">${stats().map(([v, en, ja]) => `<div><b>${v}</b><span>${en}<br>${ja}</span></div>`).join("")}</div>
+
+    <section class="idx" id="sessions">
+      <div class="idx-head">
+        <div><span class="label">Index</span><h2>${T("sessionsCount")(D.sessions.length)}</h2></div>
+        <div class="chips" id="chips"><button class="on" data-f="all">All</button>${days.map((d) => `<button data-f="${esc(d)}">${esc(d)}</button>`).join("")}</div>
+      </div>
+      <div class="cards">
+        ${D.sessions.map((s) => `
+          <a class="card fade-up" href="${sessionHref(s)}" data-day="${esc(s.day)}">
+            ${s.cardCover
+              ? `<div class="ph${s.cardBg ? " full" : ""}" ${s.cardBg ? `style="background:${esc(s.cardBg)}"` : ""}><img src="${esc(s.cardCover)}" alt="" loading="lazy"></div>`
+              : img(s.cover, s.coverFull ? "ph full" : "ph")}
+            <div class="card-meta"><span class="num">[${pad(s.no)}] ${esc(s.day)} · ${esc(s.track)}</span><span class="arrow-btn">${ARROW}</span></div>
+            <h3>${esc(s.title)}</h3>
+            <q>${esc(L(s, "keyPhrase"))}</q>
+          </a>`).join("")}
+      </div>
+    </section>
+
+    <section class="hls" id="insights">
+      <div class="idx-head">
+        <div><span class="label">My insights</span><h2>${T("highlightsCount")(allLearnings().length)}</h2></div>
+        <p class="hls-note">${T("highlightsNote")}</p>
+      </div>
+      <div class="deck" id="deck">
+        ${allLearnings().map((h, i) => `
+          <a class="icard" href="${h.href}" aria-label="${esc(h.head)}">
+            <span class="ic-in">
+              <span class="ic-front">
+                <span class="ic-top"><b>Insight ${pad(i + 1)}</b><span>Session ${pad(h.s.no)}</span></span>
+                <span class="ic-num">${pad(i + 1)}</span>
+                <span class="ic-head">${esc(h.head)}</span>
+                <span class="ic-foot"><span>${esc(h.s.speaker)}</span><span>↻</span></span>
+              </span>
+              <span class="ic-back">
+                <span class="ic-top"><b>Insight ${pad(i + 1)}</b><span>Session ${pad(h.s.no)}</span></span>
+                <span class="ic-q">${esc(h.t)}</span>
+                <span class="ic-foot"><span>${T("readInReport")}</span><span class="arrow-btn">${ARROW}</span></span>
+              </span>
+            </span>
+          </a>`).join("")}
+      </div>
+    </section>
+  </main>`;
+}
+
+// ポイント本文：段落 + 箇条書き（任意）+ 写真（任意）
+const listHtml = (b) => (b.list?.length ? `${b.listLabel ? `<h5>${esc(b.listLabel)}</h5>` : ""}<ul>${b.list.map((t) => `<li>${rich(t)}</li>`).join("")}</ul>` : "");
+const photoBtns = (photos, cls = "") => `<div class="pt-ph ${cls}">${photos.map((src) => `<button data-src="${esc(src)}"><img src="${esc(src)}" alt="" loading="lazy"></button>`).join("")}</div>`;
+function pointBody(s, p) {
+  // blocks がある場合：写真＋テキストを横並び、写真だけなら全幅、テキストだけなら通常の段落
+  if (p.blocks) {
+    return p.blocks.map((b) => {
+      const text = b.text ? paras(b.text) + listHtml(b) : listHtml(b);
+      // row: true → 写真を横に並べ、その下に文章
+      if (b.photos?.length && b.row) return `<div class="blk">${photoBtns(b.photos, "row")}${text}</div>`;
+      if (b.photos?.length && text) return `<div class="blk side">${photoBtns(b.photos, "col")}<div class="blk-t">${text}</div></div>`;
+      if (b.photos?.length) return photoBtns(b.photos, "wide");
+      return `<div class="blk">${text}</div>`;
+    }).join("");
+  }
+  return paras(p.body) + listHtml(p) + (p.photos?.length ? photoBtns(p.photos) : "");
+}
+
+function session(s) {
+  return `
+  <main class="wrap">
+    <article class="art">
+      <aside class="art-l">
+        ${img(s.cover, s.coverFull ? "ph full" : "ph")}
+        <dl>
+          <dt>Session</dt><dd>[${pad(s.no)}]</dd>
+          <dt>Speaker</dt><dd>${esc(s.speaker)}</dd>
+          <dt>Org</dt><dd>${esc(s.org)}</dd>
+          <dt>Date</dt><dd>${esc(s.day)} · ${esc(s.time)}</dd>
+          <dt>Track</dt><dd>${esc(s.track)}</dd>
+        </dl>
+      </aside>
+      <div class="art-r">
+        <span class="label">Session ${pad(s.no)}</span>
+        <h1>${esc(s.title)}</h1>
+
+        <div class="quote"><span class="label">Key phrase</span><p>${esc(L(s, "keyPhrase"))}</p></div>
+
+        <div class="block"><span class="label">${T("overview")}</span><div class="lede">${paras(L(s, "summary"))}</div>
+          <div class="inline-ph">${(s.overviewPhotos ?? [s.photos[1] ?? s.cover, s.photos[2] ?? s.cover]).map((src) => img(src)).join("")}</div>
+        </div>
+
+        <div class="block"><span class="label">${T("points")}</span>
+          <div class="acc">${localPoints(s).map((p, i) => `
+            <details ${i === 0 || JSON.stringify(p).includes("==") ? "open" : ""}><summary><span class="num">[${pad(i + 1)}]</span>${esc(p.title)}<span class="arrow-btn">${ARROW}</span></summary>
+            <div class="body">${pointBody(s, p)}</div></details>`).join("")}
+          </div>
+        </div>
+
+        <div class="block rx-like" id="rxLike"></div>
+      </div>
+    </article>
+
+    <section class="roll">
+      <span class="label">Photo roll — ${s.photos.length}</span>
+      <div class="arc" id="spArc"></div>
+    </section>
+  </main>`;
+}
+
+$("#app").addEventListener("mounted", (e) => {
+  const s = e.detail.session;
+  $$(".js-reveal").forEach(reveal);
+  if (!s) {
+    Arc($("#heroArc"), heroPhotos(), { spacing: 12, card: 220, radius: 1.1 });
+    Deck($("#deck"));
+    $("#chips").addEventListener("click", (ev) => {
+      const b = ev.target.closest("button"); if (!b) return;
+      $$("#chips button").forEach((x) => x.classList.toggle("on", x === b));
+      $$(".card").forEach((c) => (c.hidden = b.dataset.f !== "all" && c.dataset.day !== b.dataset.f));
+    });
+  } else {
+    const items = s.photos.map((src) => ({ src }));
+    Arc($("#spArc"), items, { spacing: 15, card: 220 });
+    $(".acc").addEventListener("click", (ev) => {
+      const b = ev.target.closest(".pt-ph button"); if (!b) return;
+      const i = s.photos.indexOf(b.dataset.src);
+      i > -1 ? lightbox(items, i) : lightbox([{ src: b.dataset.src }], 0);
+    });
+  }
+});
+startRouter({ home, session });
+</script>
+
+</body></html>

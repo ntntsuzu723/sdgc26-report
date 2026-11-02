@@ -1,0 +1,17 @@
+# Supabase無料プランの自動一時停止を防ぐため、3日ごとに1回だけ読み取りを行う
+name: keep-supabase-awake
+on:
+  schedule:
+    - cron: "17 3 */3 * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          URL=$(sed -n 's/.*url: "\([^"]*\)".*/\1/p' assets/config.js)
+          KEY=$(sed -n 's/.*key: "\([^"]*\)".*/\1/p' assets/config.js)
+          curl -fsS -X POST "$URL/rest/v1/rpc/rx_list" -H "apikey: $KEY" -H "Content-Type: application/json" -d '{"p_limit":1}' -o /dev/null

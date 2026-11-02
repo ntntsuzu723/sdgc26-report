@@ -1,0 +1,99 @@
+/* ===== リアクション：赤ペンとスタンプ ===== */
+:root {
+  --rx: 210, 83, 26;           /* accent の RGB */
+  --rx-ink: #1b1916;
+  --rx-paper: #fbfaf7;
+  --rx-stamp-on-dark: #f08a5d;
+}
+
+.rx-bar button, .rx-card button, .rx-dock button { border: 0; cursor: pointer; font-family: inherit; }
+
+/* 反応された文章：薄い下線 → 数が増えるほど濃く */
+.rx { background-image: linear-gradient(rgba(var(--rx), var(--rx-a, .35)), rgba(var(--rx), var(--rx-a, .35))); background-size: 100% 2px; background-position: 0 100%; background-repeat: no-repeat; cursor: pointer; transition: background-size .25s, background-color .25s; padding-bottom: 1px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.rx[data-n="2"], .rx[data-n="3"] { --rx-a: .6; }
+.rx[data-n="4"] { --rx-a: .9; background-color: rgba(var(--rx), .07); }
+.rx:hover, .rx.on { background-size: 100% 100%; --rx-a: .14; }
+mark.hl .rx, .rx mark.hl { --rx: 27, 25, 22; }
+.rx-off .rx { background-image: none; background-color: transparent; cursor: text; }
+.rx.pop { animation: rxIn .9s ease; }
+@keyframes rxIn { 0% { background-size: 0 2px; } 100% { background-size: 100% 2px; } }
+
+/* 文章を選んだときのインクバー */
+.rx-bar { position: absolute; z-index: 80; display: flex; align-items: center; gap: 4px; padding: 6px; background: var(--rx-ink); color: #fff; border-radius: 999px; box-shadow: 0 14px 30px -12px rgba(20, 12, 4, .55); transform: translate(-50%, -100%) translateY(-10px); animation: rxBar .18s ease-out; font-family: var(--font); }
+.rx-bar.below { transform: translate(-50%, 0) translateY(14px); }
+.rx-bar::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 10px; height: 10px; background: var(--rx-ink); transform: translateX(-50%) rotate(45deg); }
+.rx-bar.below::after { bottom: auto; top: -5px; }
+@keyframes rxBar { from { opacity: 0; translate: 0 6px; } }
+.rx-bar .sep { width: 1px; height: 22px; background: #3c3833; margin: 0 4px; }
+.rx-bar .cmt { white-space: nowrap; display: flex; align-items: center; gap: 6px; height: 36px; padding: 0 14px 0 12px; border-radius: 999px; font-size: 12px; letter-spacing: .04em; color: #efe9df; }
+.rx-bar .cmt:hover { background: #2c2925; }
+.rx-bar form { display: flex; gap: 6px; align-items: center; padding-left: 8px; }
+.rx-bar input { width: min(280px, 60vw); height: 34px; border: 0; border-radius: 999px; padding: 0 14px; font: inherit; font-size: 13px; background: #2c2925; color: #fff; outline: none; }
+.rx-bar input::placeholder { color: #8f877d; }
+.rx-bar form button { height: 34px; padding: 0 14px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 12px; }
+
+/* スタンプ（絵文字） */
+.rx-stamp { position: relative; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-size: 20px; line-height: 1; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; transition: transform .18s cubic-bezier(.3, 1.6, .5, 1), background .18s; background: transparent; }
+.rx-stamp:hover { transform: translateY(-3px) scale(1.25); background: rgba(255, 255, 255, .08); }
+.rx-stamp.lt:hover { background: rgba(var(--rx), .08); }
+.rx-stamp.mine { background: rgba(var(--rx), .14); box-shadow: inset 0 0 0 1.5px var(--accent); }
+/* ホバーで名前を出す */
+.rx-stamp[title]:hover::after { content: attr(title); position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); white-space: nowrap; font: 600 10.5px/1 var(--font); letter-spacing: .04em; color: #fff; background: #2c2925; padding: 5px 8px; border-radius: 6px; pointer-events: none; }
+
+/* 押した瞬間のスタンプ */
+.rx-thump { position: absolute; z-index: 90; pointer-events: none; display: grid; place-items: center; font-size: 46px; line-height: 1; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; filter: drop-shadow(0 8px 10px rgba(40, 25, 10, .25)); animation: rxThump .9s cubic-bezier(.2, .9, .3, 1.3) forwards; font-family: var(--font); }
+@keyframes rxThump { 0% { opacity: 0; transform: translate(-50%, -50%) scale(2.2) rotate(-24deg); } 30% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-8deg); } 75% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-8deg); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(.6) rotate(-8deg); } }
+
+/* ホバーで出るノートカード */
+.rx-card { position: absolute; z-index: 85; width: min(320px, calc(100vw - 32px)); background: var(--rx-paper); color: var(--rx-ink); border-radius: 12px; box-shadow: 0 24px 50px -24px rgba(40, 25, 10, .55), 0 0 0 1px rgba(27, 25, 22, .08); padding: 16px 16px 12px; font-family: var(--font); animation: rxBar .16s ease-out; }
+.rx-card .q { font-size: 12px; color: var(--muted); line-height: 1.6; border-left: 2px solid var(--accent); padding-left: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.rx-card .stamps { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 14px; }
+.rx-card .st { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink2); }
+.rx-card .st .rx-stamp { width: 32px; height: 32px; font-size: 17px; }
+.rx-card .st b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.rx-card ul { list-style: none; margin-top: 12px; display: grid; gap: 8px; max-height: 220px; overflow: auto; }
+.rx-card li { background: #fff; border-radius: 8px; padding: 10px 12px; font-size: 13px; line-height: 1.6; box-shadow: 0 0 0 1px rgba(27, 25, 22, .06); overflow-wrap: anywhere; }
+.rx-card li small { display: flex; justify-content: space-between; gap: 8px; margin-top: 4px; font-size: 10.5px; color: var(--muted); letter-spacing: .04em; }
+.rx-card .del { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; font-size: 10.5px; }
+.rx-card .del:hover { color: var(--accent); }
+.rx-card .add { display: flex; align-items: center; gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.rx-card .add .rx-stamp { width: 32px; height: 32px; font-size: 17px; }
+.rx-card form { display: flex; gap: 6px; margin-top: 10px; }
+.rx-card input { flex: 1; min-width: 0; height: 32px; border: 1px solid var(--line); border-radius: 999px; padding: 0 12px; font: inherit; font-size: 12.5px; background: #fff; outline: none; }
+.rx-card input:focus { border-color: var(--accent); }
+.rx-card form button { height: 32px; padding: 0 12px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 11.5px; }
+.rx-card .mine-tag { color: var(--accent); }
+
+/* ヘッダー内のリアクション案内（控えめな一行） */
+.rx-dock { display: flex; align-items: center; gap: 10px; min-width: 0; margin-right: 8px; font-family: var(--font); font-size: 11.5px; letter-spacing: .02em; color: var(--muted); }
+.rx-dock .tip { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.rx-dock button { flex: none; padding: 0; background: none; color: var(--muted); font-size: 11.5px; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); }
+.rx-dock button:hover { color: var(--accent); }
+.site-header .hd-r { min-width: 0; }
+@media (max-width: 600px) { .rx-dock { display: none; } }
+
+/* セッション一覧カードの反応数 */
+.card .rx-n { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; color: var(--accent); letter-spacing: .04em; margin-top: 8px; }
+.card .rx-n::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* ===== セッションへのハート ===== */
+.rx-like { border-top: 1px solid var(--ink); padding-top: 18px; }
+.rx-like .lk { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 28px; align-items: center; background: var(--card); border-radius: 16px; padding: 28px; margin-top: 10px; }
+.rx-like h2 { font-size: clamp(24px, 2.6vw, 34px); font-weight: 500; letter-spacing: -.025em; line-height: 1.2; text-wrap: balance; }
+.rx-like .lk-t p { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.rx-like .lk-n { color: var(--ink2) !important; }
+.rx-like .lk-n b { color: var(--accent); font-weight: 600; }
+.rx-like .lk-undo { border: 0; background: none; font: inherit; color: var(--muted); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.lk-heart { width: 96px; height: 96px; border-radius: 50%; border: 1.5px solid var(--ink); background: transparent; display: grid; place-items: center; cursor: pointer; transition: transform .25s cubic-bezier(.3, 1.6, .5, 1), background .25s, border-color .25s; animation: lkBeat 2.4s ease-in-out infinite; }
+.lk-heart svg { width: 42px; height: 42px; fill: transparent; stroke: var(--ink); stroke-width: 1.5; transition: fill .2s, stroke .2s, transform .3s; }
+.lk-heart:hover { transform: scale(1.06); border-color: var(--accent); }
+.lk-heart:hover svg { stroke: var(--accent); }
+.lk-heart:disabled { cursor: default; opacity: .5; animation: none; }
+.rx-like.is-on .lk-heart { background: var(--accent); border-color: var(--accent); animation: lkPop .5s cubic-bezier(.3, 1.6, .5, 1); }
+.rx-like.is-on .lk-heart svg { fill: #fff; stroke: #fff; }
+@keyframes lkBeat { 0%, 70%, 100% { transform: scale(1); } 78% { transform: scale(1.08); } 86% { transform: scale(.98); } 92% { transform: scale(1.04); } }
+@keyframes lkPop { 0% { transform: scale(.7); } 60% { transform: scale(1.15); } 100% { transform: scale(1); } }
+.lk-p { position: absolute; z-index: 90; pointer-events: none; color: var(--accent); line-height: 1; transform: translate(-50%, -50%); animation: lkFly .85s cubic-bezier(.2, .7, .3, 1) forwards; }
+@keyframes lkFly { to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(.4); opacity: 0; } }
+@media (max-width: 520px) { .rx-like .lk { grid-template-columns: 1fr; justify-items: start; gap: 18px; padding: 22px; } .lk-heart { width: 80px; height: 80px; } }
+@media (prefers-reduced-motion: reduce) { .lk-heart { animation: none; } }
