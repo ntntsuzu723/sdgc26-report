@@ -66,16 +66,10 @@ const img = (src, cls = "ph", alt = "") => `<div class="${cls}"><img src="${esc(
 const CLEAN = [];
 const onScroll = (fn) => { addEventListener("scroll", fn, { passive: true }); fn(); CLEAN.push(() => removeEventListener("scroll", fn)); };
 
-/* 全写真（トップのアーチ用） */
+/* トップのアーチ用：会場で撮った写真だけ（スライドのスクショは出さない） */
 function heroPhotos() {
-  const base = D.conference.heroPhotos?.length
-    ? D.conference.heroPhotos.map((src) => ({ src }))
-    : D.sessions.flatMap((s) => s.photos.slice(0, 2).map((src) => ({ src, session: s })));
-  // 会場写真を均等な間隔で差し込む（真ん中の1枚が最初にアーチの中央に来る）
-  const venue = (D.conference.venuePhotos ?? []).map((src) => ({ src }));
-  const out = [...base];
-  venue.forEach((v, k) => out.splice(Math.round(((k + 1) * (base.length + venue.length)) / (venue.length + 1)) - 1, 0, v));
-  return out;
+  const list = D.conference.heroPhotos?.length ? D.conference.heroPhotos : D.conference.venuePhotos ?? [];
+  return list.map((src) => ({ src }));
 }
 
 /* ===== Arc gallery: ドラッグ / ホイール / 矢印キーで回転 ===== */

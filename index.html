@@ -9,7 +9,75 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* ---------- B: Editorial Journal（雑誌のような読み物型） ---------- */
 .cover { padding-top: 48px; }
 .cover-top { display: flex; justify-content: space-between; align-items: end; gap: 20px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
-.cover h1 { font-size: clamp(56px, 12vw, 190px); font-weight: 500; letter-spacing: -.055em; line-height: .86; }
+/* ===== トップ：公式サイト（servicedesignglobalconference.com）の構成にならう ===== */
+/* ヒーロー：夕焼けのグラデーションに、会議名と会期。右にこのレポートの説明 */
+.hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 72px); align-items: center;
+  min-height: clamp(420px, 62vh, 620px); padding: clamp(32px, 6vw, 96px) clamp(20px, 5vw, 80px); border-radius: 6px; overflow: hidden; color: #000;
+  background: radial-gradient(90% 120% at 0% 0%, #f74636 0%, rgba(247, 70, 54, 0) 60%), radial-gradient(70% 90% at 100% 0%, #fd9f85 0%, rgba(253, 159, 133, 0) 70%),
+    radial-gradient(70% 80% at 0% 100%, #c8607a 0%, rgba(200, 96, 122, 0) 65%), linear-gradient(160deg, #fc6a45 0%, #fc9876 45%, #f6e4d6 100%); }
+.hero::after { content: ""; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E"); mix-blend-mode: soft-light; pointer-events: none; }
+.hero > * { position: relative; z-index: 1; }
+.cover .hero-name { font-size: clamp(30px, 4.4vw, 62px); font-weight: 600; letter-spacing: -.035em; line-height: 1.04; }
+.hero-name .u { text-decoration: none; }
+.hero-name .u::after { content: "___"; letter-spacing: -.08em; }
+.hero-name .place, .hero-name .date { display: block; color: #fff7ef; font-weight: 500; }
+.hero-name .place { margin-top: .12em; }
+.hero-side { display: grid; gap: 18px; justify-items: start; max-width: 460px; }
+.hero-side h2 { font-size: clamp(19px, 2vw, 27px); font-weight: 400; letter-spacing: -.015em; line-height: 1.32; }
+.hero-side h2 b { font-weight: 600; }
+.hero-side p { font-size: 14px; line-height: 1.7; }
+.hero-side .by { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.btn-black { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 220px; height: 52px; padding: 0 24px; background: #000; color: #fff; font-size: 14px; transition: background .25s; }
+.btn-black:hover { background: #2a2724; }
+/* テーマ：ミントの面と写真 */
+.th { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; margin-top: clamp(56px, 8vw, 110px); }
+.th-panel { background: #a2f0d2; color: #000; padding: clamp(28px, 4vw, 56px); display: grid; align-content: center; gap: 18px; margin: clamp(40px, 6vw, 90px) -8% 0 0; position: relative; z-index: 1; }
+.th-panel .k { font-size: 15px; }
+.th-panel h2 { font-size: clamp(30px, 4vw, 54px); font-weight: 500; letter-spacing: -.035em; line-height: 1.05; text-wrap: balance; }
+.th-panel p { font-size: 14.5px; line-height: 1.8; max-width: 560px; }
+.th-panel p b { font-weight: 600; }
+.th-photo { position: relative; overflow: hidden; min-height: 420px; background: #1b1916; }
+.th-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* 数字 */
+.nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; text-align: center; padding: clamp(56px, 8vw, 100px) 0 20px; }
+.nums b { display: block; font-size: clamp(64px, 9vw, 128px); font-weight: 500; letter-spacing: -.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.nums span { display: block; margin-top: 6px; font-size: clamp(15px, 1.6vw, 22px); }
+.nums-note { text-align: center; font-size: 15px; line-height: 1.8; color: var(--ink2); max-width: 560px; margin: 18px auto 0; }
+/* プログラム概要：3日間のカード */
+.prog { padding-top: clamp(72px, 9vw, 120px); display: grid; gap: 28px; }
+.prog-head { display: grid; justify-items: center; text-align: center; gap: 14px; }
+.prog-head h2 { font-size: clamp(30px, 3.6vw, 48px); font-weight: 500; letter-spacing: -.03em; }
+.prog-head p { font-size: 15px; line-height: 1.8; color: var(--ink2); max-width: 760px; }
+.days { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 24px); }
+.day { display: grid; grid-template-rows: auto 1fr auto; min-height: 300px; padding: 22px; color: #fff; background: #000; transition: transform .4s cubic-bezier(.2, .8, .2, 1); }
+.day:first-child { background: #772a60; }
+.day:hover { transform: translateY(-4px); }
+.day .d b { display: block; font-size: 22px; font-weight: 500; }
+.day .d span { font-size: 14px; opacity: .85; }
+.day .t { align-self: center; text-align: center; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -.02em; }
+.day .t small { display: block; margin-top: 8px; font-size: 13px; font-weight: 400; opacity: .75; letter-spacing: 0; }
+.day .f { padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, .35); text-align: center; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.prog-cta { justify-self: center; }
+.btn-line { display: inline-flex; align-items: center; height: 50px; padding: 0 26px; border: 1px solid #000; font-size: 14px; transition: background .25s, color .25s; }
+.btn-line:hover { background: #000; color: #fff; }
+.cover .arc { margin-top: clamp(40px, 6vw, 80px); }
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .th { grid-template-columns: 1fr; }
+  .th-panel { margin: 0; order: 2; }
+  .th-photo { min-height: 280px; }
+  .days { grid-template-columns: 1fr; }
+  .day { min-height: 200px; }
+}
+@media (max-width: 520px) { .nums { gap: 8px; } .btn-black { min-width: 0; width: 100%; } }
+
+/* 会場のキービジュアル（イベント名と会期）。その下に今年のテーマを置く */
+.kv { margin: 0 0 56px; border-radius: 4px; overflow: hidden; background: #f7d9c8; }
+.kv img { display: block; width: 100%; height: auto; aspect-ratio: 1792 / 725; object-fit: cover; }
+.theme-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; font-size: 13px; color: var(--ink2); }
+.theme-eyebrow b { font-weight: 500; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--accent); padding: 5px 10px 4px; border-radius: 999px; }
+.theme-eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.cover h1 { font-size: clamp(48px, 10vw, 160px); font-weight: 500; letter-spacing: -.055em; line-height: .86; }
 .cover h1 .gray { display: block; font-size: .42em; letter-spacing: -.035em; line-height: 1.1; margin-top: 14px; }
 .cover-side { max-width: 300px; font-size: 13px; color: var(--ink2); display: grid; gap: 18px; justify-items: start; }
 .cover .arc { height: calc(var(--card) * 1.5 + 40px); margin: 0 calc(var(--gutter) * -1); }
@@ -30,14 +98,46 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .chips { display: flex; gap: 6px; flex-wrap: wrap; }
 .chips button { font-size: 12px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; transition: .2s; }
 .chips button.on, .chips button:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 20px; }
-.card { display: grid; gap: 12px; }
-.card .ph { aspect-ratio: 4 / 5; }
-.card:hover .ph img { transform: scale(1.04); }
-.card-meta { display: flex; justify-content: space-between; align-items: center; }
-.card h3 { font-size: 19px; font-weight: 500; line-height: 1.35; letter-spacing: -.01em; }
-.card q { font-size: 13.5px; color: var(--muted); quotes: "“" "”"; }
-.card[hidden] { display: none; }
+/* ===== セッション一覧：縦長の帯が並び、カーソルを当てた帯が広がる ===== */
+.strips { display: flex; gap: 8px; height: clamp(420px, 56vh, 560px); }
+.strip { position: relative; flex: 1 1 0; min-width: 0; border-radius: 14px; overflow: hidden; background: #2a2724; color: #fff; display: block;
+  transition: flex-grow .7s cubic-bezier(.2, .8, .2, 1); outline: none; -webkit-tap-highlight-color: transparent; }
+.strip.on { flex-grow: 7; }
+.strip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(.95) brightness(.85); transform: scale(1.04);
+  transition: filter .7s, transform 1s cubic-bezier(.2, .8, .2, 1); }
+.strip.on img { filter: none; transform: none; }
+.strip::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, .05) 40%, rgba(0, 0, 0, .72)); pointer-events: none; }
+/* 閉じた帯は暗く沈め、縦書きの文字を読みやすく */
+.strip::before { content: ""; position: absolute; inset: 0; z-index: 1; background: rgba(20, 18, 16, .52); transition: opacity .6s; pointer-events: none; }
+.strip.on::before { opacity: 0; }
+.st-v { text-shadow: 0 1px 6px rgba(0, 0, 0, .35); }
+.strip:focus-visible { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent); }
+/* 閉じているとき：縦書きの番号とタイトル */
+.st-v { position: absolute; z-index: 2; top: 14px; left: 50%; transform: translateX(-50%); writing-mode: vertical-rl; font-size: 11.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  white-space: nowrap; max-height: calc(100% - 28px); overflow: hidden; text-overflow: ellipsis; opacity: .9; transition: opacity .3s; }
+.st-v b { font-weight: 500; opacity: .6; margin-bottom: 10px; }
+.strip.on .st-v { opacity: 0; transition-delay: 0s; }
+/* 開いているとき：下に説明 */
+.st-info { position: absolute; z-index: 2; left: 0; right: 0; bottom: 0; padding: 22px 24px; display: grid; gap: 8px; max-width: 560px;
+  opacity: 0; transform: translateY(10px); transition: opacity .3s, transform .4s; pointer-events: none; }
+.strip.on .st-info { opacity: 1; transform: none; transition: opacity .5s .3s, transform .6s .3s cubic-bezier(.2, .8, .2, 1); }
+.st-info .num { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
+.st-info h3 { font-size: clamp(19px, 1.9vw, 26px); font-weight: 500; letter-spacing: -.02em; line-height: 1.25; text-wrap: balance; }
+.st-info q { font-size: 13px; line-height: 1.7; opacity: .85; quotes: "“" "”"; }
+.st-info .go { font-size: 12px; margin-top: 4px; display: inline-flex; gap: 6px; align-items: center; }
+.strip .card-meta { display: none; }
+.strip .rx-n { position: absolute; z-index: 2; top: 12px; right: 12px; margin: 0; padding: 4px 9px; border-radius: 999px; background: rgba(255, 255, 255, .88); color: var(--ink); font-size: 10.5px; opacity: 0; transition: opacity .3s; }
+.strip.on .rx-n { opacity: 1; }
+/* 狭い画面：横長の帯を縦に積み、タップした帯が広がる */
+@media (max-width: 760px) {
+  .strips { flex-direction: column; height: auto; gap: 6px; }
+  .strip { flex: none; height: 64px; transition: height .6s cubic-bezier(.2, .8, .2, 1); }
+  .strip.on { height: 380px; }
+  .st-v { writing-mode: horizontal-tb; top: 50%; left: 18px; right: 18px; transform: translateY(-50%); font-size: 12px; max-height: none; }
+  .st-v b { margin: 0 10px 0 0; }
+  .st-info { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { .strip, .strip img, .st-info { transition: none !important; } }
 
 /* インサイト：机に散らばったカード。カーソルに合わせて動く */
 .hls { padding-top: 140px; }
@@ -48,38 +148,40 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 /* 表と裏：触れると裏返り、元になったハイライトの言葉が見える */
 .ic-in { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .75s cubic-bezier(.2, .75, .2, 1); }
 .icard:hover .ic-in, .icard:focus-visible .ic-in { transform: rotateY(180deg); }
+/* カード：白い紙に見出しだけ。セッションの色は左上の小さな点と、裏面の色だけに使う */
 .ic-front, .ic-back {
-  position: absolute; inset: 0; border-radius: 12px; padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 12px;
+  position: absolute; inset: 0; border-radius: 6px; padding: 18px; display: flex; flex-direction: column;
   -webkit-backface-visibility: hidden; backface-visibility: hidden;
-  box-shadow: 0 18px 32px -22px rgba(40, 25, 10, .55), 0 0 0 1px rgba(27, 25, 22, .07);
 }
-.ic-front { background: #faf8f4; color: var(--ink); }
-.ic-back { background: var(--ink); color: #efe9df; transform: rotateY(180deg); }
-.ic-top { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-.ic-top b { font-weight: 500; color: var(--accent); }
-/* 表：大きな細い番号と、下に見出しだけ */
-.ic-num { font-size: 76px; font-weight: 300; letter-spacing: -.06em; line-height: .9; color: var(--ink); margin-top: 4px; }
-.ic-front .ic-foot { margin-top: 0; }
-.ic-head { margin-top: auto; font-size: 26px; font-weight: 600; letter-spacing: -.03em; line-height: 1.22; word-break: keep-all; overflow-wrap: anywhere; } /* 日本語は「、」で改行させる */
-html[lang="ja"] .ic-head { font-size: 20px; letter-spacing: -.01em; line-height: 1.4; }
-.ic-q { font-size: 12px; font-weight: 400; line-height: 1.7; }
-.ic-foot { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.ic-back .ic-top, .ic-back .ic-foot { color: #a39b90; border-color: #3c3833; }
-.ic-back .arrow-btn { width: 24px; height: 24px; background: var(--accent); }
+.ic-front { background: #fbf8f4; color: var(--ink); box-shadow: 0 1px 2px rgba(29, 27, 25, .05), 0 18px 34px -24px rgba(29, 27, 25, .38); }
+.ic-back { background: var(--deep); color: #f4efe8; transform: rotateY(180deg); box-shadow: 0 18px 34px -24px rgba(29, 27, 25, .45); }
+.ic-top { display: flex; align-items: center; gap: 8px; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ic-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--deep); flex: none; }
+.ic-head { margin-top: auto; font-size: 19px; font-weight: 500; letter-spacing: -.015em; line-height: 1.45; word-break: keep-all; overflow-wrap: anywhere; } /* 日本語は「、」で改行させる */
+html[lang="ja"] .ic-head { font-size: 18px; letter-spacing: .01em; line-height: 1.6; }
+.ic-foot { margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 11px; color: var(--muted); }
+.ic-foot .who { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ic-n { font-variant-numeric: tabular-nums; color: var(--ink2); }
+/* 裏：セッションの深い色に、クリームの文字 */
+.ic-back .ic-top { color: rgba(244, 239, 232, .6); }
+.ic-q { margin-top: 14px; font-size: 12.5px; font-weight: 400; line-height: 1.9; opacity: .92; }
+.ic-back .ic-foot { margin-top: auto; border-color: rgba(244, 239, 232, .2); color: #f4efe8; font-size: 11.5px; }
 /* 狭い画面：カードを縦に並べる */
 .deck.stack { margin: 24px 0 0; display: grid; justify-items: center; gap: 18px; overflow: visible; }
-.deck.stack .icard { position: relative; width: min(300px, 100%); transform: rotate(var(--rot)); }
+.deck.stack .icard { position: relative; width: min(320px, 100%); aspect-ratio: auto; height: 220px; transform: rotate(var(--rot)); } /* スマホでは横長にして、余白を詰める */
 
 /* ---------- Session page ---------- */
 .art { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(20px, 4vw, 64px); padding-top: 28px; }
-.art-l { position: sticky; top: 64px; align-self: start; display: grid; gap: 14px; }
+.art-l { position: sticky; top: 64px; align-self: start; display: grid; gap: 14px; will-change: transform, opacity; }
+/* スクロールすると左の登壇者情報が上に上がりながら消え、消えきったら本文の列が広がる */
+.art { transition: grid-template-columns .6s cubic-bezier(.2, .7, .2, 1), gap .6s; }
+.art.wide { grid-template-columns: minmax(0, 0fr) minmax(0, 1fr); gap: 0; }
+.art.wide .art-l { visibility: hidden; pointer-events: none; }
+.art-r { max-width: 1100px; }
 .art-l .ph { aspect-ratio: 4 / 5; }
 /* coverFull: トリミングせず画像全体を表示 */
 .art-l .ph.full { aspect-ratio: auto; background: none; }
 .art-l .ph.full img { height: auto; }
-.card .ph.full { background: #fff; }
-.card .ph.full img { object-fit: contain; }
-.card:hover .ph.full img { transform: none; }
 .art-l dl { display: grid; grid-template-columns: 90px 1fr; font-size: 13px; border-top: 1px solid var(--line); }
 .art-l dt, .art-l dd { padding: 8px 0; border-bottom: 1px solid var(--line); }
 .art-l dt { color: var(--muted); }
@@ -133,11 +235,9 @@ html[lang="ja"] .ic-head { font-size: 20px; letter-spacing: -.01em; line-height:
   .cover-top { flex-direction: column; align-items: start; }
   .theme, .art { grid-template-columns: 1fr; }
   .art-l { position: static; }
-  .cards { grid-template-columns: 1fr 1fr; }
   .stats-row { flex-wrap: wrap; }
   .stats-row div { flex: 1 1 45%; }
 }
-@media (max-width: 520px) { .cards { grid-template-columns: 1fr; } }
 </style>
 
 
@@ -150,6 +250,9 @@ html[lang="ja"] .ic-head { font-size: 20px; letter-spacing: -.01em; line-height:
 const C = D.conference;
 const days = [...new Set(D.sessions.map((s) => s.day))];
 
+/* インサイトカードの色：公式サイトの色の系統を、落ち着いた深い色にしたもの（セッションの順に割り当てる） */
+const INSIGHT_TONES = ["#b65a45", "#6b4160", "#3d3f7d", "#4b7a68", "#c07c66", "#2e2b28", "#9a6b6b", "#a24c43"];
+
 /* ===== インサイトカード：ランダムに散らばり、カーソルに合わせてゆらゆら動く ===== */
 function Deck(root) {
   const cards = $$(".icard", root);
@@ -157,7 +260,7 @@ function Deck(root) {
   const rand = (i, k) => { const x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); };
   const st = cards.map((el, i) => ({
     el, i, bx: 0, by: 0, x: (rand(i, 9) - 0.5) * 300, y: 260, r: 0,
-    rot: (rand(i, 1) - 0.5) * 18, depth: 0.5 + rand(i, 2) * 0.9,
+    rot: (rand(i, 1) - 0.5) * 16, depth: 0.5 + rand(i, 2) * 0.9,
   }));
   let W = 0, H = 0, mx = null, my = null, alive = true, started = false;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -167,18 +270,20 @@ function Deck(root) {
     const narrow = W < 760;
     root.classList.toggle("stack", narrow);
     if (narrow) { root.style.height = ""; cards.forEach((c, i) => { c.style.cssText = c.style.cssText.replace(/(left|top|transform|z-index):[^;]*;?/g, ""); c.style.setProperty("--rot", `${(rand(i, 1) - 0.5) * 4}deg`); }); return; }
-    const cw = 220, cols = Math.max(2, Math.floor((W - 40) / 200)), cellW = (W - 40) / cols, cellH = 240;
+    // 縁どうしは重ねて「散らばった」感じを出しつつ、見出しは隠れない間隔にする
+    const cw = 220, cols = Math.max(2, Math.floor((W - 40) / 212)), cellW = (W - 40) / cols, cellH = 268;
     st.forEach((c) => {
       const col = c.i % cols, row = Math.floor(c.i / cols);
-      // 行ごとに半セルずらし、さらに揺らして「散らばった」感じにする
-      c.bx = 20 + col * cellW + cellW / 2 + (row % 2 ? cellW * 0.25 : -cellW * 0.1) + (rand(c.i, 3) - 0.5) * cellW * 0.35;
+      // 行ごとに少しずらし、さらに揺らす
+      c.bx = 20 + col * cellW + cellW / 2 + (row % 2 ? 1 : -1) * cellW * 0.16 + (rand(c.i, 3) - 0.5) * cellW * 0.1;
       c.bx = Math.min(W - cw / 2 - 8, Math.max(cw / 2 + 8, c.bx));
-      c.by = 175 + row * cellH + (rand(c.i, 4) - 0.5) * 60;
+      c.by = 175 + row * cellH + (rand(c.i, 4) - 0.5) * 36;
       c.el.style.left = c.bx + "px";
       c.el.style.top = c.by + "px";
-      c.el.style.zIndex = 10 + Math.round(rand(c.i, 5) * 50);
+      // 下の段ほど手前に重ねる（上の段のカードは、文字のない下端だけが隠れる）
+      c.el.style.zIndex = 10 + row * 10 + Math.round(rand(c.i, 5) * 8);
     });
-    H = 175 + Math.ceil(cards.length / cols) * cellH + 130;
+    H = 175 + Math.ceil(cards.length / cols) * cellH + 90;
     root.style.height = H + "px";
   }
 
@@ -190,11 +295,11 @@ function Deck(root) {
         let tx = 0, ty = 0;
         if (mx != null) {
           // カーソルと逆方向に奥行きぶんだけずれる（パララックス）
-          tx = (mx / W - 0.5) * -70 * c.depth;
-          ty = (my / H - 0.5) * -50 * c.depth;
+          tx = (mx / W - 0.5) * -26 * c.depth;
+          ty = (my / H - 0.5) * -20 * c.depth;
           // カーソルの近くのカードは押しのけられる
           const dx = c.bx + c.x - mx, dy = c.by + c.y - my, d = Math.hypot(dx, dy) || 1;
-          if (!hover && d < 260) { const f = (1 - d / 260) * 70; tx += (dx / d) * f; ty += (dy / d) * f; }
+          if (!hover && d < 260) { const f = (1 - d / 260) * 24; tx += (dx / d) * f; ty += (dy / d) * f; }
         }
         const tr = hover ? 0 : c.rot + (mx != null ? (mx / W - 0.5) * 6 * c.depth : 0);
         c.x += (tx - c.x) * 0.08;
@@ -227,44 +332,88 @@ function Deck(root) {
   CLEAN.push(() => { alive = false; ro.disconnect(); });
 }
 
+/* 棚のカバー画像：一覧用の画像があればそれ、なければセッションの表紙 */
+const shelfCover = (s) => s.cardCover
+  ? { src: s.cardCover, full: !!s.cardBg, bg: s.cardBg ?? "#fff" }
+  : { src: s.cover, full: !!s.coverFull, bg: "#fff" };
+
+/* セッション一覧の帯：カーソルを当てた帯が広がる。タッチでは1回目で広げ、2回目でセッションへ */
+function Strips(root) {
+  const items = $$(".strip", root);
+  const open = (el) => items.forEach((x) => x.classList.toggle("on", x === el));
+  items.forEach((el) => {
+    el.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") open(el); });
+    el.addEventListener("focus", () => open(el));
+    el.addEventListener("click", (e) => { if (!el.classList.contains("on")) { e.preventDefault(); open(el); } });
+  });
+}
+
 function home() {
   return `
   <main class="wrap">
     <section class="cover" id="top">
-      <div class="cover-top">
-        <h1>${esc(C.themeTitle)}<span class="gray">${esc(C.themeSub)}</span></h1>
-        <div class="cover-side">
-          <span class="label">${esc(C.themeLabel)}</span>
-          <p>${esc(L(C, "lead"))}</p>
-          <a class="cta" href="#/sessions"><span>${T("readSessions")}</span><i>${ARROW}</i></a>
+      <div class="hero">
+        <h1 class="hero-name"><span class="u">Service Design</span><br>Global Conference<span class="place">↘ Frankfurt RheinMain</span><span class="date">28–30 Oct, 2026</span></h1>
+        <div class="hero-side">
+          ${LANG === "en"
+            ? `<h2><b>The Service Design Global Conference 2026 (SDGC26)</b> took place 28–30 October in the Frankfurt RheinMain region — onsite and online.</h2><p>This is a report on the sessions we attended: what each talk said, the slides, and the insights worth bringing home.</p>`
+            : `<h2><b>Service Design Global Conference 2026（SDGC26）</b>は、10月28〜30日にフランクフルト・ラインマイン地域で、会場とオンラインで開催されました。</h2><p>聴講したセッションの内容とスライド、持ち帰りたい気づきをまとめたレポートです。</p>`}
+          <span class="by">${esc(L(C, "reporter"))}</span>
+          <a class="btn-black" href="#sessions">${T("readSessions")} <span aria-hidden="true">→</span></a>
         </div>
       </div>
+
+      <div class="th" id="theme">
+        <div class="th-panel">
+          <span class="k">SDGC26 Theme</span>
+          <h2>${esc(C.themeTitle)}: ${esc(C.themeSub)}</h2>
+          ${LANG === "en"
+            ? `<p><b>${esc(C.themeTitle)}: ${esc(C.themeSub)}</b> ${esc(C.themeText.replace(/^Beyond Boundaries: Enabling Solutions that Shape Tomorrow /, ""))}</p>`
+            : `<p><b>「境界を越えて：明日をかたちづくる解決策を」</b>。公共・民間の組織と、そのサービスを受ける人々が、サービスデザインを通じて今日の限界を越え、よりしなやかで意味のある未来をつくるにはどうすればよいかを探るテーマです。組織が構造・文化・技術・環境の境界に直面するなか、前に進むには、分野を越えた新しい働き方、協働、複雑さの捉え方が欠かせなくなっています。</p>`}
+        </div>
+        <div class="th-photo"><img src="photos/venue/stage.jpg" alt="" loading="lazy"></div>
+      </div>
+
       <div class="arc" id="heroArc"></div>
       <div class="arc-hint">← Drag to browse ${heroPhotos().length} photos →</div>
     </section>
 
-    <section class="theme" id="theme">
-      <span class="label">About the theme</span>
-      <p class="js-reveal">${esc(C.themeText)}</p>
+    <section class="nums-wrap">
+      <div class="nums">
+        <div><b>03</b><span>${LANG === "en" ? "days" : "日間"}</span></div>
+        <div><b>${pad(D.sessions.length)}</b><span>${LANG === "en" ? "sessions attended" : "聴講したセッション"}</span></div>
+        <div><b>${pad(allLearnings().length)}</b><span>${LANG === "en" ? "insights" : "インサイト"}</span></div>
+      </div>
+      <p class="nums-note">${LANG === "en" ? "Plus immersive content and networking events across three days in Wiesbaden." : "ヴィースバーデンの会場で、講演に加えてワークショップや交流イベントも行われた3日間。"}</p>
     </section>
 
-    <div class="stats-row">${stats().map(([v, en, ja]) => `<div><b>${v}</b><span>${en}<br>${ja}</span></div>`).join("")}</div>
+    <section class="prog" id="program">
+      <div class="prog-head">
+        <h2>Program Overview</h2>
+        <p>${LANG === "en"
+          ? `The conference kept its 3-day format: workshops on October 28, followed by two full days of talks around the theme “${esc(C.themeTitle)}: ${esc(C.themeSub)}.”`
+          : `カンファレンスは例年どおり3日間。10月28日のワークショップから始まり、続く2日間はテーマ「${esc(C.themeTitle)}: ${esc(C.themeSub)}」をめぐる講演が終日行われました。`}</p>
+      </div>
+      <div class="days">
+        ${[["Day 1", "Wednesday 28", "水曜日 28日", "Workshops", "ワークショップ"], ["Day 2", "Thursday 29", "木曜日 29日", "Conference", "カンファレンス"], ["Day 3", "Friday 30", "金曜日 30日", "Conference", "カンファレンス"]].map(([d, en, ja, t, tj]) => {
+          const n = D.sessions.filter((s) => s.day === d).length;
+          return `<a class="day" href="#sessions"><span class="d"><b>${d}</b><span>${LANG === "en" ? en : ja}</span></span><span class="t">${LANG === "en" ? t : tj}<small>${LANG === "en" ? `${n} session${n === 1 ? "" : "s"} attended` : `聴講 ${n} セッション`}</small></span><span class="f">${LANG === "en" ? "See the sessions" : "セッションを見る"}</span></a>`;
+        }).join("")}
+      </div>
+    </section>
 
     <section class="idx" id="sessions">
       <div class="idx-head">
         <div><span class="label">Index</span><h2>${T("sessionsCount")(D.sessions.length)}</h2></div>
-        <div class="chips" id="chips"><button class="on" data-f="all">All</button>${days.map((d) => `<button data-f="${esc(d)}">${esc(d)}</button>`).join("")}</div>
       </div>
-      <div class="cards">
-        ${D.sessions.map((s) => `
-          <a class="card fade-up" href="${sessionHref(s)}" data-day="${esc(s.day)}">
-            ${s.cardCover
-              ? `<div class="ph${s.cardBg ? " full" : ""}" ${s.cardBg ? `style="background:${esc(s.cardBg)}"` : ""}><img src="${esc(s.cardCover)}" alt="" loading="lazy"></div>`
-              : img(s.cover, s.coverFull ? "ph full" : "ph")}
-            <div class="card-meta"><span class="num">[${pad(s.no)}] ${esc(s.day)} · ${esc(s.track)}</span><span class="arrow-btn">${ARROW}</span></div>
-            <h3>${esc(s.title)}</h3>
-            <q>${esc(L(s, "keyPhrase"))}</q>
-          </a>`).join("")}
+      <div class="strips" id="strips">
+      ${D.sessions.map((s, i) => `
+        <a class="strip card${i === 0 ? " on" : ""}" href="${sessionHref(s)}" data-sid="${esc(s.id)}" aria-label="[${pad(s.no)}] ${esc(s.title)}">
+          <img src="${esc(shelfCover(s).src)}" alt="" loading="lazy" draggable="false" style="background:${esc(shelfCover(s).bg)}">
+          <span class="st-v"><b>${pad(s.no)}</b>${esc(s.title)}</span>
+          <span class="st-info"><span class="num">[${pad(s.no)}] ${esc(s.day)} · ${esc(s.track)}</span><h3>${esc(s.title)}</h3><q>${esc(L(s, "keyPhrase"))}</q><span class="go">${esc(s.speaker)} — ${T("readSessions").replace(/s$/, "")} →</span></span>
+          <span class="card-meta"></span>
+        </a>`).join("")}
       </div>
     </section>
 
@@ -275,18 +424,17 @@ function home() {
       </div>
       <div class="deck" id="deck">
         ${allLearnings().map((h, i) => `
-          <a class="icard" href="${h.href}" aria-label="${esc(h.head)}">
+          <a class="icard" href="${h.href}" aria-label="${esc(h.head)}" style="--deep:${INSIGHT_TONES[(h.s.no - 1) % INSIGHT_TONES.length]}">
             <span class="ic-in">
               <span class="ic-front">
-                <span class="ic-top"><b>Insight ${pad(i + 1)}</b><span>Session ${pad(h.s.no)}</span></span>
-                <span class="ic-num">${pad(i + 1)}</span>
+                <span class="ic-top"><i class="ic-dot"></i>${esc(h.s.day)} · Session ${pad(h.s.no)}</span>
                 <span class="ic-head">${esc(h.head)}</span>
-                <span class="ic-foot"><span>${esc(h.s.speaker)}</span><span>↻</span></span>
+                <span class="ic-foot"><span class="who">${esc(h.s.speaker.split("/")[0].trim())}</span><span class="ic-n">${pad(i + 1)}</span></span>
               </span>
               <span class="ic-back">
-                <span class="ic-top"><b>Insight ${pad(i + 1)}</b><span>Session ${pad(h.s.no)}</span></span>
+                <span class="ic-top">Insight ${pad(i + 1)}</span>
                 <span class="ic-q">${esc(h.t)}</span>
-                <span class="ic-foot"><span>${T("readInReport")}</span><span class="arrow-btn">${ARROW}</span></span>
+                <span class="ic-foot"><span>${T("readInReport")}</span><span>→</span></span>
               </span>
             </span>
           </a>`).join("")}
@@ -361,14 +509,21 @@ $("#app").addEventListener("mounted", (e) => {
   if (!s) {
     Arc($("#heroArc"), heroPhotos(), { spacing: 12, card: 220, radius: 1.1 });
     Deck($("#deck"));
-    $("#chips").addEventListener("click", (ev) => {
-      const b = ev.target.closest("button"); if (!b) return;
-      $$("#chips button").forEach((x) => x.classList.toggle("on", x === b));
-      $$(".card").forEach((c) => (c.hidden = b.dataset.f !== "all" && c.dataset.day !== b.dataset.f));
-    });
+    Strips($("#strips"));
   } else {
     const items = s.photos.map((src) => ({ src }));
     Arc($("#spArc"), items, { spacing: 15, card: 220 });
+    // 左の登壇者情報：スクロールに合わせて上へ上がりながら消える。消えきったら本文を広げる
+    const art = $(".art"), left = $(".art-l");
+    const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    onScroll(() => {
+      if (innerWidth <= 860) { left.style.transform = left.style.opacity = ""; art.classList.remove("wide"); return; }
+      const start = art.offsetTop, span = Math.max(240, left.offsetHeight * 0.7);
+      const p = Math.min(1, Math.max(0, (scrollY - start + 40) / span));
+      if (!calm) { left.style.transform = `translateY(${-p * 80}px)`; left.style.opacity = String(1 - p); }
+      if (p >= 1) art.classList.add("wide");
+      else if (p < 0.5) art.classList.remove("wide");
+    });
     $(".acc").addEventListener("click", (ev) => {
       const b = ev.target.closest(".pt-ph button"); if (!b) return;
       const i = s.photos.indexOf(b.dataset.src);

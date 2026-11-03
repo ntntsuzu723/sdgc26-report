@@ -32,12 +32,12 @@ window.REPORT = {
     themeText:
       "Beyond Boundaries: Enabling Solutions that Shape Tomorrow explores how organizations across the public and private sectors and the communities they serve can move past today’s limits to shape more resilient, meaningful futures through service design. As organizations face structural, cultural, technological, and environmental boundaries, progress increasingly depends on new ways of working, collaborating, and making sense of complexity across disciplines.",
     lead: "SDGC26聴講レポート",
-    reporter: "NTTDATA Launch / NATSUMI SUZUKI",
+    reporter: "NTTDATA / NATSUMI SUZUKI",
     dates: "2026.10.28 – 30",
     place: "Frankfurt",
-    // トップのアーチに出す写真。空なら全セッションの写真を自動で使用
+    // トップのアーチに出す写真。空なら会場の写真（venuePhotos）を使用
     heroPhotos: [],
-    // 会場の写真。トップのアーチにセッション写真と混ぜて均等に散りばめる
+    // 会場の写真。トップのアーチに並べる
     venuePhotos: [
       "photos/venue/building.jpg",
       "photos/venue/networking.jpg",
@@ -51,127 +51,28 @@ window.REPORT = {
       "photos/venue/building-2.jpg",
       "photos/venue/award-poster-advent.jpg",
       "photos/venue/stage.jpg",
+      "photos/venue/networking-hall.jpg",
+      "photos/venue/your-responsibility.jpg",
+      "photos/venue/human-in-the-loop-2.jpg",
+      "photos/venue/fail-fast.jpg",
+      "photos/venue/foyer.jpg",
+      "photos/venue/sdsi-wall.jpg",
+      "photos/venue/wicked-problem.jpg",
+      "photos/venue/award-poster-carelink.jpg",
+      "photos/venue/award-poster-iloq.jpg",
+      "photos/venue/japan.jpg",
+      "photos/venue/volunteers.jpg",
     ],
     aboutPhoto: ph("about", 900, 1150),
     // 英語版（無い項目は日本語を表示）
     en: {
       lead: "SDGC26 Conference Report",
-      reporter: "NTTDATA Launch / NATSUMI SUZUKI",
+      reporter: "NTTDATA / NATSUMI SUZUKI",
       place: "Frankfurt",
     },
   },
 
   sessions: [
-    {
-      id: "s01",
-      title: "Think global, adapt local: how Service Design became the engine of B2B market entry",
-      speaker: "Tamara Kartoziia",
-      org: "AUTODOC PRO — Senior Service Designer and Customer Experience Architect",
-      // カバー写真（一覧カード・セッションページ左上）。省略時は photos の1枚目
-      cover: "photos/s01/cover.webp",
-      coverFull: true, // true にするとトリミングせず画像全体を表示
-      // 一覧カード用の写真（省略時は cover を使用）
-      cardCover: "photos/s01/card-speaker.jpg",
-      cardBg: "#ffffff", // 指定するとカード写真をトリミングせず、余白をこの色で埋める
-      day: "Day 2",
-      time: "AM",
-      track: "B2B / Market entry",
-      keyPhrase: "複雑さは、共感を省略する理由ではない。共感が必要とされる理由そのものである。",
-      summary:
-        "Autodoc Pro（欧州の自動車部品販売企業AutodocのB2Bプラットフォーム）のサービスデザイナーTamaraが、サービスデザインを社内業務の改善から事業戦略の形成へと広げた事例。現地の知見が十分にない状況でも新市場へ迅速に参入するため、①再利用・拡張できる市場参入プロセス、②早期に顧客への共感と理解を深めるツール、③チームの認識をそろえ戦略を共創する場、の3つの仕組みを構築した。",
-      // 概要の横に出す写真（省略時は photos の2・3枚目）
-      overviewPhotos: ["photos/s01/07.jpg", "photos/s01/08.jpg"],
-      // 本文中の **太字** は太字、==文字== はハイライト（重要箇所）として表示されます
-      points: [
-        {
-          title: "市場参入フレームワーク「Start a New Country」",
-          body: "初期のフランス・ドイツ・オランダへの展開では共通の進め方がなく混乱し、ドイツではディスカバリー前の準備だけで12か月を要した。イタリア進出を機に、サービスデザインの「探索・定義・開発・提供」のプロセスで、国の立ち上げに必要な100以上の活動・担当・依存関係を整理した。\n\n法務からマーケティングまでの10ブロックで構成し、最初の「市場調査」「事業計画」「実行可否判断」を本格投資前の関門に。Tamaraの狙いは、**ディスカバリーを省略できない最初の工程にすること**だった。ツールは誰もが初日から開いて更新できるGoogleスプレッドシート。",
-          listLabel: "成果",
-          list: [
-            "市場投入までの期間が**12か月から6か月**に短縮",
-            "9か国・26チームが共通の計画で連携",
-            "経営層がB2B市場参入の標準として承認",
-            "ほかの5チームにも自発的に普及",
-          ],
-          photos: ["photos/s01/11.jpg", "photos/s01/12.jpg", "photos/s01/13.jpg", "photos/s01/15.jpg"],
-        },
-        {
-          title: "顧客への共感を生むツール",
-          body: "チームは対象市場から地理的にも文化的にも離れている。フレームワークを「エンジン」とするなら、顧客理解はその「燃料」。地方の大規模整備拠点から都市部の小さな整備工場まで“極端なユーザー”を訪ね、インタビューと現場観察を行った。\n\nJobs to Be Done とカスタマージャーニーマップを一つの図に統合し、チーム全体が**「整備工場オーナーの立場で考える」ための共通認識**を持てるようになった。",
-          listLabel: "イタリアで見えたこと",
-          list: [
-            "整備工場は、正面から競争するよりも専門性によって差別化する",
-            "競合する工場同士でも、家族のような親密な関係を築く",
-            "看板やバナー、立て看板など、物理的な接点が集客に重要",
-          ],
-          photos: ["photos/s01/16.jpg", "photos/s01/18.jpg", "photos/s01/19.jpg", "photos/s01/21.jpg"],
-        },
-        {
-          title: "共創による戦略づくりと合意形成",
-          body: "マーケティング・プロダクト・エンジニアリング・営業が参加するワークショップで、バリュープロポジションキャンバスを使い「優先ニーズは妥当か／既存機能で解決できる課題は何か／提供内容をどこで調整すべきか／新たに開発すべき機能は何か」を検討。\n\n価格や配送条件は機密で直接比較できないため、顧客インタビューから競合の利用実態を把握し、どの競合も十分に満たしていないニーズを発見。明確なUSPと市場投入戦略を策定し、何より関係チームが**共通の方向性と当事者意識**を持てた。",
-          photos: ["photos/s01/23.jpg", "photos/s01/24.jpg"],
-        },
-        {
-          title: "AI時代に、誰がディスカバリーを守るのか",
-          body: "Tamaraが最も誇りに感じているのは、フレームワーク自体ではなく、「私たちは本当にそれを知っているのか」「誰か実際に顧客と話したのか」と問い直す姿勢が広がったことだった。\n\n==AIが短時間で自信に満ちた回答を生成できる時代だからこそ、ディスカバリーでは、**まだ誰も書き残していない現場の知識や経験**を探す必要がある。==\n\n最後に投げかけられたのは、実行がAIによって加速する世界で、誰が顧客理解と探索のプロセスを守るのか、という問いだった。",
-          photos: ["photos/s01/25.jpg"],
-        },
-      ],
-      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
-      learnings: [
-        { hl: 1, head: "書かれていない、知識を探しに行く", headEn: "Go find the unwritten",
-          text: "AIが“それらしい平均的な答え”を数秒で返す時代だからこそ、ディスカバリーの価値は、まだ誰も書き残していない現場の知識を自分の足で探しにいくことにある。",
-          en: "When AI returns a confident but average answer in seconds, the real value of discovery is going out to find the field knowledge nobody has written down yet." },
-      ],
-      insights: [
-        "自分たちの最大の「渋滞」はどこか？ どのプロセスなら可視化できるか？",
-        "実際の顧客の声が計画の前提を覆したのは、最後にいつだったか？",
-        "戦略が決まる場に、誰がいないか？",
-      ],
-      photos: Array.from({ length: 26 }, (_, i) => `photos/s01/${String(i + 1).padStart(2, "0")}.jpg`),
-      // 英語版：points は順番で日本語版と対応（写真は日本語版のものを使用）
-      en: {
-        keyPhrase: "Complexity is not a reason to skip empathy. It's the reason empathy exists.",
-        summary:
-          "Tamara, a service designer at Autodoc Pro — the B2B digital platform of European car parts retailer Autodoc — shared how service design grew from improving internal work into shaping business strategy. To enter unfamiliar markets at speed without local expertise, the team built three levers: (1) a scalable market entry process, (2) tools that build customer empathy early, and (3) a space for team alignment and co-created strategy.",
-        points: [
-          {
-            title: "Market Entry Framework: “Start a New Country”",
-            body: "Early launches in France, Germany and the Netherlands were chaotic, with no shared structure — Germany took 12 months just to get started, before discovery. For Italy, Tamara built a framework using the service design process (discover, define, develop, deliver), mapping 100+ activities with owners, priorities and dependencies.\n\nIt has 10 blocks, from legal to marketing. The first three — market discovery, business plan, go/no-go — form a gate before serious spending. Her “hidden agenda”: **make discovery the unskippable first step**. The format is a Google Sheet, on purpose, so everyone can open and update it on day one.",
-            listLabel: "Results",
-            list: [
-              "Time to market dropped from **12 to 6 months**",
-              "26 teams in 9 countries worked from one plan",
-              "Signed off at C-level as the B2B market entry standard",
-              "Five other teams adopted it unprompted",
-            ],
-          },
-          {
-            title: "Customer Empathy Tools",
-            body: "Teams are physically and culturally distant from target markets. If the framework is the “engine”, customer insight is the “fuel”. The team interviewed “extreme users” — from a large countryside super center to a small city workshop — and spent days observing garage workflows.\n\nA hybrid framework combined the customer journey map with jobs to be done in one visual, helping every team **“put on the garage owner hat”** and build shared understanding.",
-            listLabel: "What we learned in Italy",
-            list: [
-              "Garages specialize and differentiate rather than compete head to head",
-              "Relationships are close and family-like, even among competitors",
-              "Physical touchpoints — signs, banners, A-frames — are vital for acquisition",
-            ],
-          },
-          {
-            title: "Co-Creation and Alignment",
-            body: "In a workshop with marketing, product management, engineering and sales, the value proposition canvas was used to validate prioritized needs and decide which existing features solve them, where to adjust the offer, and what new features to build.\n\nSupplier prices and terms are confidential, so competitors were studied from the customer side through interviews, combined with the team’s domain expertise — revealing needs nobody serves well. The outcome: a clear USP, a go-to-market strategy, and above all **alignment and shared ownership**.",
-          },
-          {
-            title: "In the age of AI, who protects discovery?",
-            body: "The framework spread to five other teams and sparked questions like “Do we actually know this?” and “Has anyone talked to them?” Tamara is proudest of this doubt — not the framework itself.\n\n==AI gives confident but merely average answers in seconds, with no “man with oil in his hands”. Discovery must therefore become **the search for what nobody has written down**.==\n\nHer closing question: in a world where AI accelerates execution, who is protecting the discovery layer?",
-          },
-        ],
-        insights: [
-          "Where is our biggest traffic jam — and which process can we make visible?",
-          "When did a real customer quote last challenge an assumption in our planning?",
-          "Who is not in the room when our strategy gets decided?",
-        ],
-      },
-    },
     {
       id: "s02",
       title: "The Good Designer: Rethinking Service Design in the Age of AI",
@@ -332,370 +233,6 @@ window.REPORT = {
           "As entry-level tasks disappear, decide how our team creates experiences where juniors can build judgment.",
         ],
       },
-    },
-    {
-      id: "s03",
-      title: "From Data Dump to Change Agent - How Digital Product Passport Can Actually Change Consumer Behavior",
-      speaker: "Peter Post",
-      org: "Circular Experience — Founder",
-      day: "Day 3",
-      time: "—",
-      track: "Circular economy / DPP",
-      cover: "photos/s03/cover.jpg",
-      coverFull: true,
-      cardCover: "photos/s03/card-speaker.jpg",
-      cardBg: "#ffffff",
-      keyPhrase: "データは機械のために。サービスは人のために。",
-      summary:
-        "登壇者は、ドイツ・ヴィースバーデンを拠点に、サーキュラーエコノミー（循環型経済）のサービスデザインを手がけるPeter Post。テーマは、EUで導入が進むデジタル製品パスポート（DPP）――製品の原材料調達から製造、流通、使用、廃棄・リサイクルまでの情報をデジタルデータとして記録・追跡する仕組み――を、消費者の行動を変えるきっかけにできるか。\n\n「資源を採取し、消費し、廃棄する」リニア型経済から循環型経済へ移るには、消費者が購入・消費するだけでなく、修理・再利用・共有に参加できるようにする必要がある。そのためには、==循環型の行動をより少ない手間で、より楽しく実践できるようにすること==が重要だという。修理や共有そのものは難しくない。リニア型経済があまりに便利になったため、人々が実践しなくなっているだけだ。",
-      points: [
-        {
-          title: "事例：Circular Classroom",
-          blocks: [
-            { photos: ["photos/s03/01.jpg"], text: "世界的な学校用家具メーカーと、経営者および製品開発責任者を交えてデザインスプリントを実施。DPPのデータを活用して新たなサービスを構想することが目的だった。当時、家具に必要なDPPのデータ項目はまだ定義されていなかった。" },
-            { text: "4週間で「Circular Classroom」というコンセプトを開発。サービスの提供価値は、「より少ない家具で、より多様な教え方を実現する」こと。" },
-            { text: "車のフリート管理のように、家具を一群の資産として管理する。施設管理者は、グループ学習、デジタル学習、試験などに合わせて構成を変えられ、修理や再生の計画にもつなげられる。", list: ["従来は「より多く製造すること」で収益を得ていたメーカーにとっても、経済的な魅力のある構想になった。", "提案では、サステナビリティそのものよりも経済的なメリットを訴求した。「環境を大切にしたい」という意識が、そのまま行動につながるとは限らないためだ。"] },
-          ],
-        },
-        {
-          title: "循環型サービスのパターンライブラリ",
-          blocks: [
-            { photos: ["photos/s03/02.jpg"], text: "==循環型サービスに使えるサービス／UXのパターン集==がなかったため、登壇者のスタジオが独自に構築した（[circular-experience.org](https://www.circular-experience.org/)）。\n\n80以上のパターンを収録し、オンラインで無料公開。約15,000件の訪問と、数千件のダウンロードがある。アイデア出し、ワークショップのカード教材、短時間でのプロトタイピングなどに使える。" },
-            { text: "紹介されたパターンの例：", list: ["**アップグレード**：電動アシスト自転車の速度パッケージなどを、製品価値を高める選択肢として提示する。", "**共有による購入費用の回収**：自転車を他者に貸し出し、収入を得る。", "**比較時のフレーミング**：比較項目の選び方で選択を誘導する。講演ではダークパターンとして紹介され、使うかどうかは聴衆の判断に委ねられた。"] },
-            { text: "「人々に伝わる共通言語はCO₂ではなく、お金である」。ライブラリの利用者には、利用の見返りとしてフィードバックを求めている。" },
-          ],
-        },
-        {
-          title: "なぜEUはDPPを推進するのか",
-          blocks: [
-            { photos: ["photos/s03/03.jpg", "photos/s03/04.jpg"], row: true, text: "==世界の資源循環率はわずか7〜8％==で、採取された資源の90％以上が最終的に廃棄・焼却されている。EUは、==2030年までに循環率を12％から24％へ倍増させ==ることを目指している。" },
-            { text: "資源循環は、排出量の削減に加え、政治的リスクの高い国からの資源輸入への依存を減らすことにもつながる。" },
-            { photos: ["photos/s03/05.jpg"], text: "==リサイクルは、価値を維持するうえでは最も弱い選択肢==と位置づけられた。高級電動アシスト自転車の場合、リサイクル時の価値は約50〜150ユーロだが、再生品として販売すれば約2,000〜3,000ユーロになる。" },
-          ],
-        },
-        {
-          title: "DPPとは何か",
-          blocks: [
-            { photos: ["photos/s03/06.jpg"], text: "鉄鋼、バッテリー、繊維製品などから法的な導入義務が始まる。ドイツでは2030年までに500万社以上が公開を求められ、ほぼすべての製品にDPPが必要になる見込み。アパレル分野だけでも、年間620億件のパスポートが必要になると予測される。" },
-            { text: "ドイツの中小企業からは、データ収集の負担に対する不満が出ている。DPPはQRコードやRFIDで製品とひもづけられ、製品の近くでアクセスできる必要がある。" },
-            { text: "重要なのは、**DPPのデータは機械のためのもの、サービスは人のためのもの**という区別。DPPは、あらゆる製品利用者に直接つながる接点になる。単なるマーケティングチャネルとして使われる可能性もあるが、登壇者は、消費者の行動を変えるきっかけになり得ると考えている。" },
-          ],
-        },
-        {
-          title: "プロトタイプと消費者調査",
-          blocks: [
-            { photos: ["photos/s03/07.jpg"], text: "**Nara Veroとの自転車プロトタイプ**\n\nドイツのDPPツール提供企業「Nara Vero」と制作。ブランドが売り込むのではなく、自転車自身が「使い方に変化はあった？」と問いかけ、必要なアクセサリーやアップグレードを一緒に見つける。フレームをさらに3〜4年使い続けることを目指す。" },
-            { photos: ["photos/s03/08.jpg"], text: "**Consumers Internationalとの消費者調査**\n\n世界的な消費者団体との取り組み。DPP研究の92％が技術に関するもので、消費者を対象とした研究はなかった。" },
-            { photos: ["photos/s03/09.jpg", "photos/s03/10.jpg", "photos/s03/11.jpg", "photos/s03/12.jpg"], row: true, text: "スマートフォンを題材にプロトタイプを制作し、ドイツの1,000人を対象に調査を実施。提示した利用例は次のとおり。", list: ["環境・社会面のフットプリントの確認（例：コンゴ民主共和国から調達される銅）", "修理のしやすさの確認、交換部品の入手", "地域の修理支援へのアクセス", "認証付きの中古販売"] },
-            { photos: ["photos/s03/13.jpg"], text: "**1. DPPの価値は、購入時だけではない**\n\n人々の関心が高いのは、==使い終わるときの対応、再販売価格、リサイクル、修理など。==購入後のライフサイクル全体を支援する必要がある。" },
-            { photos: ["photos/s03/14.jpg"], text: "**2. 情報量よりも、行動につながる支援が重要**\n\n利用者が求めていたのは、DIY修理の手順、必要な工具、修理の選択肢など。保証の詳細への関心は、それほど高くなかった。" },
-            { photos: ["photos/s03/15.jpg"], text: "**3. 透明性だけでは不十分**\n\n情報を開示するだけでなく、その意味を解釈し、意思決定を支援する必要がある。人々は製品の仕組みを学ぶことよりも、「次に何をすればよいか」を知りたがっている。" },
-            { photos: ["photos/s03/16.jpg"], text: "**4. 製品ごとに分かれたパスポートでは使いにくい**\n\n家庭には数千もの製品があるため、取扱説明書なども含めて一元管理できる統合型のパスポートが求められる。\n\n会場でDPPを知っている参加者は少数だった。EUが法律として導入を進めるため、サービスデザイナーの仕事は大きく広がる。" },
-          ],
-        },
-        {
-          title: "将来のサービスアイデア",
-          blocks: [
-            { photos: ["photos/s03/17.jpg", "photos/s03/18.jpg"], row: true, text: "調査結果をもとに、スタジオが描いた投機的なアイデア。適切なサービスは業界や製品によって異なり、初期のDPPサービスの多くは基本的な機能にとどまるだろうという。" },
-            { photos: ["photos/s03/19.jpg"], text: "**所有製品をまとめるウォレット／ダッシュボード**\n\n使っていない製品、知らなかった機能、売却できる付属品などを見つける。" },
-            { photos: ["photos/s03/20.jpg"], text: "**自ら不調に対処する製品**\n\n予知保全によって故障を未然に防ぐ。" },
-            { photos: ["photos/s03/21.jpg"], text: "**自ら貸し出される製品**\n\n使っていない時間に他者へ貸し出す。ドイツ人の78％が、近隣住民との園芸用品の共有に前向きだという。" },
-            { photos: ["photos/s03/22.jpg"], text: "**家庭内資産の価値トラッカー／マテリアルバンキング**\n\n所有物にどれだけの金銭的価値が眠っているかを可視化する。素材や部品を循環の仕組みに戻し、対価を受け取る。" },
-            { photos: ["photos/s03/23.jpg"], text: "**進化する製品**\n\n寿命を延ばすための投資によって、製品の価値を高める。" },
-          ],
-        },
-        {
-          title: "質疑応答：DPPのデータは誰が更新するのか",
-          blocks: [
-            { text: "質問：製品情報はすぐに古くなるが、誰が更新を担うのか。" },
-            { text: "回答の要旨：", list: ["修理店などのサービス事業者が、パスポートの一部にアクセスし、編集できるようにする必要がある。ただし、まだ十分に認知されておらず、今後1年ほどで動きが進む見込み。", "データには、知的財産として非公開にすべきものと、公開が義務づけられるものがある。", "EUの中央リポジトリが数か月前に稼働し、企業が倒産してもデータが残る。", "修理履歴などの更新には、修理事業者のような信頼できる第三者による検証が必要。習慣として定着するには数年かかる。"] },
-          ],
-        },
-        {
-          title: "まとめ",
-          blocks: [
-            { text: "DPPを単なる「製品データの保管場所」で終わらせず、==修理・再利用・共有・再販売を簡単に実行できるサービスへ==変えることが重要。" },
-            { text: "環境への配慮だけを訴えるのではなく、==経済的なメリットや便利さ、楽しさを通じて、循環型の行動を自然に選べるようにすること==が、サービスデザインの役割である。" },
-          ],
-        },
-      ],
-      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
-      learnings: [
-        { hl: 1, head: "正しさより、手軽さと楽しさ", headEn: "Easy and fun beats right",
-          text: "循環型の行動は、正しさを訴えるだけでは定着しない。手間を減らし、楽しさを足すことで、はじめて人は動き出す。",
-          en: "Circular behavior doesn't stick just because it's right. People start acting when it takes less effort and brings more joy." },
-        { hl: 2, head: "道具がなければ、つくって配る", headEn: "No tool? Build it and share it",
-          text: "循環型サービスのためのパターン集が存在しないなら、自分たちでつくり、無料で公開する。共通の道具が、領域全体の変化を早める。",
-          en: "When no pattern library for circular services existed, the studio built one and gave it away. Shared tools speed up change for the whole field." },
-        { hl: 5, head: "リサイクルは、最後の手段", headEn: "Recycling is the last resort",
-          text: "リサイクルは製品の価値を壊してしまう。高級e-bikeならリサイクルで50〜150ユーロ、再生すれば2,000〜3,000ユーロ。価値を残す選択肢から先に設計する。",
-          en: "Recycling destroys value: a premium e-bike is worth €50–150 recycled but €2–3k refurbished. Design for the options that keep value first." },
-        { hl: 6, head: "出番は、買った後にある", headEn: "The real moment is after purchase",
-          text: "人々が知りたいのは、購入時の情報より、使い終わるときや再販売、修理のこと。サービスデザインの余地は、購入後のライフサイクルに広がっている。",
-          en: "People care less about the point of purchase than about end of use, resale and repair. The space for service design lies in the lifecycle after the sale." },
-        { hl: 7, head: "データを、行動に変える", headEn: "Turn data into action",
-          text: "データは機械のため、サービスは人のため。DPPを情報の保管庫で終わらせず、修理・再利用・共有・再販売をすぐ実行できるサービスに変える。",
-          en: "Data is for machines; services are for people. Don't let a passport end as a data store — turn it into services that make repair, reuse, sharing and resale easy." },
-        { hl: 8, head: "CO₂より、お金で語る", headEn: "Speak money, not CO₂",
-          text: "人はCO₂ではなく、お金という言葉で理解する。環境への配慮だけを訴えず、経済的なメリットや便利さ、楽しさで、循環型の行動を自然に選べるようにする。",
-          en: "People understand money, not CO₂. Instead of appealing to the environment alone, use economic benefit, convenience and joy so circular choices feel natural." },
-      ],
-      insights: [
-        "サステナビリティ関連の提案では、環境価値だけでなく、ユーザーにとっての金銭的メリットや手軽さに翻訳して伝える。",
-        "ジャーニーを購入で終わらせず、使い終わり・修理・再販売までを設計範囲に含めて描いてみる。",
-        "circular-experience.org のパターン集を、ワークショップのアイデア出しに試してみる。",
-      ],
-      photos: Array.from({ length: 23 }, (_, i) => `photos/s03/${String(i + 1).padStart(2, "0")}.jpg`),
-      en: {
-        keyPhrase: "Data is for machines. Services are for people.",
-        summary:
-          "Peter Post runs a studio in Wiesbaden, Germany, that does service design for the circular economy. His question: can the EU's digital product passport (DPP) — a digital record that tracks a product's whole lifecycle, from sourcing and manufacturing to use, disposal and recycling — become a change agent for consumer behavior?\n\nMoving from a linear take-consume-waste economy to a circular one means empowering consumers beyond consumption, so they can repair, reuse and share. That requires ==making circular practices take less effort and bring more joy==. Repair and sharing aren't hard; people simply stopped practicing them because the linear economy became so easy.",
-        points: [
-          { title: "Example: Circular Classroom", blocks: [
-            "A design sprint with a global school furniture maker, working with the owner and the head of product development. The goal was to build services on the data in a DPP — even though the data points for furniture had not yet been defined.",
-            "After four weeks, the result was a circular classroom concept. The service promise: “more ways to teach with less furniture”.",
-            { text: "Like fleet management for cars, furniture is managed as a fleet. Facility managers configure it for group work, digital work or tests, and plan repair and refurbishment.", list: ["It is economically attractive even for a manufacturer that normally earns by producing more.", "The team argued with economic benefits rather than sustainability, because people say they care but rarely act on it."] },
-          ] },
-          { title: "Circular Service Pattern Library", blocks: [
-            "==No library of service/UX patterns for circular services== existed, so the studio built one ([circular-experience.org](https://www.circular-experience.org/)).\n\nIt has more than 80 patterns, is free online, and has about 15,000 visits and thousands of downloads. Use it for ideation, workshops (like method cards) and quick prototypes.",
-            { text: "Example patterns:", list: ["**Upgrading**: an e-bike speed package framed as an increase in the bike's value.", "**Sharing and refinancing**: renting out a bike to earn back its cost.", "**Framing in product comparison**: choosing comparison criteria so the circular product wins. Labeled a dark pattern; the audience was left to judge its use."] },
-            "“Money is the currency people understand, not CO₂.” The studio asks for feedback in exchange for using the library.",
-          ] },
-          { title: "Why the EU Is Doing This", blocks: [
-            "==Global circularity is only 7–8%==, and over 90% of extracted material ends up thrown away or burned. The EU aims ==to double circularity from 12% to 24% by 2030==.",
-            "Circularity also cuts emissions and reduces dependence on material imports from politically risky countries.",
-            "==Recycling is the weakest option for keeping value.== A premium e-bike is worth about €50–150 recycled, but €2,000–3,000 refurbished.",
-          ] },
-          { title: "What a DPP Is", blocks: [
-            "DPPs are a legal requirement, starting with iron and steel, batteries and textiles. Over 5 million German companies must publish them by 2030, and nearly all products are expected to need one. Apparel alone is expected to need 62 billion passports a year.",
-            "Small and medium companies in Germany are unhappy about the data-collection burden. A DPP is linked to a product via QR code or RFID and must be accessible close to the product.",
-            "The key distinction: **DPP data is for machines; services are for people.** The DPP gives a direct channel to every product user. It could be misused as a marketing channel, but the speaker sees it as a possible change agent.",
-          ] },
-          { title: "Prototypes and the Consumer Study", blocks: [
-            "**Bike prototype with Nara Vero**\n\nBuilt with Nara Vero, a German DPP tool provider. Instead of the brand selling to you, the bike asks whether your use has changed, and together you find the accessories or upgrades you need — so the frame lasts 3–4 more years.",
-            "**Consumer study with Consumers International**\n\nA project with the global consumer advocacy organization. 92% of DPP research is about technology, with no studies on consumers.",
-            { text: "A smartphone prototype and a study with 1,000 users in Germany. Use cases shown:", list: ["Sustainability footprint (e.g. copper from the DR Congo)", "Repairability and spare parts", "Access to local repair help", "Certified resale"] },
-            "**1. DPPs matter beyond the point of purchase**\n\nPeople care most about ==end of use, resale value, recycling and repair.== Services need to support the whole lifecycle after purchase.",
-            "**2. Less information, more action**\n\nPeople want DIY repair guidance, tools and repair options. Warranty details were less interesting.",
-            "**3. Transparency is not enough**\n\nPeople want interpretation and decision support. Rather than learning how products work, they want to know what to do next.",
-            "**4. Separate passports per product don't work**\n\nWith thousands of products at home, people want an integrated passport that includes things like manuals.\n\nFew attendees had heard of DPPs. Because the EU makes them law, there is a lot of work ahead for service designers.",
-          ] },
-          { title: "Speculative Service Ideas", blocks: [
-            "Speculative ideas the studio developed from the study. The right services vary by industry and product, and many first DPP services will cover only the basics.",
-            "**Integrated wallet / dashboard**\n\nConnect owned products to find unused items, unknown features and sellable accessories.",
-            "**Products that heal**\n\nPredictive maintenance that fixes things before they break.",
-            "**Products that rent themselves out**\n\nLend items to others when unused. 78% of Germans would share garden equipment with neighbors.",
-            "**Household value tracker / material banking**\n\nShow the money tied up in owned items, and return materials and components into the cycle for money.",
-            "**Products that evolve**\n\nInvesting in extra lifetime raises a product's value.",
-          ] },
-          { title: "Q&A: Who Keeps DPP Data Updated?", blocks: [
-            "Question: product data goes out of date quickly — who updates it?",
-            { text: "Answer, in short:", list: ["Service companies such as repair shops should be able to access and edit parts of the passport. Few know this yet; it should move within the next year.", "Some data is intellectual property and stays private, while some must be published.", "The EU central repository launched a few months ago, so data persists even if a company goes bankrupt.", "Edits need a trusted third party, such as a repairer, to verify repairs. Making this a habit will take years."] },
-          ] },
-          { title: "Wrap-up", blocks: [
-            "Don't let the DPP end as a mere store of product data — ==turn it into services that make repair, reuse, sharing and resale easy==.",
-            "Rather than appealing to the environment alone, the role of service design is ==to make circular behavior the natural choice through economic benefit, convenience and joy==.",
-          ] },
-        ],
-        insights: [
-          "In sustainability proposals, translate environmental value into money and convenience for the user.",
-          "Don't end journeys at purchase — include end of use, repair and resale in the scope we design.",
-          "Try the circular-experience.org pattern library for ideation in a workshop.",
-        ],
-      },
-    },
-    {
-      id: "s04",
-      title: "Designing for Planetary Wellbeing",
-      speaker: "Pietertje Doyle / Jeroen den Uijl", org: "Sopra Steria Next",
-      cardCover: "photos/s04/card-speaker.jpg",
-      cardBg: "#f8eedc",
-      day: "Day 1", time: "16:00", track: "Sustainability",
-      keyPhrase: "ユーザーの外側にいる“もう一人のステークホルダー”。",
-      summary: "人間中心から生命中心へ。環境や将来世代をステークホルダーとして扱うためのフレームワークが紹介された。（仮テキスト）",
-      points: [
-        { title: "Non-human persona", body: "自然環境を代弁するペルソナを設定する。" },
-        { title: "長い時間軸", body: "10年後・50年後のシナリオで評価する。" },
-        { title: "トレードオフの可視化", body: "利便性と環境負荷を同じ図で議論する。" },
-      ],
-      insights: ["ワークショップに“将来世代”の視点カードを追加する。", "環境負荷をジャーニーの1レイヤーとして描く。"],
-      photos: phs("s04", 5),
-    },
-    {
-      id: "s05",
-      title: "Designing Influence: Bringing Service Design into the Boardroom",
-      speaker: "Monica Dalla Riva",
-      org: "Deutsche Telekom AG — SVP & Chief Design Officer",
-      day: "Day 2",
-      time: "—",
-      track: "Leadership / Design strategy",
-      cover: "photos/s05/cover.jpg",
-      coverFull: true,
-      cardCover: "photos/s05/card-speaker.jpg",
-      cardBg: "#ffffff",
-      keyPhrase: "伝わらないこと自体が、デザイナーの解くべき課題である。",
-      summary:
-        "Deutsche TelekomでSVP兼チーフデザインオフィサーを務めるMonica Dalla Rivaによる基調講演。サービスデザインが個別の課題解決にとどまらず、経営の意思決定に影響を与える存在になるには何が必要かを語った。\n\nWhirlpool、Samsung、3M、Deutsche Telekomと歩んだキャリアをもとに、反脆弱性、経営層に伝わる言葉、課題が固まる前からの関与、実物で見せる力、そしてAI時代のデザインの役割までを、19のテーマで整理した。",
-      overviewPhotos: ["photos/s05/03.jpg"],
-      points: [
-        {
-          title: "デザインを、経営の意思決定へ",
-          blocks: [
-            { photos: ["photos/s05/05.jpg"], text: "サービスデザインが、個別の課題解決にとどまらず、経営判断に影響を与える存在になるための講演。\n\n目的は役職や「席」を得ることではなく、==人々と事業にインパクトを生むこと==である。" },
-            { photos: ["photos/s05/06.jpg"], text: "顧客は一人ひとりの人間であり、組織の意思決定はその体験を左右する。悪い体験は約60人に、良い体験は約12人に共有される。だからこそ、顧客の立場を代弁するデザインが意思決定に関わる必要がある。\n\n財務・法務・人事・営業などと違い、デザインの必要性は自動的には認められない。企業から「必要だ」と思われる価値を示すことが出発点になる。" },
-          ],
-        },
-        {
-          title: "キャリアと、反脆弱性",
-          blocks: [
-            { photos: ["photos/s05/07.jpg"], text: "**Whirlpool → Samsung → 3M → Deutsche Telekom**\n\n家電ではテクノロジーと顧客体験の接点を、Samsungでは携帯電話からスマートフォンへの転換を通じて、顧客行動が市場を変える力を学んだ。3Mでは、ポスト・イットの色変更のような仕事でも約10件の特許が関わり、技術を人々にとって意味のある課題と結び付ける重要性を実感した。\n\nDeutsche Telekomでは、会社を顧客中心へ変えることを期待された。ただし、一人のデザイン責任者だけで組織全体を変えることはできない。" },
-            { photos: ["photos/s05/08.jpg"], text: "レジリエンスが「耐えて元に戻る力」なら、**反脆弱性**は「変化や混乱を通じて、より強くなる力」。\n\nデザイナーの課題解決の方法論、微かな兆候を捉える力、未開拓領域やリソース不足を活かす力が、その土台になる。計算されたリスクを取ると、学びが生まれ、学びがエネルギーに、エネルギーが推進力に、推進力が変化につながる。" },
-          ],
-        },
-        {
-          title: "経営の場に入る",
-          blocks: [
-            { photos: ["photos/s05/09.jpg"], text: "「なぜ経営の場にいたいのか」を明確にする。目指すのは地位ではなく、人々へのインパクトである。\n\nデザインの専門用語ではなく、経営層が理解できる言葉で話す。多国籍チームでイタリア語ではなく英語で話すように。==伝わらないこと自体を、デザイナーが解くべき課題として捉える。==" },
-            { photos: ["photos/s05/10.jpg"], text: "デザインの価値は、解決策をつくることだけではない。意思決定が顧客や事業にもたらす影響を理解し、**より良い判断を、より早く**下せるよう支えることにある。\n\n上級管理職が間接情報だけに頼らず、顧客と直接話す機会をつくることも、そのための取り組みになる。" },
-            { photos: ["photos/s05/11.jpg"], text: "デザインを、依頼に応えて解決策を提供する機能から、事業の方向性に貢献する戦略的な機能へと位置付け直す。単なる「ソリューション提供者」ではなく、戦略的なインパクトを生む存在として見られることが重要。" },
-          ],
-        },
-        {
-          title: "影響力をつくる",
-          blocks: [
-            { photos: ["photos/s05/12.jpg"], text: "影響力は役職ではなく、課題や方針が固まる前の議論に参加することで生まれる。\n\n分断された顧客体験を改善する「One Experience」は3年前に始まり、多くの国・関係者との調整が必要だった。良い解決策をつくることと同じくらい、理解と受容を得ることが重要。イノベーションの課題は、イノベーションがどう理解されるかにある。" },
-            { photos: ["photos/s05/13.jpg"], text: "デザインの理念や価値観だけでは、意思決定にはつながらない。経営の場で問われるのは予算・時間・リソース。「何を大切にするか」に加えて、「実現すると何が変わるか」を伝える。" },
-            { photos: ["photos/s05/14.jpg"], text: "3Mでは、支持を集めるアイデアには、すでにチームと検証済みの解決策が伴っていた。\n\nAIによる「アプリレス・フォン」は、経営幹部がデザイナーを求めたことから始まり、5〜6人が稼働の半分を持ち寄って小さな予算で形にした。MWCの小さなブースでの展示はBloombergに「必見」と取り上げられ、24〜48時間で約10億インプレッションを獲得。4日後、CEOが市場投入を決めた。\n\n教訓は、==言葉で説明するだけでなく、実物を見せて可能性を伝えること==。" },
-            { photos: ["photos/s05/15.jpg"], text: "サービスデザイナーへの他部門からの依頼が増えるなか、どこまでを担い、何が必要かを交渉することも重要になる。Deutsche Telekomでは約4年前、エコシステムをデザインするためにサービスデザイナーを大規模に採用した。" },
-          ],
-        },
-        {
-          title: "信頼を築き、リードする",
-          blocks: [
-            { photos: ["photos/s05/16.jpg"], text: "顧客を代弁する立場から積極的に発言し、「その判断は顧客の役に立つか」と問い続ける。煙たがられることがあっても、発売後に問題が表面化するより、発売前に問いを立てる方がよい。" },
-            { photos: ["photos/s05/17.jpg"], text: "黄金律は「**100を約束し、105を届ける**」。約束したことを確実に実行し、期待を少し上回る成果を届けることが、次の仕事や判断への信頼を築く。" },
-            { photos: ["photos/s05/18.jpg"], text: "デザインの成果を、戦略や事業へのインパクトとして伝える。エンジニアリングやマーケティングも「理解されていない」と感じている。デザインだけを特別視せず、部門を超えた共通言語を見つけることが重要。" },
-            { photos: ["photos/s05/19.jpg"], text: "戦略・オペレーション・テクノロジー・財務・リスク・ガバナンスを理解し、デザインの判断を事業全体の文脈に置く。\n\n早い段階からビジネスに近づくことが大切。Monica自身も、CFOや事業責任者に18か月間同行して学んだ。" },
-          ],
-        },
-        {
-          title: "不確実性と、デザインの未来",
-          blocks: [
-            { photos: ["photos/s05/20.jpg"], text: "戦略との整合性、使えるリソース、予算を事前に確認し、チームが取り組める条件を整える。リーダーが「皆を支える」と言えることが、挑戦の土台になる。" },
-            { photos: ["photos/s05/21.jpg"], text: "「問題を見つけて解決する」だけでなく、新しい機会を生み出す姿勢へ。機会を形にして展開し、結果から学び、適応する。" },
-            { photos: ["photos/s05/22.jpg"], text: "COVIDはデジタルの普及を約15年早めた。生成AIは制作を速めるだけでなく、消費者の行動や、音声・対話型の体験も変えていく。\n\n==制作が速くなるほど、「何を、なぜつくるか」を判断する上流の戦略的活動が重要になる。==すべての解決策に意味があるわけではないからこそ、サービスデザインが経営判断に関わる必要がある。" },
-            { photos: ["photos/s05/23.jpg"], text: "デザイン教育では、ビジネスを学ぶ機会が十分ではない。ミラノ工科大学は、デザインスクールとビジネススクールを組み合わせた修士課程「Strategic Design for Innovation and Transformation」を開設した。" },
-          ],
-        },
-        {
-          title: "質疑応答：チームづくり",
-          blocks: [
-            { text: "着任時、Monicaは「一人では会社を顧客中心にできない」と伝えた。半年経っても参加できた経営会議は3回だけ。そこから、経営層が顧客と直接話す取り組みが生まれた。" },
-            { text: "経営層のビジョンをチームへ伝えるために：", list: ["方向性・基準・期待を明確に伝える。", "年2回のデザインサミットと隔週のミーティングで認識を合わせる。", "フラットで開かれた組織を保ち、誰もが自ら動ける文化を育てる。"] },
-          ],
-        },
-      ],
-      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
-      learnings: [
-        { hl: 1, head: "欲しいのは席ではなく、インパクト", headEn: "Impact, not a seat",
-          text: "経営の場に入ること自体が目的ではない。デザインが目指すのは、人々と事業に実際のインパクトを生むこと。そこから逆算して、関わり方を決める。",
-          en: "Getting into the boardroom isn't the goal. Design is there to create real impact for people and the business — work backward from that." },
-        { hl: 2, head: "伝わらないのも、デザインの課題", headEn: "Not understood? Design it",
-          text: "経営層にデザインが伝わらないなら、それは相手の問題ではなく、デザイナーが解くべき課題。相手の言葉で語り直すところまでが仕事になる。",
-          en: "If the boardroom doesn't understand design, that's not their problem — it's a design problem. Retelling it in their language is part of the job." },
-        { hl: 3, head: "語るより、見せる", headEn: "Show, don't just tell",
-          text: "小さなチームと予算でつくったプロトタイプが、展示を通じて市場投入の判断を動かした。可能性は言葉より、実物のほうが早く伝わる。",
-          en: "A prototype built by a small team on a small budget moved a launch decision. Possibility travels faster as a real thing than as words." },
-        { hl: 4, head: "速くつくれるほど、上流が効く", headEn: "Faster making, stronger front end",
-          text: "AIで制作が速くなるほど、「何を、なぜつくるか」を決める上流の判断が価値を持つ。すべての解決策に意味があるわけではないから。",
-          en: "The faster AI makes production, the more the front end matters — deciding what to build and why. Not every solution is meaningful." },
-      ],
-      insights: [
-        "提案資料に、デザインの価値だけでなく、予算・期間・リソースと事業インパクトを並べて書く。",
-        "方針が固まる前の段階から、関係者との対話に入れる場をつくる。",
-        "説明資料だけで終わらせず、早い段階で触れるプロトタイプを見せて合意をつくる。",
-      ],
-      photos: ["03", ...Array.from({ length: 19 }, (_, i) => String(i + 5).padStart(2, "0"))].map((n) => `photos/s05/${n}.jpg`),
-      en: {
-        keyPhrase: "If the boardroom doesn't understand, it's the designer's problem to solve.",
-        summary:
-          "A keynote by Monica Dalla Riva, SVP and Chief Design Officer at Deutsche Telekom, on what it takes for service design to go beyond solving individual problems and influence executive decision-making.\n\nDrawing on a career through Whirlpool, Samsung, 3M and Deutsche Telekom, she covered 19 themes: anti-fragility, speaking the business language, entering the conversation early, showing rather than telling, and the role of design in the age of AI.",
-        points: [
-          { title: "Design in the Decision Room", blocks: [
-            "How service design can go beyond solving individual problems and influence executive decisions.\n\nThe goal is not a title or a “seat”, but ==impact on people and the business==.",
-            "Customers are people, and organizational decisions shape their experience. A bad experience is shared with about 60 people, a good one with about 12. So design, speaking for the customer, has to be part of decisions.\n\nUnlike finance, legal, HR or sales, design is not a mandatory function. The starting point is showing value that makes the company want it inside.",
-          ] },
-          { title: "Career and Anti-fragility", blocks: [
-            "**Whirlpool → Samsung → 3M → Deutsche Telekom**\n\nHome appliances taught the mix of technology and customer experience. At Samsung, the shift from mobile phones to smartphones showed that customers, not managers, change markets. At 3M, even changing Post-it colors involved about 10 patents — the lesson was to link technology to problems that matter to people.\n\nDeutsche Telekom hired her to help make the company customer-centric. But one design lead alone cannot change a whole organization.",
-            "If resilience means resisting and returning to the original position, **anti-fragility** means growing stronger through disruption.\n\nDesigners are well suited to it: a problem-solving methodology, attention to weak signals, and the ability to use white spots and resource gaps. Calculated risk-taking generates learning, learning becomes energy, energy becomes momentum, and momentum becomes change.",
-          ] },
-          { title: "Inside the Boardroom", blocks: [
-            "Be clear about why you want a seat in the boardroom. The answer is impact on people, not status.\n\nSpeak the business language, not design jargon — like speaking English rather than Italian in a multinational team. ==If the boardroom doesn't understand, treat it as a problem the designer has to solve.==",
-            "Design's value is not only in making solutions. It helps an organization make **a better decision, sooner**, with a clearer understanding of its consequences for customers and the business.\n\nCreating chances for senior leaders to talk with customers directly, instead of relying on secondhand information, is part of that.",
-            "Reposition design from a function that delivers solutions on request to a strategic capability that shapes the direction of the business — a strategic impact player, not just a solution provider.",
-          ] },
-          { title: "Building Influence", blocks: [
-            "Influence is different from a job title. It comes from being in the conversation while the issue is still taking shape.\n\nThe “One Experience” project, started three years ago to fix a fragmented customer experience, involved many countries and stakeholders. Acceptance matters as much as the solution: the problem of innovation is the understanding of innovation.",
-            "Design values alone don't drive decisions. Decision rooms ask about budget, time and resources. Add what will change to what you care about.",
-            "At 3M, winning ideas arrived with formed teams and tested solutions.\n\nThe AI “app-less phone” started with an executive asking for a designer. Five or six people pooled half their time on a small budget. A very small stand at MWC was named a must-see by Bloomberg, drew about 1 billion impressions in 24–48 hours, and four days later the CEO said to bring it to market.\n\nThe lesson: ==show what's possible with the real thing, not only words==.",
-            "With service designers now in high demand from peers, negotiating scope and resources matters. Deutsche Telekom hired service designers massively about four years ago to design ecosystems.",
-          ] },
-          { title: "Earning Trust and Leading", blocks: [
-            "Be a vocal thought leader for the customer and keep asking whether a decision helps customers. Even if it's annoying, it's better before launch than after.",
-            "The golden rule: **promise 100, deliver 105**. Delivering what you promise, and a little more, builds trust for the next project and decision.",
-            "Convey design's results as impact on strategy and business. Engineering and marketing also feel misunderstood, so don't treat design as special — find a common language across functions.",
-            "Understand strategy, operations, technology, finance, risk and governance, and place design decisions in the context of the whole business.\n\nGet close to the business early. Monica herself spent 18 months shadowing the CFO and business leaders.",
-          ] },
-          { title: "Uncertainty and the Future of Design", blocks: [
-            "Check strategy fit, resources and budget up front so the team has what it needs. A leader who can say “I have their backs” gives the team room to try.",
-            "Move from problem-solution mode to opportunity mode: generate opportunities, roll them out, then learn and adapt.",
-            "COVID accelerated digital adoption by about 15 years. Generative AI not only speeds production but changes consumer behavior and enables voice and interactive experiences.\n\n==The faster production gets, the more the strategic front end — deciding what to make and why — matters.== Not every solution is meaningful, which is why service design should sit in the boardroom.",
-            "Design schools don't cover business enough. Politecnico di Milano launched a Master in Strategic Design for Innovation and Transformation, combining its design and business schools.",
-          ] },
-          { title: "Q&A: Building the Team", blocks: [
-            "When she joined, Monica said one person can't make a company customer-centric alone. After six months she had attended only three leadership meetings. That led to initiatives for leaders to speak with customers directly.",
-            { text: "Translating the boardroom vision to the design team:", list: ["Communicate directions, standards and expectations clearly.", "Align through two design summits a year and bi-weekly calls.", "Keep a flat, open organization where everyone feels empowered."] },
-          ] },
-        ],
-        insights: [
-          "In proposals, put budget, timeline, resources and business impact next to the design value.",
-          "Create ways to join stakeholder conversations before direction is set.",
-          "Don't stop at slides — show a prototype people can touch early to build agreement.",
-        ],
-      },
-    },
-    {
-      id: "s06",
-      title: "The Invisible Backstage: Operations as Design",
-      speaker: "Speaker Name", org: "Organization（仮）",
-      day: "Day 2", time: "11:00", track: "Operations",
-      cardCover: "photos/s06/card-speaker.jpg", cardBg: "#ffffff",
-      keyPhrase: "良い体験は、見えない舞台裏でつくられる。",
-      summary: "フロントの体験改善が続かない原因はバックステージにある。オペレーション設計を巻き込むためのブループリント活用法。（仮テキスト）",
-      points: [
-        { title: "Blueprint を現場と描く", body: "現場スタッフと一緒に描くことで実行可能性が上がる。" },
-        { title: "例外処理こそ設計する", body: "ハッピーパス以外のフローを優先的に描く。" },
-        { title: "従業員体験", body: "EXの改善がCXに波及する。" },
-      ],
-      insights: ["ブループリントの作成に現場担当者を必ず招く。", "例外フローのレビューを定例化する。"],
-      photos: phs("s06", 5),
-    },
-    {
-      id: "s07",
-      title: "Scaling the Connective Tissue: State of Journey Management 2026",
-      speaker: "Anna Yip / Marc Stickdorn / Sayali Bharambe",
-      org: "Smaply / This is Journey Management (the book)",
-      day: "Day 2", time: "14:00", track: "Journey management",
-      cardCover: "photos/s07/card-speaker.jpg", cardBg: "#f8efe6",
-      keyPhrase: "測れるものではなく、意味のあるものを測る。",
-      summary: "サービスデザインの成果をどう測り、どう伝えるか。定量と定性を組み合わせた評価モデルの紹介。（仮テキスト）",
-      points: [
-        { title: "Theory of Change", body: "成果までの因果を仮説として描く。" },
-        { title: "ストーリーで補う", body: "数字に現れない変化をナラティブで伝える。" },
-        { title: "継続的な計測", body: "リリース後も指標を追い続ける体制。" },
-      ],
-      insights: ["プロジェクト開始時に Theory of Change を1枚で描く。", "成果報告に“ユーザーの声”のセクションを必ず入れる。"],
-      photos: phs("s07", 5),
     },
     {
       id: "s08",
@@ -908,19 +445,763 @@ window.REPORT = {
       },
     },
     {
-      id: "s09",
-      title: "Healthcare Journeys Beyond the Hospital Walls",
-      speaker: "Speaker Name", org: "Organization（仮）",
-      day: "Day 3", time: "10:00", track: "Healthcare",
-      keyPhrase: "患者の旅は、病院の外で始まり、外で続く。",
-      summary: "医療体験を病院内に閉じず、家庭・地域・デジタルまで含めて再設計したプロジェクトの紹介。（仮テキスト）",
+      id: "s03",
+      title: "From Data Dump to Change Agent - How Digital Product Passport Can Actually Change Consumer Behavior",
+      speaker: "Peter Post",
+      org: "Circular Experience — Founder",
+      day: "Day 3",
+      time: "—",
+      track: "Circular economy / DPP",
+      cover: "photos/s03/cover.jpg",
+      coverFull: true,
+      cardCover: "photos/s03/card-speaker.jpg",
+      cardBg: "#ffffff",
+      keyPhrase: "データは機械のために。サービスは人のために。",
+      summary:
+        "登壇者は、ドイツ・ヴィースバーデンを拠点に、サーキュラーエコノミー（循環型経済）のサービスデザインを手がけるPeter Post。テーマは、EUで導入が進むデジタル製品パスポート（DPP）――製品の原材料調達から製造、流通、使用、廃棄・リサイクルまでの情報をデジタルデータとして記録・追跡する仕組み――を、消費者の行動を変えるきっかけにできるか。\n\n「資源を採取し、消費し、廃棄する」リニア型経済から循環型経済へ移るには、消費者が購入・消費するだけでなく、修理・再利用・共有に参加できるようにする必要がある。そのためには、==循環型の行動をより少ない手間で、より楽しく実践できるようにすること==が重要だという。修理や共有そのものは難しくない。リニア型経済があまりに便利になったため、人々が実践しなくなっているだけだ。",
       points: [
-        { title: "生活全体を見る", body: "通院以外の時間にこそ課題がある。" },
-        { title: "ケアの連携", body: "家族・地域・医療者の情報共有を設計する。" },
-        { title: "デジタルとの接続", body: "オンラインとオフラインの切れ目をなくす。" },
+        {
+          title: "事例：Circular Classroom",
+          blocks: [
+            { photos: ["photos/s03/01.jpg"], text: "世界的な学校用家具メーカーと、経営者および製品開発責任者を交えてデザインスプリントを実施。DPPのデータを活用して新たなサービスを構想することが目的だった。当時、家具に必要なDPPのデータ項目はまだ定義されていなかった。" },
+            { text: "4週間で「Circular Classroom」というコンセプトを開発。サービスの提供価値は、「より少ない家具で、より多様な教え方を実現する」こと。" },
+            { text: "車のフリート管理のように、家具を一群の資産として管理する。施設管理者は、グループ学習、デジタル学習、試験などに合わせて構成を変えられ、修理や再生の計画にもつなげられる。", list: ["従来は「より多く製造すること」で収益を得ていたメーカーにとっても、経済的な魅力のある構想になった。", "提案では、サステナビリティそのものよりも経済的なメリットを訴求した。「環境を大切にしたい」という意識が、そのまま行動につながるとは限らないためだ。"] },
+          ],
+        },
+        {
+          title: "循環型サービスのパターンライブラリ",
+          blocks: [
+            { photos: ["photos/s03/02.jpg"], text: "==循環型サービスに使えるサービス／UXのパターン集==がなかったため、登壇者のスタジオが独自に構築した（[circular-experience.org](https://www.circular-experience.org/)）。\n\n80以上のパターンを収録し、オンラインで無料公開。約15,000件の訪問と、数千件のダウンロードがある。アイデア出し、ワークショップのカード教材、短時間でのプロトタイピングなどに使える。" },
+            { text: "紹介されたパターンの例：", list: ["**アップグレード**：電動アシスト自転車の速度パッケージなどを、製品価値を高める選択肢として提示する。", "**共有による購入費用の回収**：自転車を他者に貸し出し、収入を得る。", "**比較時のフレーミング**：比較項目の選び方で選択を誘導する。講演ではダークパターンとして紹介され、使うかどうかは聴衆の判断に委ねられた。"] },
+            { text: "「人々に伝わる共通言語はCO₂ではなく、お金である」。ライブラリの利用者には、利用の見返りとしてフィードバックを求めている。" },
+          ],
+        },
+        {
+          title: "なぜEUはDPPを推進するのか",
+          blocks: [
+            { photos: ["photos/s03/03.jpg", "photos/s03/04.jpg"], row: true, text: "==世界の資源循環率はわずか7〜8％==で、採取された資源の90％以上が最終的に廃棄・焼却されている。EUは、==2030年までに循環率を12％から24％へ倍増させ==ることを目指している。" },
+            { text: "資源循環は、排出量の削減に加え、政治的リスクの高い国からの資源輸入への依存を減らすことにもつながる。" },
+            { photos: ["photos/s03/05.jpg"], text: "==リサイクルは、価値を維持するうえでは最も弱い選択肢==と位置づけられた。高級電動アシスト自転車の場合、リサイクル時の価値は約50〜150ユーロだが、再生品として販売すれば約2,000〜3,000ユーロになる。" },
+          ],
+        },
+        {
+          title: "DPPとは何か",
+          blocks: [
+            { photos: ["photos/s03/06.jpg"], text: "鉄鋼、バッテリー、繊維製品などから法的な導入義務が始まる。ドイツでは2030年までに500万社以上が公開を求められ、ほぼすべての製品にDPPが必要になる見込み。アパレル分野だけでも、年間620億件のパスポートが必要になると予測される。" },
+            { text: "ドイツの中小企業からは、データ収集の負担に対する不満が出ている。DPPはQRコードやRFIDで製品とひもづけられ、製品の近くでアクセスできる必要がある。" },
+            { text: "重要なのは、**DPPのデータは機械のためのもの、サービスは人のためのもの**という区別。DPPは、あらゆる製品利用者に直接つながる接点になる。単なるマーケティングチャネルとして使われる可能性もあるが、登壇者は、消費者の行動を変えるきっかけになり得ると考えている。" },
+          ],
+        },
+        {
+          title: "プロトタイプと消費者調査",
+          blocks: [
+            { photos: ["photos/s03/07.jpg"], text: "**Nara Veroとの自転車プロトタイプ**\n\nドイツのDPPツール提供企業「Nara Vero」と制作。ブランドが売り込むのではなく、自転車自身が「使い方に変化はあった？」と問いかけ、必要なアクセサリーやアップグレードを一緒に見つける。フレームをさらに3〜4年使い続けることを目指す。" },
+            { photos: ["photos/s03/08.jpg"], text: "**Consumers Internationalとの消費者調査**\n\n世界的な消費者団体との取り組み。DPP研究の92％が技術に関するもので、消費者を対象とした研究はなかった。" },
+            { photos: ["photos/s03/09.jpg", "photos/s03/10.jpg", "photos/s03/11.jpg", "photos/s03/12.jpg"], row: true, text: "スマートフォンを題材にプロトタイプを制作し、ドイツの1,000人を対象に調査を実施。提示した利用例は次のとおり。", list: ["環境・社会面のフットプリントの確認（例：コンゴ民主共和国から調達される銅）", "修理のしやすさの確認、交換部品の入手", "地域の修理支援へのアクセス", "認証付きの中古販売"] },
+            { photos: ["photos/s03/13.jpg"], text: "**1. DPPの価値は、購入時だけではない**\n\n人々の関心が高いのは、==使い終わるときの対応、再販売価格、リサイクル、修理など。==購入後のライフサイクル全体を支援する必要がある。" },
+            { photos: ["photos/s03/14.jpg"], text: "**2. 情報量よりも、行動につながる支援が重要**\n\n利用者が求めていたのは、DIY修理の手順、必要な工具、修理の選択肢など。保証の詳細への関心は、それほど高くなかった。" },
+            { photos: ["photos/s03/15.jpg"], text: "**3. 透明性だけでは不十分**\n\n情報を開示するだけでなく、その意味を解釈し、意思決定を支援する必要がある。人々は製品の仕組みを学ぶことよりも、「次に何をすればよいか」を知りたがっている。" },
+            { photos: ["photos/s03/16.jpg"], text: "**4. 製品ごとに分かれたパスポートでは使いにくい**\n\n家庭には数千もの製品があるため、取扱説明書なども含めて一元管理できる統合型のパスポートが求められる。\n\n会場でDPPを知っている参加者は少数だった。EUが法律として導入を進めるため、サービスデザイナーの仕事は大きく広がる。" },
+          ],
+        },
+        {
+          title: "将来のサービスアイデア",
+          blocks: [
+            { photos: ["photos/s03/17.jpg", "photos/s03/18.jpg"], row: true, text: "調査結果をもとに、スタジオが描いた投機的なアイデア。適切なサービスは業界や製品によって異なり、初期のDPPサービスの多くは基本的な機能にとどまるだろうという。" },
+            { photos: ["photos/s03/19.jpg"], text: "**所有製品をまとめるウォレット／ダッシュボード**\n\n使っていない製品、知らなかった機能、売却できる付属品などを見つける。" },
+            { photos: ["photos/s03/20.jpg"], text: "**自ら不調に対処する製品**\n\n予知保全によって故障を未然に防ぐ。" },
+            { photos: ["photos/s03/21.jpg"], text: "**自ら貸し出される製品**\n\n使っていない時間に他者へ貸し出す。ドイツ人の78％が、近隣住民との園芸用品の共有に前向きだという。" },
+            { photos: ["photos/s03/22.jpg"], text: "**家庭内資産の価値トラッカー／マテリアルバンキング**\n\n所有物にどれだけの金銭的価値が眠っているかを可視化する。素材や部品を循環の仕組みに戻し、対価を受け取る。" },
+            { photos: ["photos/s03/23.jpg"], text: "**進化する製品**\n\n寿命を延ばすための投資によって、製品の価値を高める。" },
+          ],
+        },
+        {
+          title: "質疑応答：DPPのデータは誰が更新するのか",
+          blocks: [
+            { text: "質問：製品情報はすぐに古くなるが、誰が更新を担うのか。" },
+            { text: "回答の要旨：", list: ["修理店などのサービス事業者が、パスポートの一部にアクセスし、編集できるようにする必要がある。ただし、まだ十分に認知されておらず、今後1年ほどで動きが進む見込み。", "データには、知的財産として非公開にすべきものと、公開が義務づけられるものがある。", "EUの中央リポジトリが数か月前に稼働し、企業が倒産してもデータが残る。", "修理履歴などの更新には、修理事業者のような信頼できる第三者による検証が必要。習慣として定着するには数年かかる。"] },
+          ],
+        },
+        {
+          title: "まとめ",
+          blocks: [
+            { text: "DPPを単なる「製品データの保管場所」で終わらせず、==修理・再利用・共有・再販売を簡単に実行できるサービスへ==変えることが重要。" },
+            { text: "環境への配慮だけを訴えるのではなく、==経済的なメリットや便利さ、楽しさを通じて、循環型の行動を自然に選べるようにすること==が、サービスデザインの役割である。" },
+          ],
+        },
       ],
-      insights: ["ジャーニーの範囲を“サービス提供者の外”まで広げて描く。"],
-      photos: phs("s09", 5),
+      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
+      learnings: [
+        { hl: 1, head: "正しさより、手軽さと楽しさ", headEn: "Easy and fun beats right",
+          text: "循環型の行動は、正しさを訴えるだけでは定着しない。手間を減らし、楽しさを足すことで、はじめて人は動き出す。",
+          en: "Circular behavior doesn't stick just because it's right. People start acting when it takes less effort and brings more joy." },
+        { hl: 2, head: "道具がなければ、つくって配る", headEn: "No tool? Build it and share it",
+          text: "循環型サービスのためのパターン集が存在しないなら、自分たちでつくり、無料で公開する。共通の道具が、領域全体の変化を早める。",
+          en: "When no pattern library for circular services existed, the studio built one and gave it away. Shared tools speed up change for the whole field." },
+        { hl: 5, head: "リサイクルは、最後の手段", headEn: "Recycling is the last resort",
+          text: "リサイクルは製品の価値を壊してしまう。高級e-bikeならリサイクルで50〜150ユーロ、再生すれば2,000〜3,000ユーロ。価値を残す選択肢から先に設計する。",
+          en: "Recycling destroys value: a premium e-bike is worth €50–150 recycled but €2–3k refurbished. Design for the options that keep value first." },
+        { hl: 6, head: "出番は、買った後にある", headEn: "The real moment is after purchase",
+          text: "人々が知りたいのは、購入時の情報より、使い終わるときや再販売、修理のこと。サービスデザインの余地は、購入後のライフサイクルに広がっている。",
+          en: "People care less about the point of purchase than about end of use, resale and repair. The space for service design lies in the lifecycle after the sale." },
+        { hl: 7, head: "データを、行動に変える", headEn: "Turn data into action",
+          text: "データは機械のため、サービスは人のため。DPPを情報の保管庫で終わらせず、修理・再利用・共有・再販売をすぐ実行できるサービスに変える。",
+          en: "Data is for machines; services are for people. Don't let a passport end as a data store — turn it into services that make repair, reuse, sharing and resale easy." },
+        { hl: 8, head: "CO₂より、お金で語る", headEn: "Speak money, not CO₂",
+          text: "人はCO₂ではなく、お金という言葉で理解する。環境への配慮だけを訴えず、経済的なメリットや便利さ、楽しさで、循環型の行動を自然に選べるようにする。",
+          en: "People understand money, not CO₂. Instead of appealing to the environment alone, use economic benefit, convenience and joy so circular choices feel natural." },
+      ],
+      insights: [
+        "サステナビリティ関連の提案では、環境価値だけでなく、ユーザーにとっての金銭的メリットや手軽さに翻訳して伝える。",
+        "ジャーニーを購入で終わらせず、使い終わり・修理・再販売までを設計範囲に含めて描いてみる。",
+        "circular-experience.org のパターン集を、ワークショップのアイデア出しに試してみる。",
+      ],
+      photos: Array.from({ length: 23 }, (_, i) => `photos/s03/${String(i + 1).padStart(2, "0")}.jpg`),
+      en: {
+        keyPhrase: "Data is for machines. Services are for people.",
+        summary:
+          "Peter Post runs a studio in Wiesbaden, Germany, that does service design for the circular economy. His question: can the EU's digital product passport (DPP) — a digital record that tracks a product's whole lifecycle, from sourcing and manufacturing to use, disposal and recycling — become a change agent for consumer behavior?\n\nMoving from a linear take-consume-waste economy to a circular one means empowering consumers beyond consumption, so they can repair, reuse and share. That requires ==making circular practices take less effort and bring more joy==. Repair and sharing aren't hard; people simply stopped practicing them because the linear economy became so easy.",
+        points: [
+          { title: "Example: Circular Classroom", blocks: [
+            "A design sprint with a global school furniture maker, working with the owner and the head of product development. The goal was to build services on the data in a DPP — even though the data points for furniture had not yet been defined.",
+            "After four weeks, the result was a circular classroom concept. The service promise: “more ways to teach with less furniture”.",
+            { text: "Like fleet management for cars, furniture is managed as a fleet. Facility managers configure it for group work, digital work or tests, and plan repair and refurbishment.", list: ["It is economically attractive even for a manufacturer that normally earns by producing more.", "The team argued with economic benefits rather than sustainability, because people say they care but rarely act on it."] },
+          ] },
+          { title: "Circular Service Pattern Library", blocks: [
+            "==No library of service/UX patterns for circular services== existed, so the studio built one ([circular-experience.org](https://www.circular-experience.org/)).\n\nIt has more than 80 patterns, is free online, and has about 15,000 visits and thousands of downloads. Use it for ideation, workshops (like method cards) and quick prototypes.",
+            { text: "Example patterns:", list: ["**Upgrading**: an e-bike speed package framed as an increase in the bike's value.", "**Sharing and refinancing**: renting out a bike to earn back its cost.", "**Framing in product comparison**: choosing comparison criteria so the circular product wins. Labeled a dark pattern; the audience was left to judge its use."] },
+            "“Money is the currency people understand, not CO₂.” The studio asks for feedback in exchange for using the library.",
+          ] },
+          { title: "Why the EU Is Doing This", blocks: [
+            "==Global circularity is only 7–8%==, and over 90% of extracted material ends up thrown away or burned. The EU aims ==to double circularity from 12% to 24% by 2030==.",
+            "Circularity also cuts emissions and reduces dependence on material imports from politically risky countries.",
+            "==Recycling is the weakest option for keeping value.== A premium e-bike is worth about €50–150 recycled, but €2,000–3,000 refurbished.",
+          ] },
+          { title: "What a DPP Is", blocks: [
+            "DPPs are a legal requirement, starting with iron and steel, batteries and textiles. Over 5 million German companies must publish them by 2030, and nearly all products are expected to need one. Apparel alone is expected to need 62 billion passports a year.",
+            "Small and medium companies in Germany are unhappy about the data-collection burden. A DPP is linked to a product via QR code or RFID and must be accessible close to the product.",
+            "The key distinction: **DPP data is for machines; services are for people.** The DPP gives a direct channel to every product user. It could be misused as a marketing channel, but the speaker sees it as a possible change agent.",
+          ] },
+          { title: "Prototypes and the Consumer Study", blocks: [
+            "**Bike prototype with Nara Vero**\n\nBuilt with Nara Vero, a German DPP tool provider. Instead of the brand selling to you, the bike asks whether your use has changed, and together you find the accessories or upgrades you need — so the frame lasts 3–4 more years.",
+            "**Consumer study with Consumers International**\n\nA project with the global consumer advocacy organization. 92% of DPP research is about technology, with no studies on consumers.",
+            { text: "A smartphone prototype and a study with 1,000 users in Germany. Use cases shown:", list: ["Sustainability footprint (e.g. copper from the DR Congo)", "Repairability and spare parts", "Access to local repair help", "Certified resale"] },
+            "**1. DPPs matter beyond the point of purchase**\n\nPeople care most about ==end of use, resale value, recycling and repair.== Services need to support the whole lifecycle after purchase.",
+            "**2. Less information, more action**\n\nPeople want DIY repair guidance, tools and repair options. Warranty details were less interesting.",
+            "**3. Transparency is not enough**\n\nPeople want interpretation and decision support. Rather than learning how products work, they want to know what to do next.",
+            "**4. Separate passports per product don't work**\n\nWith thousands of products at home, people want an integrated passport that includes things like manuals.\n\nFew attendees had heard of DPPs. Because the EU makes them law, there is a lot of work ahead for service designers.",
+          ] },
+          { title: "Speculative Service Ideas", blocks: [
+            "Speculative ideas the studio developed from the study. The right services vary by industry and product, and many first DPP services will cover only the basics.",
+            "**Integrated wallet / dashboard**\n\nConnect owned products to find unused items, unknown features and sellable accessories.",
+            "**Products that heal**\n\nPredictive maintenance that fixes things before they break.",
+            "**Products that rent themselves out**\n\nLend items to others when unused. 78% of Germans would share garden equipment with neighbors.",
+            "**Household value tracker / material banking**\n\nShow the money tied up in owned items, and return materials and components into the cycle for money.",
+            "**Products that evolve**\n\nInvesting in extra lifetime raises a product's value.",
+          ] },
+          { title: "Q&A: Who Keeps DPP Data Updated?", blocks: [
+            "Question: product data goes out of date quickly — who updates it?",
+            { text: "Answer, in short:", list: ["Service companies such as repair shops should be able to access and edit parts of the passport. Few know this yet; it should move within the next year.", "Some data is intellectual property and stays private, while some must be published.", "The EU central repository launched a few months ago, so data persists even if a company goes bankrupt.", "Edits need a trusted third party, such as a repairer, to verify repairs. Making this a habit will take years."] },
+          ] },
+          { title: "Wrap-up", blocks: [
+            "Don't let the DPP end as a mere store of product data — ==turn it into services that make repair, reuse, sharing and resale easy==.",
+            "Rather than appealing to the environment alone, the role of service design is ==to make circular behavior the natural choice through economic benefit, convenience and joy==.",
+          ] },
+        ],
+        insights: [
+          "In sustainability proposals, translate environmental value into money and convenience for the user.",
+          "Don't end journeys at purchase — include end of use, repair and resale in the scope we design.",
+          "Try the circular-experience.org pattern library for ideation in a workshop.",
+        ],
+      },
+    },
+    {
+      id: "s01",
+      title: "Think global, adapt local: how Service Design became the engine of B2B market entry",
+      speaker: "Tamara Kartoziia",
+      org: "AUTODOC PRO — Senior Service Designer and Customer Experience Architect",
+      // カバー写真（一覧カード・セッションページ左上）。省略時は photos の1枚目
+      cover: "photos/s01/cover.webp",
+      coverFull: true, // true にするとトリミングせず画像全体を表示
+      // 一覧カード用の写真（省略時は cover を使用）
+      cardCover: "photos/s01/card-speaker.jpg",
+      cardBg: "#ffffff", // 指定するとカード写真をトリミングせず、余白をこの色で埋める
+      day: "Day 2",
+      time: "AM",
+      track: "B2B / Market entry",
+      keyPhrase: "複雑さは、共感を省略する理由ではない。共感が必要とされる理由そのものである。",
+      summary:
+        "Autodoc Pro（欧州の自動車部品販売企業AutodocのB2Bプラットフォーム）のサービスデザイナーTamaraが、サービスデザインを社内業務の改善から事業戦略の形成へと広げた事例。現地の知見が十分にない状況でも新市場へ迅速に参入するため、①再利用・拡張できる市場参入プロセス、②早期に顧客への共感と理解を深めるツール、③チームの認識をそろえ戦略を共創する場、の3つの仕組みを構築した。",
+      // 概要の横に出す写真（省略時は photos の2・3枚目）
+      overviewPhotos: ["photos/s01/07.jpg", "photos/s01/08.jpg"],
+      // 本文中の **太字** は太字、==文字== はハイライト（重要箇所）として表示されます
+      points: [
+        {
+          title: "市場参入フレームワーク「Start a New Country」",
+          body: "初期のフランス・ドイツ・オランダへの展開では共通の進め方がなく混乱し、ドイツではディスカバリー前の準備だけで12か月を要した。イタリア進出を機に、サービスデザインの「探索・定義・開発・提供」のプロセスで、国の立ち上げに必要な100以上の活動・担当・依存関係を整理した。\n\n法務からマーケティングまでの10ブロックで構成し、最初の「市場調査」「事業計画」「実行可否判断」を本格投資前の関門に。Tamaraの狙いは、**ディスカバリーを省略できない最初の工程にすること**だった。ツールは誰もが初日から開いて更新できるGoogleスプレッドシート。",
+          listLabel: "成果",
+          list: [
+            "市場投入までの期間が**12か月から6か月**に短縮",
+            "9か国・26チームが共通の計画で連携",
+            "経営層がB2B市場参入の標準として承認",
+            "ほかの5チームにも自発的に普及",
+          ],
+          photos: ["photos/s01/11.jpg", "photos/s01/12.jpg", "photos/s01/13.jpg", "photos/s01/15.jpg"],
+        },
+        {
+          title: "顧客への共感を生むツール",
+          body: "チームは対象市場から地理的にも文化的にも離れている。フレームワークを「エンジン」とするなら、顧客理解はその「燃料」。地方の大規模整備拠点から都市部の小さな整備工場まで“極端なユーザー”を訪ね、インタビューと現場観察を行った。\n\nJobs to Be Done とカスタマージャーニーマップを一つの図に統合し、チーム全体が**「整備工場オーナーの立場で考える」ための共通認識**を持てるようになった。",
+          listLabel: "イタリアで見えたこと",
+          list: [
+            "整備工場は、正面から競争するよりも専門性によって差別化する",
+            "競合する工場同士でも、家族のような親密な関係を築く",
+            "看板やバナー、立て看板など、物理的な接点が集客に重要",
+          ],
+          photos: ["photos/s01/16.jpg", "photos/s01/18.jpg", "photos/s01/19.jpg", "photos/s01/21.jpg"],
+        },
+        {
+          title: "共創による戦略づくりと合意形成",
+          body: "マーケティング・プロダクト・エンジニアリング・営業が参加するワークショップで、バリュープロポジションキャンバスを使い「優先ニーズは妥当か／既存機能で解決できる課題は何か／提供内容をどこで調整すべきか／新たに開発すべき機能は何か」を検討。\n\n価格や配送条件は機密で直接比較できないため、顧客インタビューから競合の利用実態を把握し、どの競合も十分に満たしていないニーズを発見。明確なUSPと市場投入戦略を策定し、何より関係チームが**共通の方向性と当事者意識**を持てた。",
+          photos: ["photos/s01/23.jpg", "photos/s01/24.jpg"],
+        },
+        {
+          title: "AI時代に、誰がディスカバリーを守るのか",
+          body: "Tamaraが最も誇りに感じているのは、フレームワーク自体ではなく、「私たちは本当にそれを知っているのか」「誰か実際に顧客と話したのか」と問い直す姿勢が広がったことだった。\n\n==AIが短時間で自信に満ちた回答を生成できる時代だからこそ、ディスカバリーでは、**まだ誰も書き残していない現場の知識や経験**を探す必要がある。==\n\n最後に投げかけられたのは、実行がAIによって加速する世界で、誰が顧客理解と探索のプロセスを守るのか、という問いだった。",
+          photos: ["photos/s01/25.jpg"],
+        },
+      ],
+      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
+      learnings: [
+        { hl: 1, head: "書かれていない、知識を探しに行く", headEn: "Go find the unwritten",
+          text: "AIが“それらしい平均的な答え”を数秒で返す時代だからこそ、ディスカバリーの価値は、まだ誰も書き残していない現場の知識を自分の足で探しにいくことにある。",
+          en: "When AI returns a confident but average answer in seconds, the real value of discovery is going out to find the field knowledge nobody has written down yet." },
+      ],
+      insights: [
+        "自分たちの最大の「渋滞」はどこか？ どのプロセスなら可視化できるか？",
+        "実際の顧客の声が計画の前提を覆したのは、最後にいつだったか？",
+        "戦略が決まる場に、誰がいないか？",
+      ],
+      photos: Array.from({ length: 26 }, (_, i) => `photos/s01/${String(i + 1).padStart(2, "0")}.jpg`),
+      // 英語版：points は順番で日本語版と対応（写真は日本語版のものを使用）
+      en: {
+        keyPhrase: "Complexity is not a reason to skip empathy. It's the reason empathy exists.",
+        summary:
+          "Tamara, a service designer at Autodoc Pro — the B2B digital platform of European car parts retailer Autodoc — shared how service design grew from improving internal work into shaping business strategy. To enter unfamiliar markets at speed without local expertise, the team built three levers: (1) a scalable market entry process, (2) tools that build customer empathy early, and (3) a space for team alignment and co-created strategy.",
+        points: [
+          {
+            title: "Market Entry Framework: “Start a New Country”",
+            body: "Early launches in France, Germany and the Netherlands were chaotic, with no shared structure — Germany took 12 months just to get started, before discovery. For Italy, Tamara built a framework using the service design process (discover, define, develop, deliver), mapping 100+ activities with owners, priorities and dependencies.\n\nIt has 10 blocks, from legal to marketing. The first three — market discovery, business plan, go/no-go — form a gate before serious spending. Her “hidden agenda”: **make discovery the unskippable first step**. The format is a Google Sheet, on purpose, so everyone can open and update it on day one.",
+            listLabel: "Results",
+            list: [
+              "Time to market dropped from **12 to 6 months**",
+              "26 teams in 9 countries worked from one plan",
+              "Signed off at C-level as the B2B market entry standard",
+              "Five other teams adopted it unprompted",
+            ],
+          },
+          {
+            title: "Customer Empathy Tools",
+            body: "Teams are physically and culturally distant from target markets. If the framework is the “engine”, customer insight is the “fuel”. The team interviewed “extreme users” — from a large countryside super center to a small city workshop — and spent days observing garage workflows.\n\nA hybrid framework combined the customer journey map with jobs to be done in one visual, helping every team **“put on the garage owner hat”** and build shared understanding.",
+            listLabel: "What we learned in Italy",
+            list: [
+              "Garages specialize and differentiate rather than compete head to head",
+              "Relationships are close and family-like, even among competitors",
+              "Physical touchpoints — signs, banners, A-frames — are vital for acquisition",
+            ],
+          },
+          {
+            title: "Co-Creation and Alignment",
+            body: "In a workshop with marketing, product management, engineering and sales, the value proposition canvas was used to validate prioritized needs and decide which existing features solve them, where to adjust the offer, and what new features to build.\n\nSupplier prices and terms are confidential, so competitors were studied from the customer side through interviews, combined with the team’s domain expertise — revealing needs nobody serves well. The outcome: a clear USP, a go-to-market strategy, and above all **alignment and shared ownership**.",
+          },
+          {
+            title: "In the age of AI, who protects discovery?",
+            body: "The framework spread to five other teams and sparked questions like “Do we actually know this?” and “Has anyone talked to them?” Tamara is proudest of this doubt — not the framework itself.\n\n==AI gives confident but merely average answers in seconds, with no “man with oil in his hands”. Discovery must therefore become **the search for what nobody has written down**.==\n\nHer closing question: in a world where AI accelerates execution, who is protecting the discovery layer?",
+          },
+        ],
+        insights: [
+          "Where is our biggest traffic jam — and which process can we make visible?",
+          "When did a real customer quote last challenge an assumption in our planning?",
+          "Who is not in the room when our strategy gets decided?",
+        ],
+      },
+    },
+    {
+      id: "s04",
+      title: "Designing for Planetary Wellbeing",
+      speaker: "Pietertje Doyle / Jeroen den Uijl", org: "Sopra Steria Next",
+      cardCover: "photos/s04/card-speaker.jpg",
+      cardBg: "#f8eedc",
+      day: "Day 1", time: "16:00", track: "Sustainability",
+      keyPhrase: "ユーザーの外側にいる“もう一人のステークホルダー”。",
+      summary: "人間中心から生命中心へ。環境や将来世代をステークホルダーとして扱うためのフレームワークが紹介された。（仮テキスト）",
+      points: [
+        { title: "Non-human persona", body: "自然環境を代弁するペルソナを設定する。" },
+        { title: "長い時間軸", body: "10年後・50年後のシナリオで評価する。" },
+        { title: "トレードオフの可視化", body: "利便性と環境負荷を同じ図で議論する。" },
+      ],
+      insights: ["ワークショップに“将来世代”の視点カードを追加する。", "環境負荷をジャーニーの1レイヤーとして描く。"],
+      photos: phs("s04", 5),
+    },
+    {
+      id: "s05",
+      title: "Designing Influence: Bringing Service Design into the Boardroom",
+      speaker: "Monica Dalla Riva",
+      org: "Deutsche Telekom AG — SVP & Chief Design Officer",
+      day: "Day 2",
+      time: "—",
+      track: "Leadership / Design strategy",
+      cover: "photos/s05/cover.jpg",
+      coverFull: true,
+      cardCover: "photos/s05/card-speaker.jpg",
+      cardBg: "#ffffff",
+      keyPhrase: "伝わらないこと自体が、デザイナーの解くべき課題である。",
+      summary:
+        "Deutsche TelekomでSVP兼チーフデザインオフィサーを務めるMonica Dalla Rivaによる基調講演。サービスデザインが個別の課題解決にとどまらず、経営の意思決定に影響を与える存在になるには何が必要かを語った。\n\nWhirlpool、Samsung、3M、Deutsche Telekomと歩んだキャリアをもとに、反脆弱性、経営層に伝わる言葉、課題が固まる前からの関与、実物で見せる力、そしてAI時代のデザインの役割までを、19のテーマで整理した。",
+      overviewPhotos: ["photos/s05/03.jpg"],
+      points: [
+        {
+          title: "デザインを、経営の意思決定へ",
+          blocks: [
+            { photos: ["photos/s05/05.jpg"], text: "サービスデザインが、個別の課題解決にとどまらず、経営判断に影響を与える存在になるための講演。\n\n目的は役職や「席」を得ることではなく、==人々と事業にインパクトを生むこと==である。" },
+            { photos: ["photos/s05/06.jpg"], text: "顧客は一人ひとりの人間であり、組織の意思決定はその体験を左右する。悪い体験は約60人に、良い体験は約12人に共有される。だからこそ、顧客の立場を代弁するデザインが意思決定に関わる必要がある。\n\n財務・法務・人事・営業などと違い、デザインの必要性は自動的には認められない。企業から「必要だ」と思われる価値を示すことが出発点になる。" },
+          ],
+        },
+        {
+          title: "キャリアと、反脆弱性",
+          blocks: [
+            { photos: ["photos/s05/07.jpg"], text: "**Whirlpool → Samsung → 3M → Deutsche Telekom**\n\n家電ではテクノロジーと顧客体験の接点を、Samsungでは携帯電話からスマートフォンへの転換を通じて、顧客行動が市場を変える力を学んだ。3Mでは、ポスト・イットの色変更のような仕事でも約10件の特許が関わり、技術を人々にとって意味のある課題と結び付ける重要性を実感した。\n\nDeutsche Telekomでは、会社を顧客中心へ変えることを期待された。ただし、一人のデザイン責任者だけで組織全体を変えることはできない。" },
+            { photos: ["photos/s05/08.jpg"], text: "レジリエンスが「耐えて元に戻る力」なら、**反脆弱性**は「変化や混乱を通じて、より強くなる力」。\n\nデザイナーの課題解決の方法論、微かな兆候を捉える力、未開拓領域やリソース不足を活かす力が、その土台になる。計算されたリスクを取ると、学びが生まれ、学びがエネルギーに、エネルギーが推進力に、推進力が変化につながる。" },
+          ],
+        },
+        {
+          title: "経営の場に入る",
+          blocks: [
+            { photos: ["photos/s05/09.jpg"], text: "「なぜ経営の場にいたいのか」を明確にする。目指すのは地位ではなく、人々へのインパクトである。\n\nデザインの専門用語ではなく、経営層が理解できる言葉で話す。多国籍チームでイタリア語ではなく英語で話すように。==伝わらないこと自体を、デザイナーが解くべき課題として捉える。==" },
+            { photos: ["photos/s05/10.jpg"], text: "デザインの価値は、解決策をつくることだけではない。意思決定が顧客や事業にもたらす影響を理解し、**より良い判断を、より早く**下せるよう支えることにある。\n\n上級管理職が間接情報だけに頼らず、顧客と直接話す機会をつくることも、そのための取り組みになる。" },
+            { photos: ["photos/s05/11.jpg"], text: "デザインを、依頼に応えて解決策を提供する機能から、事業の方向性に貢献する戦略的な機能へと位置付け直す。単なる「ソリューション提供者」ではなく、戦略的なインパクトを生む存在として見られることが重要。" },
+          ],
+        },
+        {
+          title: "影響力をつくる",
+          blocks: [
+            { photos: ["photos/s05/12.jpg"], text: "影響力は役職ではなく、課題や方針が固まる前の議論に参加することで生まれる。\n\n分断された顧客体験を改善する「One Experience」は3年前に始まり、多くの国・関係者との調整が必要だった。良い解決策をつくることと同じくらい、理解と受容を得ることが重要。イノベーションの課題は、イノベーションがどう理解されるかにある。" },
+            { photos: ["photos/s05/13.jpg"], text: "デザインの理念や価値観だけでは、意思決定にはつながらない。経営の場で問われるのは予算・時間・リソース。「何を大切にするか」に加えて、「実現すると何が変わるか」を伝える。" },
+            { photos: ["photos/s05/14.jpg"], text: "3Mでは、支持を集めるアイデアには、すでにチームと検証済みの解決策が伴っていた。\n\nAIによる「アプリレス・フォン」は、経営幹部がデザイナーを求めたことから始まり、5〜6人が稼働の半分を持ち寄って小さな予算で形にした。MWCの小さなブースでの展示はBloombergに「必見」と取り上げられ、24〜48時間で約10億インプレッションを獲得。4日後、CEOが市場投入を決めた。\n\n教訓は、==言葉で説明するだけでなく、実物を見せて可能性を伝えること==。" },
+            { photos: ["photos/s05/15.jpg"], text: "サービスデザイナーへの他部門からの依頼が増えるなか、どこまでを担い、何が必要かを交渉することも重要になる。Deutsche Telekomでは約4年前、エコシステムをデザインするためにサービスデザイナーを大規模に採用した。" },
+          ],
+        },
+        {
+          title: "信頼を築き、リードする",
+          blocks: [
+            { photos: ["photos/s05/16.jpg"], text: "顧客を代弁する立場から積極的に発言し、「その判断は顧客の役に立つか」と問い続ける。煙たがられることがあっても、発売後に問題が表面化するより、発売前に問いを立てる方がよい。" },
+            { photos: ["photos/s05/17.jpg"], text: "黄金律は「**100を約束し、105を届ける**」。約束したことを確実に実行し、期待を少し上回る成果を届けることが、次の仕事や判断への信頼を築く。" },
+            { photos: ["photos/s05/18.jpg"], text: "デザインの成果を、戦略や事業へのインパクトとして伝える。エンジニアリングやマーケティングも「理解されていない」と感じている。デザインだけを特別視せず、部門を超えた共通言語を見つけることが重要。" },
+            { photos: ["photos/s05/19.jpg"], text: "戦略・オペレーション・テクノロジー・財務・リスク・ガバナンスを理解し、デザインの判断を事業全体の文脈に置く。\n\n早い段階からビジネスに近づくことが大切。Monica自身も、CFOや事業責任者に18か月間同行して学んだ。" },
+          ],
+        },
+        {
+          title: "不確実性と、デザインの未来",
+          blocks: [
+            { photos: ["photos/s05/20.jpg"], text: "戦略との整合性、使えるリソース、予算を事前に確認し、チームが取り組める条件を整える。リーダーが「皆を支える」と言えることが、挑戦の土台になる。" },
+            { photos: ["photos/s05/21.jpg"], text: "「問題を見つけて解決する」だけでなく、新しい機会を生み出す姿勢へ。機会を形にして展開し、結果から学び、適応する。" },
+            { photos: ["photos/s05/22.jpg"], text: "COVIDはデジタルの普及を約15年早めた。生成AIは制作を速めるだけでなく、消費者の行動や、音声・対話型の体験も変えていく。\n\n==制作が速くなるほど、「何を、なぜつくるか」を判断する上流の戦略的活動が重要になる。==すべての解決策に意味があるわけではないからこそ、サービスデザインが経営判断に関わる必要がある。" },
+            { photos: ["photos/s05/23.jpg"], text: "デザイン教育では、ビジネスを学ぶ機会が十分ではない。ミラノ工科大学は、デザインスクールとビジネススクールを組み合わせた修士課程「Strategic Design for Innovation and Transformation」を開設した。" },
+          ],
+        },
+        {
+          title: "質疑応答：チームづくり",
+          blocks: [
+            { text: "着任時、Monicaは「一人では会社を顧客中心にできない」と伝えた。半年経っても参加できた経営会議は3回だけ。そこから、経営層が顧客と直接話す取り組みが生まれた。" },
+            { text: "経営層のビジョンをチームへ伝えるために：", list: ["方向性・基準・期待を明確に伝える。", "年2回のデザインサミットと隔週のミーティングで認識を合わせる。", "フラットで開かれた組織を保ち、誰もが自ら動ける文化を育てる。"] },
+          ],
+        },
+      ],
+      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
+      learnings: [
+        { hl: 1, head: "欲しいのは席ではなく、インパクト", headEn: "Impact, not a seat",
+          text: "経営の場に入ること自体が目的ではない。デザインが目指すのは、人々と事業に実際のインパクトを生むこと。そこから逆算して、関わり方を決める。",
+          en: "Getting into the boardroom isn't the goal. Design is there to create real impact for people and the business — work backward from that." },
+        { hl: 2, head: "伝わらないのも、デザインの課題", headEn: "Not understood? Design it",
+          text: "経営層にデザインが伝わらないなら、それは相手の問題ではなく、デザイナーが解くべき課題。相手の言葉で語り直すところまでが仕事になる。",
+          en: "If the boardroom doesn't understand design, that's not their problem — it's a design problem. Retelling it in their language is part of the job." },
+        { hl: 3, head: "語るより、見せる", headEn: "Show, don't just tell",
+          text: "小さなチームと予算でつくったプロトタイプが、展示を通じて市場投入の判断を動かした。可能性は言葉より、実物のほうが早く伝わる。",
+          en: "A prototype built by a small team on a small budget moved a launch decision. Possibility travels faster as a real thing than as words." },
+        { hl: 4, head: "速くつくれるほど、上流が効く", headEn: "Faster making, stronger front end",
+          text: "AIで制作が速くなるほど、「何を、なぜつくるか」を決める上流の判断が価値を持つ。すべての解決策に意味があるわけではないから。",
+          en: "The faster AI makes production, the more the front end matters — deciding what to build and why. Not every solution is meaningful." },
+      ],
+      insights: [
+        "提案資料に、デザインの価値だけでなく、予算・期間・リソースと事業インパクトを並べて書く。",
+        "方針が固まる前の段階から、関係者との対話に入れる場をつくる。",
+        "説明資料だけで終わらせず、早い段階で触れるプロトタイプを見せて合意をつくる。",
+      ],
+      photos: ["03", ...Array.from({ length: 19 }, (_, i) => String(i + 5).padStart(2, "0"))].map((n) => `photos/s05/${n}.jpg`),
+      en: {
+        keyPhrase: "If the boardroom doesn't understand, it's the designer's problem to solve.",
+        summary:
+          "A keynote by Monica Dalla Riva, SVP and Chief Design Officer at Deutsche Telekom, on what it takes for service design to go beyond solving individual problems and influence executive decision-making.\n\nDrawing on a career through Whirlpool, Samsung, 3M and Deutsche Telekom, she covered 19 themes: anti-fragility, speaking the business language, entering the conversation early, showing rather than telling, and the role of design in the age of AI.",
+        points: [
+          { title: "Design in the Decision Room", blocks: [
+            "How service design can go beyond solving individual problems and influence executive decisions.\n\nThe goal is not a title or a “seat”, but ==impact on people and the business==.",
+            "Customers are people, and organizational decisions shape their experience. A bad experience is shared with about 60 people, a good one with about 12. So design, speaking for the customer, has to be part of decisions.\n\nUnlike finance, legal, HR or sales, design is not a mandatory function. The starting point is showing value that makes the company want it inside.",
+          ] },
+          { title: "Career and Anti-fragility", blocks: [
+            "**Whirlpool → Samsung → 3M → Deutsche Telekom**\n\nHome appliances taught the mix of technology and customer experience. At Samsung, the shift from mobile phones to smartphones showed that customers, not managers, change markets. At 3M, even changing Post-it colors involved about 10 patents — the lesson was to link technology to problems that matter to people.\n\nDeutsche Telekom hired her to help make the company customer-centric. But one design lead alone cannot change a whole organization.",
+            "If resilience means resisting and returning to the original position, **anti-fragility** means growing stronger through disruption.\n\nDesigners are well suited to it: a problem-solving methodology, attention to weak signals, and the ability to use white spots and resource gaps. Calculated risk-taking generates learning, learning becomes energy, energy becomes momentum, and momentum becomes change.",
+          ] },
+          { title: "Inside the Boardroom", blocks: [
+            "Be clear about why you want a seat in the boardroom. The answer is impact on people, not status.\n\nSpeak the business language, not design jargon — like speaking English rather than Italian in a multinational team. ==If the boardroom doesn't understand, treat it as a problem the designer has to solve.==",
+            "Design's value is not only in making solutions. It helps an organization make **a better decision, sooner**, with a clearer understanding of its consequences for customers and the business.\n\nCreating chances for senior leaders to talk with customers directly, instead of relying on secondhand information, is part of that.",
+            "Reposition design from a function that delivers solutions on request to a strategic capability that shapes the direction of the business — a strategic impact player, not just a solution provider.",
+          ] },
+          { title: "Building Influence", blocks: [
+            "Influence is different from a job title. It comes from being in the conversation while the issue is still taking shape.\n\nThe “One Experience” project, started three years ago to fix a fragmented customer experience, involved many countries and stakeholders. Acceptance matters as much as the solution: the problem of innovation is the understanding of innovation.",
+            "Design values alone don't drive decisions. Decision rooms ask about budget, time and resources. Add what will change to what you care about.",
+            "At 3M, winning ideas arrived with formed teams and tested solutions.\n\nThe AI “app-less phone” started with an executive asking for a designer. Five or six people pooled half their time on a small budget. A very small stand at MWC was named a must-see by Bloomberg, drew about 1 billion impressions in 24–48 hours, and four days later the CEO said to bring it to market.\n\nThe lesson: ==show what's possible with the real thing, not only words==.",
+            "With service designers now in high demand from peers, negotiating scope and resources matters. Deutsche Telekom hired service designers massively about four years ago to design ecosystems.",
+          ] },
+          { title: "Earning Trust and Leading", blocks: [
+            "Be a vocal thought leader for the customer and keep asking whether a decision helps customers. Even if it's annoying, it's better before launch than after.",
+            "The golden rule: **promise 100, deliver 105**. Delivering what you promise, and a little more, builds trust for the next project and decision.",
+            "Convey design's results as impact on strategy and business. Engineering and marketing also feel misunderstood, so don't treat design as special — find a common language across functions.",
+            "Understand strategy, operations, technology, finance, risk and governance, and place design decisions in the context of the whole business.\n\nGet close to the business early. Monica herself spent 18 months shadowing the CFO and business leaders.",
+          ] },
+          { title: "Uncertainty and the Future of Design", blocks: [
+            "Check strategy fit, resources and budget up front so the team has what it needs. A leader who can say “I have their backs” gives the team room to try.",
+            "Move from problem-solution mode to opportunity mode: generate opportunities, roll them out, then learn and adapt.",
+            "COVID accelerated digital adoption by about 15 years. Generative AI not only speeds production but changes consumer behavior and enables voice and interactive experiences.\n\n==The faster production gets, the more the strategic front end — deciding what to make and why — matters.== Not every solution is meaningful, which is why service design should sit in the boardroom.",
+            "Design schools don't cover business enough. Politecnico di Milano launched a Master in Strategic Design for Innovation and Transformation, combining its design and business schools.",
+          ] },
+          { title: "Q&A: Building the Team", blocks: [
+            "When she joined, Monica said one person can't make a company customer-centric alone. After six months she had attended only three leadership meetings. That led to initiatives for leaders to speak with customers directly.",
+            { text: "Translating the boardroom vision to the design team:", list: ["Communicate directions, standards and expectations clearly.", "Align through two design summits a year and bi-weekly calls.", "Keep a flat, open organization where everyone feels empowered."] },
+          ] },
+        ],
+        insights: [
+          "In proposals, put budget, timeline, resources and business impact next to the design value.",
+          "Create ways to join stakeholder conversations before direction is set.",
+          "Don't stop at slides — show a prototype people can touch early to build agreement.",
+        ],
+      },
+    },
+    {
+      id: "s06",
+      title: "The Invisible Backstage: Operations as Design",
+      speaker: "Speaker Name", org: "Organization（仮）",
+      day: "Day 2", time: "11:00", track: "Operations",
+      cardCover: "photos/s06/card-speaker.jpg", cardBg: "#ffffff",
+      keyPhrase: "良い体験は、見えない舞台裏でつくられる。",
+      summary: "フロントの体験改善が続かない原因はバックステージにある。オペレーション設計を巻き込むためのブループリント活用法。（仮テキスト）",
+      points: [
+        { title: "Blueprint を現場と描く", body: "現場スタッフと一緒に描くことで実行可能性が上がる。" },
+        { title: "例外処理こそ設計する", body: "ハッピーパス以外のフローを優先的に描く。" },
+        { title: "従業員体験", body: "EXの改善がCXに波及する。" },
+      ],
+      insights: ["ブループリントの作成に現場担当者を必ず招く。", "例外フローのレビューを定例化する。"],
+      photos: phs("s06", 5),
+    },
+    {
+      id: "s07",
+      title: "Scaling the Connective Tissue: State of Journey Management 2026",
+      speaker: "Anna Yip / Marc Stickdorn / Sayali Bharambe",
+      org: "Smaply / This is Journey Management (the book)",
+      day: "Day 2",
+      time: "—",
+      track: "Journey management",
+      cover: "photos/s07/cover.jpg",
+      coverFull: true,
+      cardCover: "photos/s07/card-speaker.jpg", cardBg: "#f8efe6",
+      keyPhrase: "マップは1割。残りの9割は、変化のマネジメント。",
+      summary:
+        "『This is Journey Management』の著者であるMarc Stickdorn（Smaply CEO）、Anna Yip、Sayali Bharambeによる講演。世界の実践者への80時間以上のインタビューとアンケートをもとにした調査レポート「State of Journey Management」の結果を紹介した。\n\nジャーニーマネジメントとは、ジャーニーを描くだけでなく、生きた情報システムを土台に管理し続ける実践のこと。それは新しいデザイン手法ではなく、社内外の複雑なプロセスを一つのストーリーにつなぐ「結合組織（connective tissue）」としてのマネジメントのアプローチだという。組織の適応力を育てる仕組み、組織ごとに違う始め方、そして始めるための5つのヒントが語られた。",
+      overviewPhotos: ["photos/s07/ob1.jpg", "photos/s07/ob2.jpg"],
+      points: [
+        {
+          title: "背景と調査方法",
+          blocks: [
+            { photos: ["photos/s07/01.jpg", "photos/s07/02.jpg"], row: true, text: "約10年前、ジャーニーマップは静的なものから動的なものへと変わり始めた。複数のマップをつなぎ、スプレッドシートやJiraのリアルタイムデータを取り込むようになった。\n\nMarcは2018年からジャーニーマネジメントを教えている。" },
+            { photos: ["photos/s07/03.jpg", "photos/s07/04.jpg"], row: true, text: "2021年に『This is Journey Management』の執筆契約を結んだが、2022年ごろから業界が急速に変わり始めた。企業によって導入のしかたがまったく違っていたため、自分たちの考えだけを書くのではなく、実際に調査することにした。" },
+            { photos: ["photos/s07/05.jpg", "photos/s07/06.jpg"], row: true, text: "AnnaとSayaliとともに、世界各地の実践者にインタビューを実施。インタビューは**80時間以上**、アンケートは4つの方法で配布し、139件の回答を集めた。\n\n結果はレポートとして [stateofjourneymanagement.com](https://stateofjourneymanagement.com) で公開されている。" },
+          ],
+        },
+        {
+          title: "ジャーニーマネジメントとは",
+          blocks: [
+            { photos: ["photos/s07/07.jpg"], text: "ジャーニーをマッピングするだけでなく、**常に管理し続ける実践**。その土台になるのは、生きた情報システムである。" },
+            { photos: ["photos/s07/08.jpg", "photos/s07/09.jpg"], row: true, text: "まだ新しい分野だが急速に広がっており、実践者の多くは始めてから2〜4年ほど。主に成熟した大企業やレガシー企業で導入されている。こうした組織は、複雑なシステムをよりシンプルにしようとしている。" },
+            { photos: ["photos/s07/10.jpg"], text: "目的は大きく2つに分かれる。", list: ["**対外的な目的**：顧客体験と製品の向上", "**組織内部の目的**：変革プロジェクトとプロセスの最適化"] },
+            { photos: ["photos/s07/11.jpg"], text: "社内外の複雑なプロセスを、一貫したストーリーとして結び付ける**「結合組織（connective tissue）」**の役割を果たす。" },
+            { photos: ["photos/s07/12.jpg"], text: "新たなデザイン手法ではなく、**マネジメントのアプローチ**である。リソースや意思決定をコントロールし、組織化し、方向付け、リードすることに焦点を当てる。\n\nマッピングは全体の約10％にすぎず、残りの90％は実行する変革を管理することに費やされる。" },
+          ],
+        },
+        {
+          title: "ダイナミック・ケイパビリティ・モデル",
+          blocks: [
+            { photos: ["photos/s07/13.jpg"], text: "実践者が挙げた93以上の活動・手法・ツールは、9つの実践領域に整理された。それらは、変化する環境に組織が適応する力＝**ダイナミック・ケイパビリティ**を育てる。", list: ["**感知と意味づけ（Sensing）**：基盤となる層。調査に基づいてジャーニーを描き、日々の働き方に組み込み、調査の能力を築く。", "**行動（Acting）**：体験の指標と比較基準を設け、共通言語を育て、ツールとガバナンスを標準化して、インサイトに基づく意思決定を可能にする。", "**変革（Transforming）**：ジャーニーを横断して戦略的な機会を見つけ、一貫したストーリーと優先順位を整え、組織の構造やシステムを変える。"] },
+            { photos: ["photos/s07/14.jpg"], text: "マネージャーにとっては、次のような独自の仕組みになる。", list: ["戦略的な価値を、明確に言葉にできる。", "分野をまたいで戦略をそろえられる。たとえばパスワードリセットの問題を、コールセンターの問い合わせ量や製品改善のインサイトにつなげる。", "どの能力を築き、どこを緩めるべきかを見極め、サイロを崩す。", "エンタープライズアーキテクチャの一つの形として機能する。"] },
+          ],
+        },
+        {
+          title: "どの組織でも同じように機能するのか",
+          blocks: [
+            { photos: ["photos/s07/15.jpg"], text: "答えは「いいえ」。同じ順番で一段ずつ積み上げれば完成する、単純な手順型の方法ではない。" },
+            { photos: ["photos/s07/16.jpg", "photos/s07/17.jpg"], row: true, text: "段階的に能力を育てられる組織もある。しかし大規模で成熟した組織では、段階的な積み上げが、競合する社内の取り組みに妨げられることがある。" },
+            { photos: ["photos/s07/18.jpg"], text: "そこで最も効果的なのが**「ステルスモード」**。変えるべき意思決定や行動に狙いを定める。\n\nある組織は、対象を絞ったジャーニーのマッピングと比較できる指標から始め、まず戦略的な価値を説得力をもって示し、一貫したストーリーと優先順位の議論につなげる。" },
+            { photos: ["photos/s07/19.jpg"], text: "別の組織は、実証的な調査、調査の能力づくり、共通言語づくりといった土台から始める。" },
+            { photos: ["photos/s07/20.jpg"], text: "ジャーニーマネジメントはサービスデザインから生まれ、複雑さの中で、根拠に基づく緻密さをもって組織を導く**リーダーシップの実践**へと進化している。" },
+          ],
+        },
+        {
+          title: "始めるための5つのヒント",
+          blocks: [
+            { photos: ["photos/s07/21.jpg"], text: "「では、どうすれば経営層にこの価値が伝わるのか？」という問いへの答えとして、5つのヒントが示された。" },
+            { photos: ["photos/s07/22.jpg"], text: "**1. ステルスモードで小さく始める。**ステルスとは隠すことではない。学べるほど小さく、効果を示せるほど現実的で、試しても安全な取り組みにする。" },
+            { photos: ["photos/s07/23.jpg"], text: "**2. 組織の言葉で話す。**KPIや戦略的な取り組みなど、組織で使われている言葉に合わせる。" },
+            { photos: ["photos/s07/24.jpg"], text: "**3. 手法ではなく、インパクトを示す。**サービスデザインが広がったときと同じように、組織が資金を出すのは手法ではなく、お金がかかっている問題の解決である。" },
+            { photos: ["photos/s07/25.jpg"], text: "**4. リアクティブとプロアクティブを組み合わせる。**", list: ["**リアクティブ**：顧客の痛点や満たされないニーズに対応する。この多くは自動化できる。", "**プロアクティブ**：将来の顧客体験のビジョンを描き、サービスデザインで現状とのギャップを埋める。"] },
+            { photos: ["photos/s07/26.jpg"], text: "**5. サービスデザインなしに、ジャーニーマネジメントは成り立たない。**ジャーニーマネジメントで何を直すかの優先順位を決めても、調査・プロトタイピング・実装は引き続き必要になる。取り組みを広げるには、サービスデザインを実践する能力と体制も広げる必要がある。\n\nこれは「AIでサービスデザインは終わった」という主張への反論にもなる。" },
+          ],
+        },
+        {
+          title: "最後に",
+          blocks: [
+            { photos: ["photos/s07/27.jpg"], text: "Marcは、配偶者ががんと診断されたことを共有し、身近な立場から医療制度の機能不全を目の当たりにしたと語った。医師や看護師は、機能不全のあるシステムの中で懸命に働いている。人々が働くシステムそのものを良くすることが、この取り組みの動機になっている。\n\n締めくくりは、コミュニティに参加し、レポートを読み、実践してほしいというメッセージだった。" },
+          ],
+        },
+        {
+          title: "質疑応答",
+          blocks: [
+            { text: "**予想と違っていたことは？**", list: ["企業がジャーニーマネジメントを使う理由はさまざまで、その理由によって組織内での形も変わる。", "価値は、手法・オペレーティングモデル・戦略という3つの層で生まれる。", "ジャーニーマップはデザインシステムのような細かな領域でも使われていた。質問者は、それを通信業界で活かすアイデアを得たという。"] },
+            { text: "**AIとともに、ジャーニーマネジメントはどう進化するか？**", list: ["MCPサーバーを通じて社内のAIにつなげると、ジャーニーマップにある調査、インサイト、KPI、プロジェクトに組織全体がアクセスできるようになる。", "ジャーニーマップには担当者、チーム、ツール、プロセスが示されるため、AIが顧客の視点から組織を理解するための枠組みになる。実際に回答の質が上がっている。", "人々は情報システムに圧倒されにくくなっており、ジャーニーを軸にした社内の情報システムも受け入れられやすくなっている。"] },
+          ],
+        },
+      ],
+      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
+      learnings: [
+        { head: "地図より、マネジメント", headEn: "Managing, not mapping",
+          text: "マッピングは全体の1割。残りの9割は、実行する変化を管理すること。ジャーニーマネジメントは手法ではなく、マネジメントのアプローチである。",
+          en: "Mapping is about 10% of the work; managing the change is the other 90%. Journey management is a management approach, not a design method." },
+        { head: "ステルスモードで小さく始める", headEn: "Start small, in stealth mode",
+          text: "隠すのではなく、学べるほど小さく、効果を示せるほど現実的に、試しても安全な範囲で。変えるべき意思決定と行動に狙いを定める。",
+          en: "Not hiding: small enough to learn, real enough to prove, safe enough to try. Target the decisions and behaviours that need to change." },
+        { head: "手法ではなく、インパクトを示す", headEn: "Show impact, not methodology",
+          text: "組織が資金を出すのは手法ではなく、お金のかかっている問題の解決。組織の言葉とKPIで、成果を語る。",
+          en: "Nobody funds a methodology; they fund solving a problem that costs money. Talk results in the organisation's language and KPIs." },
+      ],
+      insights: [
+        "ジャーニーマップを描いて終わりにせず、指標と担当者をひもづけて管理し続ける。",
+        "提案では手法の説明より先に、事業のKPIにどう効くかを示す。",
+        "顧客の不満への対応（リアクティブ）と、将来の体験のビジョン（プロアクティブ）を両方持つ。",
+      ],
+      photos: [...Array.from({ length: 27 }, (_, i) => String(i + 1).padStart(2, "0"))].map((n) => `photos/s07/${n}.jpg`),
+      en: {
+        keyPhrase: "Mapping is 10%. The other 90% is managing change.",
+        summary:
+          "A talk by Marc Stickdorn (CEO of Smaply), Anna Yip and Sayali Bharambe, the authors of This is Journey Management. They shared findings from the State of Journey Management report, based on 80+ hours of interviews and surveys with practitioners worldwide.\n\nJourney management is the practice of continuously managing journeys, not just mapping them, backed by a living information system. It is not another design method but a management approach: “connective tissue” that ties complex internal and external processes into one narrative. The talk covered how it builds an organisation's ability to adapt, why starting points differ, and five tips for getting started.",
+        points: [
+          { title: "Background and Research", blocks: [
+            "About ten years ago, journey maps started moving from static to dynamic: linking maps and pulling in live data from spreadsheets and Jira.\n\nMarc has taught journey management since 2018.",
+            "In 2021 Marc signed the contract for This is Journey Management, and from around 2022 the industry changed fast. Companies adopted it in very different ways, so instead of writing only what they believed, the team did research.",
+            "With Anna and Sayali, they interviewed practitioners worldwide: **80+ hours** of interviews, plus surveys distributed four ways with 139 respondents.\n\nThe results are published as a report at [stateofjourneymanagement.com](https://stateofjourneymanagement.com).",
+          ] },
+          { title: "What Journey Management Is", blocks: [
+            "It is the practice of **managing journeys continuously**, not just mapping them, built on a living information system.",
+            "It is still new but growing fast; most practitioners have done it for only 2 to 4 years. It is mostly adopted by mature and legacy organisations that want to simplify complex systems.",
+            { text: "Its aims fall into two groups:", list: ["**Outward**: customer experience and product excellence", "**Inward**: transformation projects and process optimisation"] },
+            "It acts as **“connective tissue”**, creating a cohesive narrative for complex internal and external processes.",
+            "It is a **management approach**, not another design method, focused on controlling, organising, directing and leading resources and decisions.\n\nOnly about 10% is mapping; 90% is managing the change being implemented.",
+          ] },
+          { title: "The Dynamic Capabilities Model", blocks: [
+            { text: "Practitioners described 93+ activities, methods and tools, consolidated into nine areas of practice. Together they build **dynamic capabilities**: an organisation's ability to adapt to a changing environment.", list: ["**Sensing and sense-making**: the base layer. Describe journeys empirically, embed them in ways of working, and build research capabilities.", "**Acting**: set experience metrics and benchmarks, build shared language, and standardise tools and governance so decisions are based on insight.", "**Transforming**: find strategic opportunities across journeys, build a coherent narrative and priorities, and change structures and systems."] },
+            { text: "For managers, it provides unique mechanisms:", list: ["Articulating strategic value precisely.", "Aligning strategy across disciplines, e.g. turning a password reset issue into call centre volume and product insights.", "Seeing where capabilities need to be built or loosened, which breaks down silos.", "Working as a form of enterprise architecture."] },
+          ] },
+          { title: "Does It Work the Same Everywhere?", blocks: [
+            "No. It is not a simple step-by-step method you can build layer by layer in the same order.",
+            "Some organisations build capabilities incrementally. But in large, mature organisations, competing internal initiatives can sabotage that kind of gradual build-up.",
+            "The most effective approach is **“stealth mode”**: target the decisions and behaviours that need to change.\n\nSome organisations start by mapping a subset of journeys with comparable metrics, first demonstrating strategic value convincingly, then building a coherent narrative and aligning priorities.",
+            "Others start from the ground up: empirical research, research capabilities and shared language.",
+            "Journey management grew out of service design and is evolving into a **leadership practice** for leading through complexity with rigour.",
+          ] },
+          { title: "Five Tips for Getting Started", blocks: [
+            "In answer to “How can I make my leadership see this value?”, they offered five tips.",
+            "**1. Start small, in stealth mode.** Stealth doesn't mean hiding. Make it small enough to learn, real enough to prove, and safe enough to try.",
+            "**2. Speak their language**, including the organisation's KPIs and strategic initiatives.",
+            "**3. Show impact, not methodology.** As when service design gained traction, nobody funds a methodology; they fund solving a problem that costs money.",
+            { text: "**4. Combine reactive and proactive journey management.**", list: ["**Reactive**: respond to customer pain points and unmet needs. Much of this can be automated.", "**Proactive**: set a vision for the future customer experience and use service design to close the gap."] },
+            "**5. There is no journey management without service design.** Journey management helps decide what to fix, but research, prototyping and implementation are still needed. Scaling it means scaling the capacity to do service design.\n\nThis also counters the claim that “service design is dead” because of AI.",
+          ] },
+          { title: "Closing", blocks: [
+            "Marc shared that their spouse had been diagnosed with cancer, and described seeing the broken healthcare system up close. Doctors and nurses do great work within a broken system, and fixing the systems people work in is what drives this work.\n\nThe closing message: join the community, read the report, and put it into practice.",
+          ] },
+          { title: "Q&A", blocks: [
+            { text: "**What did you think you knew that turned out wrong?**", list: ["Companies use journey management for many different reasons, and the reason shapes how it looks in the organisation.", "Value is created in three layers: methodological, operating model and strategic.", "Journey maps are even used at a very detailed level, such as for design systems. The person asking took this as inspiration for telecom."] },
+            { text: "**How will journey management evolve with AI?**", list: ["Connecting it to internal AI through an MCP server makes the research, insights, KPIs and projects in journey maps accessible across the organisation.", "Journey maps show who owns what, plus teams, tools and processes, giving AI a framework to understand the organisation from the customer's view. Answer quality improves.", "People feel less overwhelmed by information systems now, so an internal information system built on journeys is easier to sell."] },
+          ] },
+        ],
+        insights: [
+          "Don't stop at drawing journey maps; link them to metrics and owners and keep managing them.",
+          "In proposals, show the effect on business KPIs before explaining the method.",
+          "Hold both a reactive response to customer pain points and a proactive vision for future experience.",
+        ],
+      },
+    },
+    {
+      id: "s09",
+      title: "Beyond Boundaries: How Frontline Design Shapes Fairer Futures",
+      speaker: "Katie Petrie / Kim Anderson",
+      org: "Service Design Academy",
+      day: "Day 3",
+      time: "—",
+      track: "Public sector / Capability building",
+      cover: "photos/s09/cover.jpg",
+      coverFull: true,
+      cardCover: "photos/s09/cover.jpg", cardBg: "#f7f0e6",
+      keyPhrase: "プロセスの前に、人を信頼する。",
+      summary:
+        "Service Design Academy（スコットランド）のKatie PetrieとKim Andersonによる講演。子どもの貧困をなくすためのスコットランド政府の取り組み「Fairer Futures」で、ダンフリーズ＆ガロウェイ地域の現場チームにサービスデザインを根づかせた事例を、5つの章で語った。\n\n講演の核心は、専門家がサービスを設計して渡すことではなく、家族をよく知る現場の人々が、自ら問い、試し、改善できる状態をつくること。その土台づくりから初期の成果、家族の経験を組織や制度の意思決定へつなぐところまでが紹介された。",
+      overviewPhotos: ["photos/s09/ob1.jpg", "photos/s09/ob2.jpg"],
+      points: [
+        {
+          title: "背景：子どもの貧困は、単独のサービスでは解けない",
+          blocks: [
+            { photos: ["photos/s09/01.jpg"], text: "講演は、ダンフリーズに縁のある2人のロバートから始まった。1306年にこの地で勝利したロバート・ザ・ブルースと、500年後に人間の価値・平等について書いたロバート・バーンズ。バーンズは、人の価値は富や地位で決まらないと考えた。\n\nそれから230年以上たった今も、子どもの貧困は国の最優先課題のまま。世代を重ねても解消していないなら、考え方を変える必要がある。（このスライドだけはAIで生成したもので、地図は正確ではないと断りがあった。）" },
+            { photos: ["photos/s09/02.jpg"], text: "スコットランドでは**子どもの約5人に1人（20万人以上）**が貧困状態にあり、その**約75％は就労者のいる世帯**で暮らしている。「仕事があれば解決する」といった単純な前提では、実態を捉えられない。ヨーロッパ全体では1,950万人の子どもが、貧困や社会的排除のリスクにさらされている。" },
+            { photos: ["photos/s09/03.jpg"], text: "貧困は、所得だけの問題ではない。雇用、育児、交通、健康、自信などが絡み合い、家族は複数の困難を同時に経験する。一方、サービスは生活者の経験ではなく、組織や制度の区分に沿って提供されがちである。" },
+            { photos: ["photos/s09/04.jpg", "photos/s09/05.jpg"], row: true, text: "ダンフリーズ＆ガロウェイは、スコットランドに32ある自治体の一つ。国の東西に広がる地域で、支援を受けるにも長い移動が伴う。\n\n「Fairer Futures」は、国の優先課題に対するこの地域の答えで、地域に根ざした統合的・長期的な家族支援によって、子どもの貧困の解消をめざす。" },
+            { photos: ["photos/s09/06.jpg"], text: "スコットランド政府の初代チーフデザインオフィサー、Cat Macaulayは「**スコットランドを世界最大のデザインスクールにしたい**」と語った。この取り組みも、その大きな目標につながっている。" },
+            { photos: ["photos/s09/07.jpg"], text: "Service Design Academyは、SDNの認定を世界で初めて受けた組織。2人はSDN認定のマスタートレーナーでもある。\n\nこのプロジェクトでの役割は、サービスを代わりにつくることではなく、**現場チームの自信とデザインの実践能力を育てること**だった。デザインのプロジェクトではなく、現場にデザインの力を根づかせる取り組みである。" },
+          ],
+        },
+        {
+          title: "第1章：プロセスの前に、人を信頼する",
+          blocks: [
+            { photos: ["photos/s09/08.jpg", "photos/s09/09.jpg"], row: true, text: "Fairer Futuresは新しく立ち上がったチーム。メンバーには、制度の利用、貧困による負担、トラウマ、ニューロダイバーシティなどの当事者経験があり、それ自体が重要な知識になる。\n\n資金は既存サービスの複製にも使えたが、チームはゼロから考え直す道を選んだ。" },
+            { photos: ["photos/s09/10.jpg"], text: "デザイン手法を教える前に必要だったのは、チームが新しい働き方を試せる条件づくりである。", list: ["**条件を整える**：安心して意見を出せる関係性と支援環境をつくる。", "**姿勢を育てる**：正解を急がず、好奇心を持って理解する。", "**失敗を許容する**：現場に裁量を渡し、試しながら学ぶ。", "**難しさを認める**：変化は手法の導入だけでは起こらず、継続的な支援が必要である。"] },
+            { photos: ["photos/s09/11.jpg"], text: "「どうなるかは分からない。でも大丈夫」。不確かであることは、焦点が定まっていないこととは違う。\n\n資金には「何をしてもいい。ただし建物だけは買わないで」という、スコットランド政府としては珍しい条件が付いていた。あらかじめ答えや計画が定まっていなくても、目的を共有し、試行錯誤できる余地が与えられていた。" },
+            { photos: ["photos/s09/12.jpg", "photos/s09/13.jpg"], row: true, text: "チームの土台には、柔軟さ、許可、ゼロからの出発、オーナーシップがあった。そして、新しい働き方への意欲と好奇心、開かれた姿勢、当事者経験、関係性、支え合える環境。" },
+            { photos: ["photos/s09/14.jpg"], text: "チームリーダーのKirstyは、家族の役に立たない報告について「**それはもう報告しなくていい。家族にとって何の役に立つの？**」と見直した。\n\nプロセスに人を合わせるのではなく、人が力を発揮できる環境を先につくる。その順序が重要になる。" },
+          ],
+        },
+        {
+          title: "第2章：サービスの前に、チームをデザインする",
+          blocks: [
+            { photos: ["photos/s09/15.jpg", "photos/s09/16.jpg"], row: true, text: "最初から家族向けの施策を考えるのではなく、チーム自身の目的、価値観、役割、提供できる価値を整理した。チームキャンバス、役割、価値提案、サービスモデルの検討は、成果物を埋めるためではなく、**何のために、誰に対して、どこまで責任を持つのか**を共有する対話として機能した。" },
+            { photos: ["photos/s09/17.jpg", "photos/s09/18.jpg"], row: true, text: "チームだけですべての問題を解決することはできない。しかし、自分たちの役割を明確にすれば、他のサービスとの接点や、支援が途切れる隙間を見つけられる。" },
+            { photos: ["photos/s09/19.jpg"], text: "スタッフの間には「これをサービスデザインしてみない？」「それを裏づけるデータはある？」といった共通言語が生まれた。立ち止まって目的を問い直すことも、気まずいことではなく、前進の一部として受け入れられるようになった。\n\n要点は、**共通の目的と、問い直せる関係性をつくること**。ツールはそのための手段であり、チームづくりとサービスづくりは切り離せない。" },
+          ],
+        },
+        {
+          title: "第3章：日々の支援に、観察・傾聴・共感を組み込む",
+          blocks: [
+            { photos: ["photos/s09/20.jpg", "photos/s09/21.jpg"], row: true, text: "貧困の背景には、表面からは見えにくい困難がある。助けを求めることへの恥ずかしさ、過去に批判された経験、デジタル環境へのアクセス、読み書きや計算の難しさなどである。\n\n現場に必要なのは、家族についての前提を強めることではなく、==思い込みから好奇心へと視点を変えること==だった。" },
+            { photos: ["photos/s09/22.jpg", "photos/s09/23.jpg"], row: true, text: "研修は実践的で軽いものにした。観察、傾聴、共感と、小さなリサーチが中心。新たな専門業務を追加するのではなく、すでに築いている家族との関係や日常の対話に、気づきを得る方法を組み込んだ。" },
+            { photos: ["photos/s09/24.jpg", "photos/s09/25.jpg"], row: true, text: "エンパシー・ウォークで実際にサービスを体験し、ジャーニーマップで流れを捉えた。", list: ["家族が話した内容だけでなく、行動やサービス利用時の障壁にも目を向ける。", "個別の経験から繰り返し現れるパターンを捉える。", "自分たちや他のサービスの前提を問い直す。", "オンラインのチェックインで実践を振り返り、支援を受けながら学ぶ。"] },
+            { photos: ["photos/s09/26.jpg"], text: "「思ったより難しかったのは、違う見方で考えること。自分の立場を離れて、相手の立場から見ることだった」。働き方を変えるのは、いつも簡単ではない。" },
+            { photos: ["photos/s09/27.jpg"], text: "目標は、全員をサービスデザイナーにすることではない。現場の専門性と信頼関係を活かし、周りの支援を受けながら、日々の支援の中で改善できる力を育てることである。" },
+          ],
+        },
+        {
+          title: "第4章：家族の実感から、支援の価値を確かめる",
+          blocks: [
+            { photos: ["photos/s09/28.jpg"], text: "活動開始から1年余りの段階で行われた独立調査（20家族）の結果。", list: ["**相談先が分かる：10％ → 100％**（担当支援者がつく前は2家族、ついた後は20家族全員）", "**85％**：支援によって良い変化があった。", "**100％**：担当支援者による支援を、ほかの家族にも勧めたい。", "**95％**：変化を生むうえで、支援が重要だった。"] },
+            { photos: ["photos/s09/29.jpg", "photos/s09/30.jpg"], row: true, text: "家族からは、急かされたり決めつけられたりせず、懸念や質問を真剣に受け止めてもらえたという声が届いた。成果は、サービスへのアクセスだけでなく、安心して相談できる関係や、きちんと受け止められる経験にも表れている。" },
+            { photos: ["photos/s09/31.jpg"], text: "障壁を取り除く。相手のいる場所に出向く。危機を防ぐ早めの支援を設計する。家族の過去の経験を決めつけない。\n\nただし、これは少数の家族を対象とする初期の結果である。デザイン研修だけが成果を生んだと証明するものではなく、子どもの貧困が解決したことを意味するものでもない。" },
+          ],
+        },
+        {
+          title: "第5章：家族の経験を、組織と制度の意思決定へ",
+          blocks: [
+            { photos: ["photos/s09/32.jpg"], text: "個別の家族への支援が改善しても、その学びが現場にとどまれば、制度全体は変わらない。重要なのは、**家族の経験 → 行動につながる知見 → サービス改善 → 戦略的な意思決定**という経路をつくること。\n\n誰が改善を判断し、どこへ働きかけるのかを明確にする。家族自身にも、自分たちの参加が何を変えたのかを返す。" },
+            { photos: ["photos/s09/33.jpg"], text: "チームが直接変えられること、自治体内で連携すべきこと、外部のサービスに関わることは異なる。交通の問題のようにチームだけでは解決できないことも記録し、将来の変革に向けた根拠として蓄積する。複雑だった申請フォームの簡素化は、他部署に改善の必要性を示す材料になった。" },
+            { photos: ["photos/s09/34.jpg"], text: "今後は、サービス間の重複削減、家族にとってのアクセス改善、貧困スティグマのツールキットによる自治体全体での意識づくり、家族・地域住民との共同デザイン「100 Voices」などへ展開していく。\n\n自分たちで解けない課題を見えないままにせず、より広い意思決定へつなぐこと。それが、境界を越えるデザインである。" },
+            { photos: ["photos/s09/35.jpg"], text: "「ひとりで、特別な支援が必要な子どもを育てていると、生活に押しつぶされそうになることがある。受けた支援、助言、理解は、本当に大きな違いを生んだ」。" },
+          ],
+        },
+        {
+          title: "結論：デザインを根づかせるには、現場を支える仕組みがいる",
+          blocks: [
+            { photos: ["photos/s09/36.jpg"], text: "現場にデザインを広げることは、ツールを配り、研修を実施すれば終わるものではない。移動の負担、日々の業務の圧力、振り返りの時間不足、自信の揺らぎに向き合い続ける必要がある。\n\nリーダーには、現場が考える時間と余地を守り、試行錯誤を支え、必要な場面では一歩引いて任せる役割がある。自律性を渡すことと、説明責任を持つことの両立も欠かせない。" },
+            { photos: ["photos/s09/37.jpg", "photos/s09/38.jpg"], row: true, text: "現場の公共サービスにデザインを組み込むための、実践的なモデルが示された。" },
+            { photos: ["photos/s09/39.jpg", "photos/s09/40.jpg"], row: true, list: ["**家族と対等につくる**：家族を情報提供者ではなく共同デザイナーとして扱い、情報の使い道と倫理的な保護策を明確にする。", "**現場に負担を積み増さない**：軽量で繰り返し使える方法を日常業務に組み込み、スタッフを支え、守る。", "**知見に、意思決定への経路を用意する**：現場に権限を渡すだけでなく、そこで得た学びが組織全体の改善に届く仕組みをつくる。"] },
+            { photos: ["photos/s09/41.jpg"], text: "締めくくりはKirstyの言葉。勇気を持つこと。プロセスを信じて、混乱することを許すこと。サービスを本当に知る人たちに導かれること。失敗を自分に許すこと。そして、いつも人を中心に置くこと。\n\n人を信頼し、チームを育て、家族とともに学ぶ。その学びを組織の境界を越えてつなぐことで、デザインは一度きりのプロジェクトではなく、より公平な未来をつくる日常の実践になる。" },
+          ],
+        },
+      ],
+      // トップの「インサイト」カード。head＝見出し、text＝本文、hl＝ページ内で何番目のハイライトへ移動するか（概要→ポイントの順に1から数える）
+      learnings: [
+        { head: "手法より先に、人と条件", headEn: "People and conditions first",
+          text: "デザイン手法を教える前に、安心して試し、失敗できる条件を整えた。人が力を発揮できる環境があってこそ、プロセスが生きる。",
+          en: "Before teaching methods, they built conditions where people could try and fail safely. Process only works once people can do their best." },
+        { hl: 1, head: "思い込みから、好奇心へ", headEn: "From assumptions to curiosity",
+          text: "貧困は所得だけの問題ではない。恥ずかしさ、デジタル環境、読み書き。家族を決めつけず、観察し、聞くことから見えてくる。",
+          en: "Poverty isn't only about money: embarrassment, digital access and literacy matter too. Observing and listening reveals what assumptions hide." },
+        { head: "現場の知見を、意思決定へ", headEn: "Route frontline insight upward",
+          text: "現場で解けない課題も記録し、組織の判断へつなぐ経路をつくる。そうしなければ、制度全体は学ばない。",
+          en: "Record what the team can't fix, and build a route to organisational decisions. Otherwise the wider system never learns." },
+      ],
+      insights: [
+        "新しい取り組みでは、手法を教える前に、試して失敗できる条件をチームと決める。",
+        "自分たちで解けない課題も記録し、判断できる人へ届ける経路をつくる。",
+        "ユーザーを情報提供者ではなく、共同デザイナーとして扱う。",
+      ],
+      photos: [...Array.from({ length: 41 }, (_, i) => String(i + 1).padStart(2, "0"))].map((n) => `photos/s09/${n}.jpg`),
+      en: {
+        keyPhrase: "Trust the people, then the process.",
+        summary:
+          "A talk by Katie Petrie and Kim Anderson of Service Design Academy in Scotland. In five chapters, they told how service design was embedded in a frontline team in Dumfries and Galloway, as part of Fairer Futures, a Scottish Government initiative to eradicate child poverty.\n\nThe core idea: not experts designing services and handing them over, but enabling the people who know families best to ask, test and improve things themselves. The talk covered how the foundations were laid, the early results, and how families' experiences are being connected to organisational and system decisions.",
+        points: [
+          { title: "Context: Child Poverty Can't Be Solved by One Service", blocks: [
+            "The talk opened with two Roberts tied to Dumfries: Robert the Bruce, who won there in 1306, and Robert Burns, who wrote about humanity, worth and equality 500 years later. Burns believed a person's value should never depend on wealth or status.\n\nMore than 230 years on, child poverty is still a national priority. If generations of progress haven't eliminated it, we need to think differently. (This was the one AI-generated slide, and the map is not accurate.)",
+            "In Scotland, **about 1 in 5 children (over 200,000)** live in poverty, and **about 75% of them live in a household where someone works**. Simple assumptions like “a job solves it” miss the reality. Across Europe, 19.5 million children are at risk of poverty or social exclusion.",
+            "Poverty is rarely a single issue. Employment, childcare, transport, health and confidence are interconnected, and families face several challenges at once. Yet services are organised around institutions rather than lived experience.",
+            "Dumfries and Galloway is one of Scotland's 32 local authorities. It spans the width of the country, so reaching services can mean long journeys.\n\nFairer Futures is the region's response to the national priority: integrated, long-term, place-based support for families, aiming to eradicate child poverty.",
+            "Cat Macaulay, the Scottish Government's first Chief Design Officer, said she wants to make **Scotland the world's biggest design school**. This work connects to that ambition.",
+            "Service Design Academy was the first organisation in the world to be accredited by SDN, and both speakers are SDN accredited master trainers.\n\nTheir role was not to design services on the team's behalf, but to **build the frontline team's confidence and design capability**. It was about embedding design on the front line, not running a design project.",
+          ] },
+          { title: "Chapter 1: Trust the People, Then the Process", blocks: [
+            "Fairer Futures was a newly established team. Members brought lived experience of systems, poverty pressures, trauma and neurodiversity, which is valuable knowledge in itself.\n\nThe funding could have replicated existing services, but the team chose to start from scratch.",
+            { text: "Before teaching design methods, the team needed conditions to try new ways of working.", list: ["**Create the conditions**: relationships and support where people feel safe to speak up.", "**Build the mindset**: don't rush to answers; understand with curiosity.", "**Provide permission to fail**: give the front line autonomy and learn by trying.", "**Accept this is hard work**: change doesn't come from methods alone and needs ongoing support."] },
+            "“I'm not sure what's going on, but I'm alright.” Uncertainty is not the same as being unfocused.\n\nThe funding came with an unusual condition for the Scottish Government: “do anything, just don't buy a building.” Even without a fixed plan, the team shared a purpose and had room to experiment.",
+            "The team's building blocks were flexibility, permission, starting from scratch and ownership, supported by willingness to work differently, openness, lived experience, relationships and a supportive environment.",
+            "Team leader Kirsty questioned reporting that didn't help families: “**Stop reporting that. What's the benefit to your family?**”\n\nRather than fitting people to a process, create an environment where people can do their best first. The order matters.",
+          ] },
+          { title: "Chapter 2: Design the Team Before the Service", blocks: [
+            "Instead of starting with services for families, the team clarified its own purpose, values, roles and value. The team canvas, roles, value proposition and service model canvas weren't templates to fill in, but conversations about **why, for whom, and how far the team is responsible**.",
+            "The team can't solve every problem for families. But a clear remit makes the connections with other services, and the gaps between them, visible.",
+            "Staff began using a shared language: “Can we service design this?” and “Do you have data on that?” Pausing to rethink became part of moving forward, not something awkward.\n\nThe point is **a shared purpose and relationships where you can question things**. Tools serve that, and building the team can't be separated from building the service.",
+          ] },
+          { title: "Chapter 3: Put Design on the Front Line", blocks: [
+            "Poverty hides difficulties that are hard to see: embarrassment about asking for help, past experiences of being judged, digital access, literacy and numeracy.\n\nWhat the front line needed was not stronger assumptions about families, but ==a shift from assumptions to curiosity==.",
+            "Learning was practical and lightweight: observation, listening, empathy and small pieces of research. Rather than adding specialist processes, the methods were built into existing relationships and everyday conversations with families.",
+            { text: "Empathy walks let staff experience services first-hand, and journey maps captured the flow.", list: ["Look beyond what families say to their behaviour and the barriers they meet.", "Notice patterns that recur across individual experiences.", "Question your own assumptions and those of other services.", "Reflect on practice and learn with support through online check-ins."] },
+            "“What was harder than I thought: thinking about things in a different way, taking yourself out of your own shoes and putting yourself into somebody else's.” Changing ways of working is not always easy.",
+            "The aim was not to turn everyone into a service designer. It was to build the capability to improve support day to day, drawing on frontline expertise and trusted relationships, with support around the team.",
+          ] },
+          { title: "Chapter 4: Keep Families at the Heart", blocks: [
+            { text: "An independent survey of 20 families, just over a year after the team started:", list: ["**Knowing where to go for help: 10% → 100%** (2 families before having a keyworker, all 20 after)", "**85%** said the support made a positive difference.", "**100%** would recommend keyworker support to another family.", "**95%** said the support was important in bringing about change."] },
+            "Families said they never felt rushed or judged, and that their concerns and questions were taken seriously. The impact shows not only in access to services, but in relationships where people feel safe to ask and be heard.",
+            "Break down barriers. Meet people where they are. Design earlier interventions to prevent crisis. Don't make assumptions about families' past experiences.\n\nThese are early findings from a small group. They don't prove design training alone caused the outcomes, and they don't mean child poverty is solved.",
+          ] },
+          { title: "Chapter 5: Connect Family Experience to Decisions", blocks: [
+            "Even if support for individual families improves, the system won't change if the learning stays on the front line. What matters is a route: **family experience → actionable insight → service improvement → strategic decisions**.\n\nBe clear about who decides on improvements and where to push. And show families what their involvement changed.",
+            "What the team can change directly, what needs the wider council, and what involves outside services are different. Issues the team can't fix, like transport, are still recorded as evidence for future change. A complicated form, simplified after feedback, became evidence for other departments.",
+            "Next steps include reducing duplication across services, making services more accessible for families, raising awareness with a poverty stigma toolkit across the council, and co-design with families and communities through the 100 Voices programme.\n\nNot letting unsolvable problems disappear, and connecting them to wider decisions: that is design beyond boundaries.",
+            "“As a single parent caring for a child with additional needs and challenges, life can often feel overwhelming. The support, guidance and understanding I have received have made a genuine difference.”",
+          ] },
+          { title: "Conclusion: Embedding Design Needs Support Around the Front Line", blocks: [
+            "Spreading design on the front line doesn't end with handing out tools and running training. Travel, day-to-day pressure, lack of time for reflection and wavering confidence all have to be dealt with.\n\nLeaders need to protect time and space to think, support experimentation, and step back when needed. Giving autonomy while keeping accountability is essential too.",
+            "They shared a practical model for embedding design with frontline staff in complex public sector settings.",
+            { list: ["**Co-design as equals**: treat families as co-designers, not information sources, and be clear about how their information is used and protected.", "**Don't add to the frontline load**: build lightweight, repeatable tools into everyday work, and support and protect staff.", "**Give insight a route to decisions**: don't just hand power to the front line; make sure what it learns reaches organisation-wide improvement."] },
+            "They closed with Kirsty's words: be brave, trust the process and let it get messy, be led by those who truly know how services work, give yourself permission to make mistakes, and always keep people at the heart.\n\nTrust people, build the team, learn with families, and carry that learning across organisational boundaries. Then design becomes not a one-off project but an everyday practice for fairer futures.",
+          ] },
+        ],
+        insights: [
+          "In new initiatives, agree with the team on conditions to try and fail before teaching methods.",
+          "Record problems the team can't solve, and build a route to the people who can decide.",
+          "Treat users as co-designers, not information sources.",
+        ],
+      },
     },
     {
       id: "s10",
