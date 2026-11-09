@@ -32,7 +32,7 @@ window.REPORT = {
     themeText:
       "Beyond Boundaries: Enabling Solutions that Shape Tomorrow explores how organizations across the public and private sectors and the communities they serve can move past today’s limits to shape more resilient, meaningful futures through service design. As organizations face structural, cultural, technological, and environmental boundaries, progress increasingly depends on new ways of working, collaborating, and making sense of complexity across disciplines.",
     lead: "SDGC26聴講レポート",
-    reporter: "NTTDATA / NATSUMI SUZUKI",
+    reporter: "NATSUMI SUZUKI (NTTDATA / Launch)",
     dates: "2026.10.28 – 30",
     place: "Frankfurt",
     // トップのアーチに出す写真。空なら会場の写真（venuePhotos）を使用
@@ -68,7 +68,7 @@ window.REPORT = {
     // 英語版（無い項目は日本語を表示）
     en: {
       lead: "SDGC26 Conference Report",
-      reporter: "NTTDATA / NATSUMI SUZUKI",
+      reporter: "NATSUMI SUZUKI (NTTDATA / Launch)",
       place: "Frankfurt",
     },
   },
