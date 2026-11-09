@@ -10,10 +10,10 @@
     { id: "q", e: "🤔", ja: "うーん", en: "Hmm" },
   ];
   const TX = {
-    ja: { comment: "コメント", ph: "ひとこと残す（匿名）", send: "送る", tip: "気になった一文をなぞって、スタンプやコメントをどうぞ ✍︎", tipRO: "いまは見るだけモードです", count: (n) => `みんなのリアクション ${n} 件`, hide: "線をかくす", show: "線を出す", anon: "匿名", you: "あなた", undo: "取り消す", del: "削除", reply: "このコメントに続ける…", n: (n) => `${n} reactions`, offline: "リアクションを読み込めませんでした", full: "保存できませんでした。少し時間をおいてお試しください",
-      likeQ: "このセッション、<br>気に入りましたか？", liked: "ありがとうございます！", likeN: (n, me) => n ? (me ? (n > 1 ? `あなたと他 <b>${n - 1}</b> 人が気に入っています` : "あなたが最初のハートです") : `<b>${n}</b> 人が気に入っています`) : "まだハートはありません。最初のひとりに。", likeRO: "閲覧のみのため、ハートは押せません", likeBtn: "気に入った", unlike: "取り消す" },
+    ja: { comment: "コメント", ph: "ひとこと残す（匿名）", send: "送る", tip: "気になった一文をなぞって、スタンプやコメントしてね ✍︎", tipRO: "いまは見るだけモードです", count: (n) => `みんなのリアクション ${n} 件`, hide: "線をかくす", show: "線を出す", anon: "匿名", you: "あなた", undo: "取り消す", del: "削除", reply: "このコメントに続ける…", n: (n) => `${n} reactions`, offline: "リアクションを読み込めませんでした", full: "保存できませんでした。少し時間をおいてお試しください",
+      likeQ: "このセッション、<br>気に入りましたか？", liked: "ありがとうございます！", likeN: (n, me) => n ? (me ? (n > 1 ? `あなたと他 <b>${n - 1}</b> 人が気に入っています` : "あなたが最初のハートです") : `<b>${n}</b> 人が気に入っています`) : "", likeRO: "閲覧のみのため、ハートは押せません", likeBtn: "気に入った", unlike: "取り消す" },
     en: { comment: "Comment", ph: "Leave a note (anonymous)", send: "Send", tip: "Select any line you like to drop a stamp or a note ✍︎", tipRO: "You're in view-only mode", count: (n) => `${n} reactions so far`, hide: "Hide lines", show: "Show lines", anon: "Anonymous", you: "You", undo: "Undo", del: "Delete", reply: "Add a note…", n: (n) => `${n} reactions`, offline: "Reactions can't be loaded", full: "Couldn't save. Please try again in a moment",
-      likeQ: "Did you like<br>this session?", liked: "Thanks for the love!", likeN: (n, me) => n ? (me ? (n > 1 ? `You and <b>${n - 1}</b> others liked this` : "You're the first heart") : `<b>${n}</b> people liked this`) : "No hearts yet. Be the first.", likeRO: "View only: you can't add a heart", likeBtn: "I liked it", unlike: "Undo" },
+      likeQ: "Did you like<br>this session?", liked: "Thanks for the love!", likeN: (n, me) => n ? (me ? (n > 1 ? `You and <b>${n - 1}</b> others liked this` : "You're the first heart") : `<b>${n}</b> people liked this`) : "", likeRO: "View only: you can't add a heart", likeBtn: "I liked it", unlike: "Undo" },
   };
   const tx = () => TX[LANG] ?? TX.ja;
   const stampLabel = (id) => STAMPS.find((x) => x.id === id)?.e ?? "";
@@ -325,7 +325,7 @@
         <div class="lk-t">
           <h2>${me && justLiked ? tx().liked : tx().likeQ}</h2>
           ${!CAN_WRITE && loaded ? `<p>${tx().likeRO}</p>` : ""}
-          <p class="lk-n">${tx().likeN(n, me)}${me ? ` · <button type="button" class="lk-undo">${tx().unlike}</button>` : ""}</p>
+          ${n ? `<p class="lk-n">${tx().likeN(n, me)}${me ? ` · <button type="button" class="lk-undo">${tx().unlike}</button>` : ""}</p>` : ""}
         </div>
       </div>`;
   }

@@ -21,16 +21,18 @@ const UI = {
     overview: "Overview — 概要", points: "Points — ポイント", insights: "Insights — チームへの示唆",
     stat: ["聴講したセッション数", "参加日数", "撮影したスライド・会場写真", "チームへ持ち帰るインサイト"],
     gallery: "写真ギャラリー（ドラッグで回転）", prev: "前へ", next: "次へ", close: "閉じる",
+    backToCard: "← カードに戻る",
   },
   en: {
     report: "Conference Report", readSessions: "Read the sessions", viewSession: "View session →",
-    sessionsCount: (n) => `${n} sessions we attended`,
+    sessionsCount: (n) => `${n} sessions`,
     highlightsCount: (n) => `${n} insights to bring home`,
     highlightsNote: "Move your cursor to shuffle the deck. Hover a card to flip it for the details; click to jump to that part of the report.",
     readInReport: "Read in report",
     overview: "Overview", points: "Key points", insights: "Insights for our team",
     stat: ["Sessions attended", "Conference days", "Slides & venue photos", "Insights to bring home"],
     gallery: "Photo gallery (drag to rotate)", prev: "Previous", next: "Next", close: "Close",
+    backToCard: "← Back to cards",
   },
 };
 const T = (k) => UI[LANG][k] ?? UI.ja[k];
@@ -256,23 +258,30 @@ function pager(s) {
 /* ===== Router: #/ (トップ) / #/<section> / #/s/<id> ===== */
 function startRouter({ home, session }) {
   const app = $("#app");
+  // インサイトカードから記事を開いたときの戻り先（どのカードが画面のどの高さにあったか）
+  let back = null;
+  const route = () => location.hash.replace(/^#\/?/, "");
   const go = () => {
     CLEAN.splice(0).forEach((f) => f());
-    const h = location.hash.replace(/^#\/?/, "");
+    const h = route();
     const m = h.match(/^s\/([^/]+)(?:\/h(\d+))?$/);
     const s = m && D.sessions.find((x) => x.id === m[1]);
     if (s) {
-      app.innerHTML = header() + session(s) + pager(s) + footer();
+      if (back?.to !== h) back = null;
+      app.innerHTML = header() + session(s) + pager(s) + footer() + (back ? `<button class="back-card">${T("backToCard")}</button>` : "");
       document.title = `${s.title} — SDGC26 ${T("report")}`;
       scrollTo(0, 0);
       app.dispatchEvent(new CustomEvent("mounted", { detail: { session: s } }));
       if (m[2]) focusHighlight(+m[2]);
     } else {
+      const ret = back?.from === h ? back : null;
+      back = null;
       app.innerHTML = header() + home() + footer();
       document.title = `SDGC26 ${T("report")}`;
-      app.dispatchEvent(new CustomEvent("mounted", { detail: {} }));
+      app.dispatchEvent(new CustomEvent("mounted", { detail: { returning: !!ret } }));
       const target = h && document.getElementById(h);
-      target ? target.scrollIntoView() : scrollTo(0, 0);
+      if (ret) restoreCard(ret);
+      else target ? target.scrollIntoView() : scrollTo(0, 0);
     }
     observeFade(app);
   };
@@ -280,6 +289,10 @@ function startRouter({ home, session }) {
   app.addEventListener("click", (e) => {
     const b = e.target.closest("[data-lang]");
     if (b && b.dataset.lang !== LANG) setLang(b.dataset.lang);
+    const card = e.target.closest(".icard");
+    if (card) back = { from: route(), to: card.getAttribute("href").replace(/^#\/?/, ""), i: $$(".icard").indexOf(card), y: cardY(card) };
+    else if (e.target.closest(".back-card")) location.hash = `#/${back.from}`;
+    else if (e.target.closest('a[href^="#"]')) back = null;
   });
   rerender = () => { document.documentElement.lang = LANG; go(); };
   go();
@@ -287,12 +300,32 @@ function startRouter({ home, session }) {
 
 /* ===== インサイト（各セッションの learnings） ===== */
 // カードの項目：見出し（表）・本文（裏）・移動先
-const allLearnings = () => D.sessions.flatMap((s) => (s.learnings ?? []).map((l) => ({
+const allLearnings = () => D.sessions.flatMap((s) => (s.learnings ?? []).map((l, k) => ({
   head: LANG === "en" && l.headEn ? l.headEn : l.head,
   t: LANG === "en" && l.en ? l.en : l.text,
   s,
   href: l.hl ? `${sessionHref(s)}/h${l.hl}` : sessionHref(s),
+  img: slideFor(s, l.hl, k),
 })));
+// インサイトに対応するスライド：hl番目のハイライトがある段落の写真（無ければ同じポイントの直前の写真）。
+// hl が無いインサイトは、各ポイントの最初の写真を順に割り当てる（k＝セッション内で何番目のインサイトか）
+function slideFor(s, hl, k = 0) {
+  const n = (t) => (String(t ?? "").match(/==(.+?)==/g) ?? []).length;
+  const fallback = s.overviewPhotos?.[0] ?? s.points?.find((p) => p.blocks?.some((b) => b.photos?.length))?.blocks.find((b) => b.photos?.length).photos[0] ?? s.cover;
+  const firsts = (s.points ?? []).map((p) => p.blocks?.find((b) => b.photos?.length)?.photos[0]).filter(Boolean);
+  if (!hl) return firsts.length ? firsts[k % firsts.length] : fallback;
+  let c = n(s.summary);
+  if (c >= hl) return fallback;
+  for (const p of s.points ?? []) {
+    let last = null;
+    for (const b of p.blocks ?? []) {
+      if (b.photos?.length) last = b.photos[0];
+      c += n(b.text) + (b.list ?? []).reduce((a, x) => a + n(x), 0);
+      if (c >= hl) return last ?? p.blocks.find((x) => x.photos?.length)?.photos[0] ?? fallback;
+    }
+  }
+  return fallback;
+}
 // #/s/<id>/h<n> → n番目のハイライトへ移動し、目立たせる
 function focusHighlight(n) {
   const el = $$("main mark.hl")[n - 1];
@@ -310,6 +343,19 @@ function focusHighlight(n) {
   void el.offsetWidth;
   el.classList.add("flash");
   el.addEventListener("animationend", () => el.classList.remove("flash"), { once: true });
+}
+
+// インサイトカードの、画面上での高さ（揺れや傾きの影響を受けない値）
+const cardY = (el) => el.offsetParent.getBoundingClientRect().top + el.offsetTop;
+// 記事から戻ったとき、カードを移動前と同じ画面の高さに戻す
+function restoreCard({ i, y }) {
+  const el = $$(".icard")[i];
+  if (!el) return scrollTo(0, 0);
+  const fit = () => { if (el.isConnected) scrollBy({ top: cardY(el) - y, behavior: "instant" }); };
+  fit();
+  // 上にある画像の読み込みで位置がずれたら、少しの間だけ位置を合わせ直す
+  const until = Date.now() + 2000;
+  $$("#app img").filter((x) => !x.complete).forEach((x) => x.addEventListener("load", () => { if (Date.now() < until) fit(); }, { once: true }));
 }
 
 const allInsights = () => D.sessions.flatMap((s) => (L(s, "insights") ?? []).map((t) => ({ t, s })));

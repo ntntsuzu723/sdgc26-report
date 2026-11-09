@@ -51,16 +51,28 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .days { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2vw, 24px); }
 .day { display: grid; grid-template-rows: auto 1fr auto; min-height: 300px; padding: 22px; color: #fff; background: #000; transition: transform .4s cubic-bezier(.2, .8, .2, 1); }
 .day:first-child { background: #772a60; }
-.day:hover { transform: translateY(-4px); }
+.day[href]:hover { transform: translateY(-4px); }
 .day .d b { display: block; font-size: 22px; font-weight: 500; }
 .day .d span { font-size: 14px; opacity: .85; }
 .day .t { align-self: center; text-align: center; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -.02em; }
 .day .t small { display: block; margin-top: 8px; font-size: 13px; font-weight: 400; opacity: .75; letter-spacing: 0; }
+/* セッションのない日も、見出しの位置が揃うよう同じ行を確保して隠す */
+.day .ph { visibility: hidden; }
 .day .f { padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, .35); text-align: center; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
 .prog-cta { justify-self: center; }
 .btn-line { display: inline-flex; align-items: center; height: 50px; padding: 0 26px; border: 1px solid #000; font-size: 14px; transition: background .25s, color .25s; }
 .btn-line:hover { background: #000; color: #fff; }
-.cover .arc { margin-top: clamp(40px, 6vw, 80px); }
+/* 会場写真：ゆっくり横に流れる帯。カーソルを当てると止まり、ドラッグで左右に動かせる */
+.venue { margin-top: clamp(64px, 8vw, 110px); }
+.venue-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 22px; }
+.venue-head h2 { font-size: clamp(30px, 3.6vw, 48px); font-weight: 500; letter-spacing: -.03em; line-height: 1.05; }
+.venue-head span { font-size: 13px; color: var(--muted); }
+.flow { overflow: hidden; margin: 0 calc(var(--gutter) * -1); cursor: grab; touch-action: pan-y; user-select: none; }
+.flow.drag { cursor: grabbing; }
+.flow + .flow { margin-top: 10px; }
+.flow-track { display: flex; gap: 10px; width: max-content; will-change: transform; }
+.flow .ph { flex: none; height: clamp(200px, 24vw, 300px); border-radius: 14px; overflow: hidden; background: #2a2724; }
+.flow .ph img { height: 100%; width: auto; max-width: none; pointer-events: none; -webkit-user-drag: none; }
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; min-height: 0; }
   .th { grid-template-columns: 1fr; }
@@ -80,8 +92,6 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .cover h1 { font-size: clamp(48px, 10vw, 160px); font-weight: 500; letter-spacing: -.055em; line-height: .86; }
 .cover h1 .gray { display: block; font-size: .42em; letter-spacing: -.035em; line-height: 1.1; margin-top: 14px; }
 .cover-side { max-width: 300px; font-size: 13px; color: var(--ink2); display: grid; gap: 18px; justify-items: start; }
-.cover .arc { height: calc(var(--card) * 1.5 + 40px); margin: 0 calc(var(--gutter) * -1); }
-.cover .arc-hint { justify-content: flex-start; padding: 0 0 8px; }
 
 .theme { padding: 120px 0 40px; display: grid; grid-template-columns: 1fr 3fr; gap: 20px; }
 .theme p { font-size: clamp(22px, 2.6vw, 38px); font-weight: 500; letter-spacing: -.02em; line-height: 1.25; }
@@ -99,8 +109,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .chips button { font-size: 12px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; transition: .2s; }
 .chips button.on, .chips button:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 /* ===== セッション一覧：縦長の帯が並び、カーソルを当てた帯が広がる ===== */
-.strips { display: flex; gap: 8px; height: clamp(420px, 56vh, 560px); }
-.strip { position: relative; flex: 1 1 0; min-width: 0; border-radius: 14px; overflow: hidden; background: #2a2724; color: #fff; display: block;
+.strip-days { display: grid; gap: clamp(36px, 5vw, 56px); }
+.strip-day { scroll-margin-top: 90px; }
+.sd-head { display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--line); }
+.sd-head h3 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; letter-spacing: -.02em; }
+.sd-head span { font-size: 13px; color: var(--muted); }
+.sd-head span:last-child { margin-left: auto; }
+.strips { display: flex; gap: 8px; height: clamp(360px, 46vh, 480px); }
+.strip { position: relative; flex: 1 1 0; min-width: 0; border-radius: 0; overflow: hidden; background: #2a2724; color: #fff; display: block;
   transition: flex-grow .7s cubic-bezier(.2, .8, .2, 1); outline: none; -webkit-tap-highlight-color: transparent; }
 .strip.on { flex-grow: 7; }
 .strip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(.95) brightness(.85); transform: scale(1.04);
@@ -153,7 +169,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   position: absolute; inset: 0; border-radius: 6px; padding: 18px; display: flex; flex-direction: column;
   -webkit-backface-visibility: hidden; backface-visibility: hidden;
 }
-.ic-front { background: #fbf8f4; color: var(--ink); box-shadow: 0 1px 2px rgba(29, 27, 25, .05), 0 18px 34px -24px rgba(29, 27, 25, .38); }
+.ic-front { background: #fbf8f4; color: var(--ink); box-shadow: 0 1px 2px rgba(29, 27, 25, .05), 0 18px 34px -24px rgba(29, 27, 25, .38); overflow: hidden; }
+/* 表：関連するスライドを上半分に薄く敷き、下へ向かって紙の色に溶かす */
+.ic-img { position: absolute; inset: 0 0 32% 0; background: center / cover no-repeat; opacity: .32; filter: saturate(.7);
+  -webkit-mask-image: linear-gradient(#000 35%, transparent); mask-image: linear-gradient(#000 35%, transparent); transition: opacity .4s; }
+.icard:hover .ic-img { opacity: .5; }
+.ic-front > :not(.ic-img) { position: relative; }
 .ic-back { background: var(--deep); color: #f4efe8; transform: rotateY(180deg); box-shadow: 0 18px 34px -24px rgba(29, 27, 25, .45); }
 .ic-top { display: flex; align-items: center; gap: 8px; font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .ic-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--deep); flex: none; }
@@ -171,14 +192,11 @@ html[lang="ja"] .ic-head { font-size: 18px; letter-spacing: .01em; line-height: 
 .deck.stack .icard { position: relative; width: min(320px, 100%); aspect-ratio: auto; height: 220px; transform: rotate(var(--rot)); } /* スマホでは横長にして、余白を詰める */
 
 /* ---------- Session page ---------- */
-.art { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: clamp(20px, 4vw, 64px); padding-top: 28px; }
-.art-l { position: sticky; top: 64px; align-self: start; display: grid; gap: 14px; will-change: transform, opacity; }
-/* スクロールすると左の登壇者情報が上に上がりながら消え、消えきったら本文の列が広がる */
-.art { transition: grid-template-columns .6s cubic-bezier(.2, .7, .2, 1), gap .6s; }
-.art.wide { grid-template-columns: minmax(0, 0fr) minmax(0, 1fr); gap: 0; }
-.art.wide .art-l { visibility: hidden; pointer-events: none; }
+.art { display: grid; gap: clamp(36px, 5vw, 72px); padding-top: 28px; }
+/* 登壇者情報はページの最上部に。カバー画像と項目を横に並べる */
+.art-l { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(20px, 4vw, 64px); align-items: end; }
 .art-r { max-width: 1100px; }
-.art-l .ph { aspect-ratio: 4 / 5; }
+.art-l .ph { aspect-ratio: 16 / 10; }
 /* coverFull: トリミングせず画像全体を表示 */
 .art-l .ph.full { aspect-ratio: auto; background: none; }
 .art-l .ph.full img { height: auto; }
@@ -233,8 +251,7 @@ html[lang="ja"] .ic-head { font-size: 18px; letter-spacing: .01em; line-height: 
 @media (max-width: 860px) {
   .blk.side { grid-template-columns: 1fr; }
   .cover-top { flex-direction: column; align-items: start; }
-  .theme, .art { grid-template-columns: 1fr; }
-  .art-l { position: static; }
+  .theme, .art, .art-l { grid-template-columns: 1fr; }
   .stats-row { flex-wrap: wrap; }
   .stats-row div { flex: 1 1 45%; }
 }
@@ -254,7 +271,7 @@ const days = [...new Set(D.sessions.map((s) => s.day))];
 const INSIGHT_TONES = ["#b65a45", "#6b4160", "#3d3f7d", "#4b7a68", "#c07c66", "#2e2b28", "#9a6b6b", "#a24c43"];
 
 /* ===== インサイトカード：ランダムに散らばり、カーソルに合わせてゆらゆら動く ===== */
-function Deck(root) {
+function Deck(root, settled) {
   const cards = $$(".icard", root);
   // 毎回同じ配置になるよう、番号から決まる疑似乱数を使う
   const rand = (i, k) => { const x = Math.sin(i * 127.1 + k * 311.7) * 43758.5453; return x - Math.floor(x); };
@@ -321,7 +338,8 @@ function Deck(root) {
   const ro = new ResizeObserver(layout);
   ro.observe(root);
   layout();
-  if (reduce) { st.forEach((c) => { c.x = c.y = 0; c.r = c.rot; c.s = 1; c.el.style.transform = `translate(-50%, -50%) rotate(${c.rot}deg)`; }); }
+  // 記事から戻ったときは、配られる動きを省いて最初から並べておく
+  if (reduce || settled) { st.forEach((c) => { c.x = c.y = 0; c.r = c.rot; c.s = 1; c.el.style.transform = `translate(-50%, -50%) rotate(${c.rot}deg)`; }); if (!reduce) { started = true; tick(); } }
   else {
     st.forEach((c) => (c.el.style.transform = `translate(-50%, -50%) translate(${c.x}px, ${c.y}px)`));
     // 画面に入ったら、カードが配られるように集まってくる
@@ -339,6 +357,9 @@ const shelfCover = (s) => s.cardCover
 
 /* セッション一覧の帯：カーソルを当てた帯が広がる。タッチでは1回目で広げ、2回目でセッションへ */
 function Strips(root) {
+  $$(".strips", root).forEach(StripRow);
+}
+function StripRow(root) {
   const items = $$(".strip", root);
   const open = (el) => items.forEach((x) => x.classList.toggle("on", x === el));
   items.forEach((el) => {
@@ -346,6 +367,31 @@ function Strips(root) {
     el.addEventListener("focus", () => open(el));
     el.addEventListener("click", (e) => { if (!el.classList.contains("on")) { e.preventDefault(); open(el); } });
   });
+}
+
+/* 会場写真の帯（2段。上は左へ、下は右へ流れる）：同じ並びを2回つなげて切れ目なく流す。カーソルを当てると止まり、押したまま左右に動かせる */
+function Flow(root) {
+  if (!root) return;
+  const dir = +root.dataset.dir || -1; // -1：左へ、1：右へ
+  const track = root.firstElementChild;
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let x = 0, hover = false, drag = null, last = performance.now();
+  const wrap = () => { const half = track.scrollWidth / 2; if (half) x = ((x % half) - half) % half; };
+  const tick = (t) => {
+    if (!root.isConnected) return;
+    const dt = Math.min(t - last, 50); last = t;
+    if (!hover && !drag && !still) x += dir * dt * 0.03; // 1秒に約30px
+    wrap(); track.style.transform = `translate3d(${x}px,0,0)`;
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+  root.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") hover = true; });
+  root.addEventListener("pointerleave", () => { hover = false; });
+  root.addEventListener("pointerdown", (e) => { drag = { px: e.clientX, x }; root.setPointerCapture(e.pointerId); root.classList.add("drag"); });
+  root.addEventListener("pointermove", (e) => { if (drag) x = drag.x + (e.clientX - drag.px); });
+  const end = () => { drag = null; root.classList.remove("drag"); };
+  root.addEventListener("pointerup", end);
+  root.addEventListener("pointercancel", end);
 }
 
 function home() {
@@ -374,8 +420,11 @@ function home() {
         <div class="th-photo"><img src="photos/venue/stage.jpg" alt="" loading="lazy"></div>
       </div>
 
-      <div class="arc" id="heroArc"></div>
-      <div class="arc-hint">← Drag to browse ${heroPhotos().length} photos →</div>
+      <div class="venue">
+        <div class="venue-head"><h2>${LANG === "en" ? "At the venue" : "会場から"}</h2><span>${LANG === "en" ? "" : "At the venue · "}${heroPhotos().length} photos</span></div>
+        ${[0, 1].map((r) => { const half = Math.ceil(heroPhotos().length / 2), row = heroPhotos().slice(r * half, (r + 1) * half);
+          return `<div class="flow" data-dir="${r ? 1 : -1}"><div class="flow-track">${[...row, ...row].map((p, i) => `<div class="ph"${i >= row.length ? ' aria-hidden="true"' : ""}><img src="${esc(p.src || p)}" alt="" decoding="async" draggable="false"></div>`).join("")}</div></div>`; }).join("")}
+      </div>
     </section>
 
     <section class="nums-wrap">
@@ -397,7 +446,8 @@ function home() {
       <div class="days">
         ${[["Day 1", "Wednesday 28", "水曜日 28日", "Workshops", "ワークショップ"], ["Day 2", "Thursday 29", "木曜日 29日", "Conference", "カンファレンス"], ["Day 3", "Friday 30", "金曜日 30日", "Conference", "カンファレンス"]].map(([d, en, ja, t, tj]) => {
           const n = D.sessions.filter((s) => s.day === d).length;
-          return `<a class="day" href="#sessions"><span class="d"><b>${d}</b><span>${LANG === "en" ? en : ja}</span></span><span class="t">${LANG === "en" ? t : tj}<small>${LANG === "en" ? `${n} session${n === 1 ? "" : "s"} attended` : `聴講 ${n} セッション`}</small></span><span class="f">${LANG === "en" ? "See the sessions" : "セッションを見る"}</span></a>`;
+          const id = d.toLowerCase().replace(" ", "-"); // 例："Day 2" → "day-2"（セッション一覧のその日の段）
+          return `<${n ? `a href="#${id}"` : "div"} class="day"><span class="d"><b>${d}</b><span>${LANG === "en" ? en : ja}</span></span><span class="t">${LANG === "en" ? t : tj}<small${!n ? ' class="ph"' : ""}>${!n ? "&nbsp;" : LANG === "en" ? `${n} session${n === 1 ? "" : "s"} attended` : `聴講 ${n} セッション`}</small></span><span class="f${n ? "" : " ph"}">${LANG === "en" ? "See the sessions" : "セッションを見る"}</span></${n ? "a" : "div"}>`;
         }).join("")}
       </div>
     </section>
@@ -406,14 +456,23 @@ function home() {
       <div class="idx-head">
         <div><span class="label">Index</span><h2>${T("sessionsCount")(D.sessions.length)}</h2></div>
       </div>
-      <div class="strips" id="strips">
-      ${D.sessions.map((s, i) => `
+      <div class="strip-days" id="strips">
+      ${[...new Set(D.sessions.map((s) => s.day))].sort().map((d) => {
+        const list = D.sessions.filter((s) => s.day === d);
+        const date = { "Day 1": 28, "Day 2": 29, "Day 3": 30 }[d];
+        return `<div class="strip-day" id="${esc(d.toLowerCase().replace(" ", "-"))}">
+        <div class="sd-head"><h3>${esc(d)}</h3><span>${date ? (LANG === "en" ? `${date} Oct` : `10月${date}日`) : ""}</span><span>${LANG === "en" ? `${list.length} session${list.length === 1 ? "" : "s"}` : `${list.length} セッション`}</span></div>
+        <div class="strips">
+      ${list.map((s, i) => `
         <a class="strip card${i === 0 ? " on" : ""}" href="${sessionHref(s)}" data-sid="${esc(s.id)}" aria-label="[${pad(s.no)}] ${esc(s.title)}">
           <img src="${esc(shelfCover(s).src)}" alt="" loading="lazy" draggable="false" style="background:${esc(shelfCover(s).bg)}">
           <span class="st-v"><b>${pad(s.no)}</b>${esc(s.title)}</span>
           <span class="st-info"><span class="num">[${pad(s.no)}] ${esc(s.day)} · ${esc(s.track)}</span><h3>${esc(s.title)}</h3><q>${esc(L(s, "keyPhrase"))}</q><span class="go">${esc(s.speaker)} — ${T("readSessions").replace(/s$/, "")} →</span></span>
           <span class="card-meta"></span>
         </a>`).join("")}
+        </div>
+      </div>`;
+      }).join("")}
       </div>
     </section>
 
@@ -427,6 +486,7 @@ function home() {
           <a class="icard" href="${h.href}" aria-label="${esc(h.head)}" style="--deep:${INSIGHT_TONES[(h.s.no - 1) % INSIGHT_TONES.length]}">
             <span class="ic-in">
               <span class="ic-front">
+                ${h.img ? `<span class="ic-img" style="background-image:url('${esc(h.img)}')"></span>` : ""}
                 <span class="ic-top"><i class="ic-dot"></i>${esc(h.s.day)} · Session ${pad(h.s.no)}</span>
                 <span class="ic-head">${esc(h.head)}</span>
                 <span class="ic-foot"><span class="who">${esc(h.s.speaker.split("/")[0].trim())}</span><span class="ic-n">${pad(i + 1)}</span></span>
@@ -482,7 +542,7 @@ function session(s) {
         <div class="quote"><span class="label">Key phrase</span><p>${esc(L(s, "keyPhrase"))}</p></div>
 
         <div class="block"><span class="label">${T("overview")}</span><div class="lede">${paras(L(s, "summary"))}</div>
-          <div class="inline-ph">${(s.overviewPhotos ?? [s.photos[1] ?? s.cover, s.photos[2] ?? s.cover]).map((src) => img(src)).join("")}</div>
+          ${(s.overviewPhotos ?? [s.photos[1] ?? s.cover, s.photos[2] ?? s.cover]).length ? `<div class="inline-ph">${(s.overviewPhotos ?? [s.photos[1] ?? s.cover, s.photos[2] ?? s.cover]).map((src) => img(src)).join("")}</div>` : ""}
         </div>
 
         <div class="block"><span class="label">${T("points")}</span>
@@ -507,23 +567,12 @@ $("#app").addEventListener("mounted", (e) => {
   const s = e.detail.session;
   $$(".js-reveal").forEach(reveal);
   if (!s) {
-    Arc($("#heroArc"), heroPhotos(), { spacing: 12, card: 220, radius: 1.1 });
-    Deck($("#deck"));
+    $$(".venue .flow").forEach(Flow);
+    Deck($("#deck"), e.detail.returning);
     Strips($("#strips"));
   } else {
     const items = s.photos.map((src) => ({ src }));
     Arc($("#spArc"), items, { spacing: 15, card: 220 });
-    // 左の登壇者情報：スクロールに合わせて上へ上がりながら消える。消えきったら本文を広げる
-    const art = $(".art"), left = $(".art-l");
-    const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    onScroll(() => {
-      if (innerWidth <= 860) { left.style.transform = left.style.opacity = ""; art.classList.remove("wide"); return; }
-      const start = art.offsetTop, span = Math.max(240, left.offsetHeight * 0.7);
-      const p = Math.min(1, Math.max(0, (scrollY - start + 40) / span));
-      if (!calm) { left.style.transform = `translateY(${-p * 80}px)`; left.style.opacity = String(1 - p); }
-      if (p >= 1) art.classList.add("wide");
-      else if (p < 0.5) art.classList.remove("wide");
-    });
     $(".acc").addEventListener("click", (ev) => {
       const b = ev.target.closest(".pt-ph button"); if (!b) return;
       const i = s.photos.indexOf(b.dataset.src);
